@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NWU Student Login</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>NWU</span> Campus Money Market
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <a href="register.html" class="register-btn">
+            Register
+        </a>
+    </div>
+
+</header>
+
+
+<main class="auth-container">
+
+    <section class="login-card">
+
+        <div class="auth-logo">
+            🎓
+        </div>
+
+        <span class="badge">
+            NWU STUDENTS ONLY
+        </span>
+
+        <h1>
+            Student Login
+        </h1>
+
+        <p>
+            Sign in using your North-West University
+            student credentials.
+        </p>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label for="studentNumber">
+                    NWU Student Number
+                </label>
+
+                <input
+                    type="text"
+                    id="studentNumber"
+                    name="studentNumber"
+                    placeholder="Enter your student number"
+                    maxlength="20"
+                    required
+                >
+
+                <small>
+                    Example: 12345678
+                </small>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    NWU Student Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="student@stud.nwu.ac.za"
+                    required
+                >
+
+                <small>
+                    Use your official NWU student email.
+                </small>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="showPassword"
+                    >
+                        👁️
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROLE -->
+
+            <div class="form-group">
+
+                <label for="accountType">
+                    Account Type
+                </label>
+
+                <select
+                    id="accountType"
+                    name="accountType"
+                    required
+                >
+
+                    <option value="">
+                        Select account type
+                    </option>
+
+                    <option value="buyer">
+                        Buyer
+                    </option>
+
+                    <option value="seller">
+                        Seller
+                    </option>
+
+                    <option value="admin">
+                        Administrator
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- REMEMBER -->
+
+            <div class="login-options">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="rememberMe"
+                    >
+
+                    Remember me
+
+                </label>
+
+
+                <a href="#" id="forgotPassword">
+                    Forgot password?
+                </a>
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+                type="submit"
+                class="primary-btn login-submit"
+            >
+                🔐 Login
+            </button>
+
+
+            <!-- ERROR / SUCCESS -->
+
+            <div
+                id="loginMessage"
+                class="login-message"
+            ></div>
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <div class="auth-divider">
+
+            <span>
+                OR
+            </span>
+
+        </div>
+
+
+        <div class="register-link">
+
+            <p>
+                Don't have an account?
+            </p>
+
+            <a href="register.html">
+                Create an NWU Student Account
+            </a>
+
+        </div>
+
+
+        <!-- SECURITY -->
+
+        <div class="security-notice">
+
+            <strong>
+                🛡️ Secure Student Access
+            </strong>
+
+            <p>
+                Only verified North-West University students
+                should access the marketplace.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION PANEL -->
+
+    <section class="login-information">
+
+        <div class="info-content">
+
+            <span class="badge">
+                🎓 NWU CAMPUS MARKETPLACE
+            </span>
+
+            <h2>
+                Buy. Sell. Connect.
+            </h2>
+
+            <p>
+                A marketplace designed for the
+                North-West University student community.
+            </p>
+
+
+            <div class="login-features">
+
+                <div class="login-feature">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Buy & Sell
+                        </h3>
+
+                        <p>
+                            Books, phones, laptops,
+                            accessories and other
+                            student items.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-feature">
+
+                    <span>
+                        📍
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Campus Locations
+                        </h3>
+
+                        <p>
+                            Arrange convenient campus
+                            pickup locations with other
+                            students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-feature">
+
+                    <span>
+                        💬
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Student Messaging
+                        </h3>
+
+                        <p>
+                            Communicate with buyers and
+                            sellers through the platform.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-feature">
+
+                    <span>
+                        📊
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Marketplace Management
+                        </h3>
+
+                        <p>
+                            Administrators can monitor
+                            listings, users and transactions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                NWU Campus Money Market
+            </h3>
+
+            <p>
+                A student marketplace built for the
+                North-West University community.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Marketplace
+            </h4>
+
+            <a href="marketplace.html">
+                Marketplace
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Support
+            </h4>
+
+            <a href="#">
+                Help Centre
+            </a>
+
+            <a href="#">
+                Contact Support
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 NWU Campus Money Market.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /*
+    ==========================================
+    LOGIN SYSTEM
+    ==========================================
+    This is currently a FRONT-END demonstration.
+
+    A real application must verify the student
+    number and password on a secure server/database.
+    Do not store real passwords in this JavaScript.
+    ==========================================
+    */
+
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+
+    const password =
+        document.getElementById("password");
+
+
+    const showPassword =
+        document.getElementById("showPassword");
+
+
+    /* SHOW / HIDE PASSWORD */
+
+    showPassword.addEventListener(
+        "click",
+        () => {
+
+            if (
+                password.type === "password"
+            ) {
+
+                password.type =
+                    "text";
+
+                showPassword.textContent =
+                    "🙈";
+
+            } else {
+
+                password.type =
+                    "password";
+
+                showPassword.textContent =
+                    "👁️";
+
+            }
+
+        }
+    );
+
+
+    /* LOGIN */
+
+    loginForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const studentNumber =
+                document
+                    .getElementById(
+                        "studentNumber"
+                    )
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById(
+                        "email"
+                    )
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+            const passwordValue =
+                password.value;
+
+
+            const accountType =
+                document
+                    .getElementById(
+                        "accountType"
+                    )
+                    .value;
+
+
+            /* VALIDATE STUDENT NUMBER */
+
+            if (
+                studentNumber.length < 5
+            ) {
+
+                showMessage(
+                    "Please enter a valid NWU student number.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /* VALIDATE NWU EMAIL */
+
+            if (
+                !isNWUEmail(email)
+            ) {
+
+                showMessage(
+                    "Please use your official NWU student email address.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /* PASSWORD */
+
+            if (
+                passwordValue.length < 6
+            ) {
+
+                showMessage(
+                    "Password must contain at least 6 characters.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /* ACCOUNT TYPE */
+
+            if (
+                accountType === ""
+            ) {
+
+                showMessage(
+                    "Please select your account type.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /*
+            DEMO LOGIN
+
+            In the real version this information
+            will be checked against the database.
+            */
+
+            showMessage(
+                "Login successful. Redirecting...",
+                "success"
+            );
+
+
+            localStorage.setItem(
+                "nwuStudentNumber",
+                studentNumber
+            );
+
+
+            localStorage.setItem(
+                "nwuEmail",
+                email
+            );
+
+
+            localStorage.setItem(
+                "accountType",
+                accountType
+            );
+
+
+            setTimeout(
+                () => {
+
+                    if (
+                        accountType === "admin"
+                    ) {
+
+                        window.location.href =
+                            "admin-dashboard.html";
+
+                    } else if (
+                        accountType === "seller"
+                    ) {
+
+                        window.location.href =
+                            "seller-dashboard.html";
+
+                    } else {
+
+                        window.location.href =
+                            "buyer-dashboard.html";
+
+                    }
+
+                },
+                1000
+            );
+
+        }
+    );
+
+
+    /* NWU EMAIL CHECK */
+
+    function isNWUEmail(email) {
+
+        return (
+            email.endsWith(
+                "@stud.nwu.ac.za"
+            ) ||
+            email.endsWith(
+                "@nwu.ac.za"
+            )
+        );
+
+    }
+
+
+    /* LOGIN MESSAGE */
+
+    function showMessage(
+        message,
+        type
+    ) {
+
+        loginMessage.textContent =
+            message;
+
+        loginMessage.className =
+            "login-message " + type;
+
+    }
+
+
+    /* FORGOT PASSWORD */
+
+    document
+        .getElementById(
+            "forgotPassword"
+        )
+        .addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    prompt(
+                        "Enter your NWU student email:"
+                    );
+
+
+                if (!email) {
+                    return;
+                }
+
+
+                if (
+                    !isNWUEmail(
+                        email
+                            .trim()
+                            .toLowerCase()
+                    )
+                ) {
+
+                    alert(
+                        "Please enter a valid NWU student email."
+                    );
+
+                    return;
+
+                }
+
+
+                alert(
+                    "Password reset instructions would be sent to your verified NWU email."
+                );
+
+            }
+        );
+
+
+    /*
+    REMEMBER ME
+
+    Demo only.
+    */
+
+    document
+        .getElementById(
+            "rememberMe"
+        )
+        .addEventListener(
+            "change",
+            function() {
+
+                if (this.checked) {
+
+                    localStorage.setItem(
+                        "rememberLogin",
+                        "true"
+                    );
+
+                } else {
+
+                    localStorage.removeItem(
+                        "rememberLogin"
+                    );
+
+                }
+
+            }
+        );
+
+</script>
+
+</body>
+</html>
