@@ -1,276 +1,815 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NWU Campus Money Market</title>
-    <meta name="description" content="A secure marketplace for North-West University students to buy and sell books, phones, electronics, accessories and other student items.">
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        NWU Campus Money Market
+    </title>
+
+    <meta
+        name="description"
+        content="A student marketplace for North-West University students to buy and sell books, phones, laptops, electronics, accessories, clothing, furniture and more."
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- ==========================================
+         NAVIGATION
+         ========================================== -->
+
     <header class="navbar">
+
         <div class="logo">
-            <span>NWU</span> Campus Money Market
+            <span>NWU</span>
+            Campus Money Market
         </div>
+
 
         <nav>
-            <a href="#home">Home</a>
-            <a href="#marketplace">Marketplace</a>
-            <a href="#categories">Categories</a>
-            <a href="#about">About</a>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#marketplace">
+                Marketplace
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
         </nav>
 
+
         <div class="nav-buttons">
-            <a href="#" class="login-btn">Login</a>
-            <a href="#" class="register-btn">Register</a>
+
+            <a
+                href="pages/login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+            <a
+                href="pages/register.html"
+                class="register-btn"
+            >
+                Register
+            </a>
+
         </div>
+
     </header>
+
+
 
     <main>
 
-        <section id="home" class="hero">
+
+        <!-- ==========================================
+             HERO
+             ========================================== -->
+
+        <section
+            id="home"
+            class="hero"
+        >
+
             <div class="hero-content">
+
 
                 <span class="badge">
                     🎓 Exclusively for NWU Students
                 </span>
 
+
                 <h1>
-                    Buy. Sell. <span>Connect.</span>
+
+                    Buy.
+                    Sell.
+                    <span>Connect.</span>
+
                 </h1>
 
+
                 <p>
-                    Your trusted student marketplace for books, phones,
-                    laptops, accessories, clothing, furniture and more.
+
+                    Your trusted student marketplace for
+                    books, phones, laptops, accessories,
+                    clothing, furniture, gaming products
+                    and other campus essentials.
+
                 </p>
 
+
                 <div class="hero-buttons">
-                    <a href="#marketplace" class="primary-btn">
+
+                    <a
+                        href="#marketplace"
+                        class="primary-btn"
+                    >
                         Browse Marketplace
                     </a>
 
-                    <a href="#" class="secondary-btn">
+
+                    <a
+                        href="pages/login.html"
+                        class="secondary-btn sell-btn"
+                    >
                         Sell an Item
                     </a>
+
                 </div>
 
+
                 <div class="campus-info">
-                    📍 Potchefstroom |
-                    📍 Mahikeng |
+
+                    📍 Potchefstroom
+                    &nbsp; |
+                    📍 Mahikeng
+                    &nbsp; |
                     📍 Vanderbijlpark
+
                 </div>
 
             </div>
+
         </section>
 
-        <section id="marketplace" class="search-section">
 
-            <h2>Find What You Need</h2>
+
+        <!-- ==========================================
+             MARKETPLACE SEARCH
+             ========================================== -->
+
+        <section
+            id="marketplace"
+            class="search-section"
+        >
+
+            <h2>
+                Find What You Need
+            </h2>
+
 
             <p>
-                Search products available from fellow NWU students.
+                Search products available from fellow
+                NWU students.
             </p>
 
-            <div class="search-box">
+
+            <form class="search-box">
+
 
                 <input
                     type="text"
+                    id="searchInput"
                     placeholder="Search books, phones, laptops, accessories..."
+                    autocomplete="off"
                 >
 
-                <select>
-                    <option>All Categories</option>
-                    <option>Books</option>
-                    <option>Phones</option>
-                    <option>Laptops</option>
-                    <option>Electronics</option>
-                    <option>Accessories</option>
-                    <option>Clothing</option>
-                    <option>Furniture</option>
-                    <option>Gaming</option>
-                    <option>Other</option>
+
+                <select
+                    id="categorySelect"
+                >
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="books">
+                        Books
+                    </option>
+
+                    <option value="phones">
+                        Phones
+                    </option>
+
+                    <option value="laptops">
+                        Laptops
+                    </option>
+
+                    <option value="electronics">
+                        Electronics
+                    </option>
+
+                    <option value="accessories">
+                        Accessories
+                    </option>
+
+                    <option value="clothing">
+                        Clothing
+                    </option>
+
+                    <option value="furniture">
+                        Furniture
+                    </option>
+
+                    <option value="gaming">
+                        Gaming
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
                 </select>
 
-                <button>🔍 Search</button>
 
-            </div>
+                <button
+                    type="submit"
+                >
+                    🔍 Search
+                </button>
+
+
+            </form>
+
         </section>
 
-        <section id="categories" class="categories-section">
+
+
+        <!-- ==========================================
+             CATEGORIES
+             ========================================== -->
+
+        <section
+            id="categories"
+            class="categories-section"
+        >
+
 
             <div class="section-heading">
-                <h2>Shop by Category</h2>
+
+
+                <h2>
+                    Shop by Category
+                </h2>
+
 
                 <p>
-                    Find everything you need for campus life.
+                    Find everything you need for
+                    campus life.
                 </p>
+
+
             </div>
+
+
 
             <div class="category-grid">
 
-                <div class="category-card">
-                    <div class="category-icon">📚</div>
-                    <h3>Books</h3>
-                    <p>Textbooks and study materials</p>
+
+                <div
+                    class="category-card"
+                    data-category="books"
+                >
+
+                    <div class="category-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Books
+                    </h3>
+
+                    <p>
+                        Textbooks and study materials
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">📱</div>
-                    <h3>Phones</h3>
-                    <p>Smartphones and mobile devices</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="phones"
+                >
+
+                    <div class="category-icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        Phones
+                    </h3>
+
+                    <p>
+                        Smartphones and mobile devices
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">💻</div>
-                    <h3>Laptops</h3>
-                    <p>Computers and tablets</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="laptops"
+                >
+
+                    <div class="category-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Laptops
+                    </h3>
+
+                    <p>
+                        Computers and tablets
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">🎧</div>
-                    <h3>Electronics</h3>
-                    <p>Headphones, speakers and more</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="electronics"
+                >
+
+                    <div class="category-icon">
+                        🎧
+                    </div>
+
+                    <h3>
+                        Electronics
+                    </h3>
+
+                    <p>
+                        Headphones, speakers and more
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">🔌</div>
-                    <h3>Accessories</h3>
-                    <p>Chargers, cables and accessories</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="accessories"
+                >
+
+                    <div class="category-icon">
+                        🔌
+                    </div>
+
+                    <h3>
+                        Accessories
+                    </h3>
+
+                    <p>
+                        Chargers, cables and accessories
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">👕</div>
-                    <h3>Clothing</h3>
-                    <p>Clothes, shoes and fashion</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="clothing"
+                >
+
+                    <div class="category-icon">
+                        👕
+                    </div>
+
+                    <h3>
+                        Clothing
+                    </h3>
+
+                    <p>
+                        Clothes, shoes and fashion
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">🪑</div>
-                    <h3>Furniture</h3>
-                    <p>Desks, chairs and accommodation items</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="furniture"
+                >
+
+                    <div class="category-icon">
+                        🪑
+                    </div>
+
+                    <h3>
+                        Furniture
+                    </h3>
+
+                    <p>
+                        Desks, chairs and accommodation items
+                    </p>
+
                 </div>
 
-                <div class="category-card">
-                    <div class="category-icon">🎮</div>
-                    <h3>Gaming</h3>
-                    <p>Consoles, games and accessories</p>
+
+
+                <div
+                    class="category-card"
+                    data-category="gaming"
+                >
+
+                    <div class="category-icon">
+                        🎮
+                    </div>
+
+                    <h3>
+                        Gaming
+                    </h3>
+
+                    <p>
+                        Consoles, games and gaming accessories
+                    </p>
+
                 </div>
+
 
             </div>
+
         </section>
 
-        <section id="about" class="features-section">
+
+
+        <!-- ==========================================
+             FEATURES
+             ========================================== -->
+
+        <section
+            id="about"
+            class="features-section"
+        >
+
 
             <div class="section-heading">
+
 
                 <span class="badge">
                     WHY NWU CAMPUS MONEY MARKET?
                 </span>
 
+
                 <h2>
                     Built for the NWU Community
                 </h2>
 
+
                 <p>
-                    A safer and easier way for students to buy and sell
-                    items within the university community.
+                    A convenient marketplace designed to
+                    connect students who want to buy and
+                    sell items within the university community.
                 </p>
 
+
             </div>
+
+
 
             <div class="features-grid">
 
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3>NWU Student Access</h3>
-                    <p>
-                        Designed for verified North-West University students.
-                    </p>
-                </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">📍</div>
-                    <h3>Campus Locations</h3>
+
+                    <div class="feature-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        NWU Student Access
+                    </h3>
+
                     <p>
-                        Find products and convenient pickup locations
-                        around your campus.
+                        Access is designed around
+                        North-West University student
+                        accounts and student numbers.
                     </p>
+
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🔐</div>
-                    <h3>Secure Marketplace</h3>
-                    <p>
-                        User accounts and role-based access help protect
-                        the marketplace community.
-                    </p>
-                </div>
+
 
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Smart Administration</h3>
+
+                    <div class="feature-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        Campus Locations
+                    </h3>
+
                     <p>
-                        Administrators can monitor users, products,
-                        transactions and marketplace statistics.
+                        Products can include campus,
+                        pickup and meeting locations
+                        to make transactions easier.
                     </p>
+
                 </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🔐
+                    </div>
+
+                    <h3>
+                        Secure Marketplace
+                    </h3>
+
+                    <p>
+                        The system separates buyer,
+                        seller and administrator
+                        functionality.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Smart Administration
+                    </h3>
+
+                    <p>
+                        Administrators can monitor
+                        students, listings, orders,
+                        transactions and statistics.
+                    </p>
+
+                </div>
+
 
             </div>
+
         </section>
+
+
+
+        <!-- ==========================================
+             EXTRA FEATURES
+             ========================================== -->
+
+        <section class="features-section">
+
+
+            <div class="section-heading">
+
+                <h2>
+                    Everything in One Marketplace
+                </h2>
+
+                <p>
+                    Designed around everyday student needs.
+                </p>
+
+            </div>
+
+
+
+            <div class="features-grid">
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Affordable Products
+                    </h3>
+
+                    <p>
+                        Students can list used and new
+                        products with their own prices.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🛒
+                    </div>
+
+                    <h3>
+                        Shopping Cart
+                    </h3>
+
+                    <p>
+                        Buyers can add multiple products
+                        before placing an order.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        Order Tracking
+                    </h3>
+
+                    <p>
+                        Buyers and sellers can monitor
+                        the status of marketplace orders.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Admin Monitoring
+                    </h3>
+
+                    <p>
+                        Administrators can review listings,
+                        users and marketplace activity.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CTA
+             ========================================== -->
 
         <section class="cta-section">
 
-            <h2>Ready to start trading?</h2>
+
+            <h2>
+                Ready to start trading?
+            </h2>
+
 
             <p>
-                Join the NWU student marketplace and discover
-                products from fellow students.
+                Join the NWU student marketplace and
+                discover products from fellow students.
             </p>
 
-            <a href="#" class="primary-btn">
+
+            <a
+                href="pages/register.html"
+                class="primary-btn"
+            >
                 Create Your Account
             </a>
 
+
         </section>
+
 
     </main>
 
+
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+
     <footer>
+
 
         <div class="footer-content">
 
+
             <div>
-                <h3>NWU Campus Money Market</h3>
+
+                <h3>
+                    NWU Campus Money Market
+                </h3>
 
                 <p>
-                    A student marketplace built for the
-                    North-West University community.
+                    A student marketplace built for
+                    the North-West University community.
                 </p>
+
             </div>
 
-            <div>
-                <h4>Marketplace</h4>
-                <a href="#marketplace">Browse Products</a>
-                <a href="#categories">Categories</a>
-                <a href="#">Sell an Item</a>
-            </div>
+
 
             <div>
-                <h4>Account</h4>
-                <a href="#">Login</a>
-                <a href="#">Register</a>
-                <a href="#">Help</a>
+
+                <h4>
+                    Marketplace
+                </h4>
+
+                <a href="#marketplace">
+                    Browse Products
+                </a>
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+                <a href="pages/login.html">
+                    Sell an Item
+                </a>
+
             </div>
+
+
+
+            <div>
+
+                <h4>
+                    Account
+                </h4>
+
+                <a href="pages/login.html">
+                    Login
+                </a>
+
+                <a href="pages/register.html">
+                    Register
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+            </div>
+
 
         </div>
+
+
 
         <div class="footer-bottom">
-            © 2026 NWU Campus Money Market. All rights reserved.
+
+            ©
+            <span class="current-year">
+                2026
+            </span>
+
+            NWU Campus Money Market.
+            All rights reserved.
+
         </div>
+
 
     </footer>
 
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/script.js"></script>
+
+
 </body>
+
 </html>
+
