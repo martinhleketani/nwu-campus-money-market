@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - NWU Campus Money Market</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>NWU</span> Campus Money Market
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="buyer-dashboard.html">Buyers</a>
+        <a href="seller-dashboard.html">Sellers</a>
+    </nav>
+
+    <div class="nav-buttons">
+
+        <span class="badge">
+            ADMIN
+        </span>
+
+        <button
+            class="register-btn"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+    <!-- ADMIN HEADER -->
+
+    <section class="dashboard-header">
+
+        <div>
+
+            <span class="badge">
+                🔐 ADMIN CONTROL CENTRE
+            </span>
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <p>
+                Monitor users, products, orders, sales,
+                locations and marketplace activity.
+            </p>
+
+        </div>
+
+        <div>
+
+            <button
+                class="primary-btn"
+                onclick="refreshDashboard()"
+            >
+                🔄 Refresh Data
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLATFORM STATISTICS -->
+
+    <section class="dashboard-stats">
+
+        <div class="stat-card">
+
+            <span>
+                👥
+            </span>
+
+            <h3 id="totalStudents">
+                1,248
+            </h3>
+
+            <p>
+                Registered Students
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                🛒
+            </span>
+
+            <h3 id="totalBuyers">
+                982
+            </h3>
+
+            <p>
+                Buyers
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                🏪
+            </span>
+
+            <h3 id="totalSellers">
+                266
+            </h3>
+
+            <p>
+                Sellers
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                📦
+            </span>
+
+            <h3 id="totalProducts">
+                1,856
+            </h3>
+
+            <p>
+                Products
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                💰
+            </span>
+
+            <h3>
+                R486,250
+            </h3>
+
+            <p>
+                Total Sales
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                💵
+            </span>
+
+            <h3>
+                R48,625
+            </h3>
+
+            <p>
+                Platform Revenue
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PENDING ACTIONS -->
+
+    <section class="profile-card">
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    ⚠️
+                </span>
+
+                <h2>
+                    Pending Actions
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-action-grid">
+
+            <div class="admin-action-card">
+
+                <span>
+                    📦
+                </span>
+
+                <h3>
+                    18
+                </h3>
+
+                <p>
+                    Products awaiting approval
+                </p>
+
+                <button
+                    class="table-btn"
+                    onclick="showSection('products')"
+                >
+                    Review
+                </button>
+
+            </div>
+
+
+            <div class="admin-action-card">
+
+                <span>
+                    🚩
+                </span>
+
+                <h3>
+                    7
+                </h3>
+
+                <p>
+                    Reports requiring review
+                </p>
+
+                <button
+                    class="table-btn"
+                    onclick="showSection('reports')"
+                >
+                    Review
+                </button>
+
+            </div>
+
+
+            <div class="admin-action-card">
+
+                <span>
+                    👤
+                </span>
+
+                <h3>
+                    12
+                </h3>
+
+                <p>
+                    New seller applications
+                </p>
+
+                <button
+                    class="table-btn"
+                    onclick="showSection('users')"
+                >
+                    Review
+                </button>
+
+            </div>
+
+
+            <div class="admin-action-card">
+
+                <span>
+                    💬
+                </span>
+
+                <h3>
+                    4
+                </h3>
+
+                <p>
+                    User complaints
+                </p>
+
+                <button
+                    class="table-btn"
+                    onclick="showSection('reports')"
+                >
+                    Review
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SALES CHART -->
+
+    <section class="chart-card">
+
+        <div class="chart-header">
+
+            <div>
+
+                <h2>
+                    Marketplace Sales
+                </h2>
+
+                <p>
+                    Overview of marketplace transaction activity.
+                </p>
+
+            </div>
+
+            <select id="salesPeriod">
+
+                <option value="monthly">
+                    Monthly
+                </option>
+
+                <option value="weekly">
+                    Weekly
+                </option>
+
+                <option value="yearly">
+                    Yearly
+                </option>
+
+            </select>
+
+        </div>
+
+        <canvas id="salesChart"></canvas>
+
+    </section>
+
+
+    <!-- USER CHART -->
+
+    <section class="chart-card">
+
+        <div class="chart-header">
+
+            <div>
+
+                <h2>
+                    Student Registration
+                </h2>
+
+                <p>
+                    Growth of registered marketplace users.
+                </p>
+
+            </div>
+
+        </div>
+
+        <canvas id="usersChart"></canvas>
+
+    </section>
+
+
+    <!-- CATEGORY CHART -->
+
+    <section class="chart-card">
+
+        <div class="chart-header">
+
+            <div>
+
+                <h2>
+                    Products by Category
+                </h2>
+
+                <p>
+                    Distribution of products listed on the platform.
+                </p>
+
+            </div>
+
+        </div>
+
+        <canvas id="categoryChart"></canvas>
+
+    </section>
+
+
+    <!-- CAMPUS STATISTICS -->
+
+    <section class="profile-card">
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    📍
+                </span>
+
+                <h2>
+                    Campus Activity
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="campus-grid">
+
+            <div class="campus-card">
+
+                <span>
+                    🏫
+                </span>
+
+                <h3>
+                    Potchefstroom
+                </h3>
+
+                <strong>
+                    1,024
+                </strong>
+
+                <p>
+                    Registered students
+                </p>
+
+                <small>
+                    742 products
+                </small>
+
+            </div>
+
+
+            <div class="campus-card">
+
+                <span>
+                    🏫
+                </span>
+
+                <h3>
+                    Mahikeng
+                </h3>
+
+                <strong>
+                    386
+                </strong>
+
+                <p>
+                    Registered students
+                </p>
+
+                <small>
+                    514 products
+                </small>
+
+            </div>
+
+
+            <div class="campus-card">
+
+                <span>
+                    🏫
+                </span>
+
+                <h3>
+                    Vanderbijlpark
+                </h3>
+
+                <strong>
+                    294
+                </strong>
+
+                <p>
+                    Registered students
+                </p>
+
+                <small>
+                    600 products
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT APPROVAL -->
+
+    <section
+        class="profile-card"
+        id="products"
+    >
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    📦
+                </span>
+
+                <h2>
+                    Product Approval
+                </h2>
+
+            </div>
+
+            <span class="badge">
+                Pending Review
+            </span>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Product
+                        </th>
+
+                        <th>
+                            Seller
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Price
+                        </th>
+
+                        <th>
+                            Campus
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="productApprovalTable">
+
+                    <tr>
+
+                        <td>
+                            Engineering Mathematics
+                        </td>
+
+                        <td>
+                            Student Seller
+                        </td>
+
+                        <td>
+                            Books
+                        </td>
+
+                        <td>
+                            R420
+                        </td>
+
+                        <td>
+                            Potchefstroom
+                        </td>
+
+                        <td>
+                            25/09/2026
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="approveProduct(this)"
+                            >
+                                ✅ Approve
+                            </button>
+
+                            <button
+                                class="danger-btn"
+                                onclick="rejectProduct(this)"
+                            >
+                                ❌ Reject
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            iPhone 13
+                        </td>
+
+                        <td>
+                            Student Seller
+                        </td>
+
+                        <td>
+                            Phones
+                        </td>
+
+                        <td>
+                            R7,500
+                        </td>
+
+                        <td>
+                            Mahikeng
+                        </td>
+
+                        <td>
+                            25/09/2026
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="approveProduct(this)"
+                            >
+                                ✅ Approve
+                            </button>
+
+                            <button
+                                class="danger-btn"
+                                onclick="rejectProduct(this)"
+                            >
+                                ❌ Reject
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Bluetooth Earphones
+                        </td>
+
+                        <td>
+                            Student Seller
+                        </td>
+
+                        <td>
+                            Accessories
+                        </td>
+
+                        <td>
+                            R450
+                        </td>
+
+                        <td>
+                            Vanderbijlpark
+                        </td>
+
+                        <td>
+                            24/09/2026
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="approveProduct(this)"
+                            >
+                                ✅ Approve
+                            </button>
+
+                            <button
+                                class="danger-btn"
+                                onclick="rejectProduct(this)"
+                            >
+                                ❌ Reject
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- USER MANAGEMENT -->
+
+    <section
+        class="profile-card"
+        id="users"
+    >
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    👥
+                </span>
+
+                <h2>
+                    Student Management
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            NWU Student Number
+                        </th>
+
+                        <th>
+                            Role
+                        </th>
+
+                        <th>
+                            Campus
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Student User
+                        </td>
+
+                        <td>
+                            12345678
+                        </td>
+
+                        <td>
+                            Buyer
+                        </td>
+
+                        <td>
+                            Potchefstroom
+                        </td>
+
+                        <td>
+                            <span class="status-active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="viewUser('12345678')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="danger-btn"
+                                onclick="suspendUser(this)"
+                            >
+                                Suspend
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Student Seller
+                        </td>
+
+                        <td>
+                            87654321
+                        </td>
+
+                        <td>
+                            Seller
+                        </td>
+
+                        <td>
+                            Mahikeng
+                        </td>
+
+                        <td>
+                            <span class="status-active">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="viewUser('87654321')"
+                            >
+                                View
+                            </button>
+
+                            <button
+                                class="danger-btn"
+                                onclick="suspendUser(this)"
+                            >
+                                Suspend
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- REPORTS -->
+
+    <section
+        class="profile-card"
+        id="reports"
+    >
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    🚩
+                </span>
+
+                <h2>
+                    Reports & Complaints
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Report
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Reported Item
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            #REP-001
+                        </td>
+
+                        <td>
+                            Product
+                        </td>
+
+                        <td>
+                            Suspicious listing
+                        </td>
+
+                        <td>
+                            25/09/2026
+                        </td>
+
+                        <td>
+                            <span class="status-warning">
+                                Pending
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="reviewReport('REP-001')"
+                            >
+                                Review
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            #REP-002
+                        </td>
+
+                        <td>
+                            User
+                        </td>
+
+                        <td>
+                            Student account
+                        </td>
+
+                        <td>
+                            24/09/2026
+                        </td>
+
+                        <td>
+                            <span class="status-warning">
+                                Pending
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="table-btn"
+                                onclick="reviewReport('REP-002')"
+                            >
+                                Review
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDER MONITORING -->
+
+    <section class="profile-card">
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    🛒
+                </span>
+
+                <h2>
+                    Order Monitoring
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stats">
+
+            <div class="stat-card">
+
+                <span>
+                    ⏳
+                </span>
+
+                <h3>
+                    42
+                </h3>
+
+                <p>
+                    Pending Orders
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    🚚
+                </span>
+
+                <h3>
+                    28
+                </h3>
+
+                <p>
+                    Awaiting Collection
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    ✅
+                </span>
+
+                <h3>
+                    318
+                </h3>
+
+                <p>
+                    Completed Orders
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    ❌
+                </span>
+
+                <h3>
+                    12
+                </h3>
+
+                <p>
+                    Cancelled Orders
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SYSTEM INFORMATION -->
+
+    <section class="profile-card">
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    🔐
+                </span>
+
+                <h2>
+                    System Controls
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="admin-controls">
+
+            <button
+                class="secondary-btn"
+                onclick="exportData()"
+            >
+                📊 Export Report
+            </button>
+
+
+            <button
+                class="secondary-btn"
+                onclick="backupSystem()"
+            >
+                💾 Backup System
+            </button>
+
+
+            <button
+                class="secondary-btn"
+                onclick="systemSettings()"
+            >
+                ⚙️ System Settings
+            </button>
+
+
+            <button
+                class="danger-btn"
+                onclick="maintenanceMode()"
+            >
+                🛠️ Maintenance Mode
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                NWU Campus Money Market
+            </h3>
+
+            <p>
+                Administration and marketplace management system.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Administration
+            </h4>
+
+            <a href="#products">
+                Product Approval
+            </a>
+
+            <a href="#users">
+                Users
+            </a>
+
+            <a href="#reports">
+                Reports
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Marketplace
+            </h4>
+
+            <a href="marketplace.html">
+                Marketplace
+            </a>
+
+            <a href="buyer-dashboard.html">
+                Buyer Dashboard
+            </a>
+
+            <a href="seller-dashboard.html">
+                Seller Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 NWU Campus Money Market.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /*
+    ==========================================
+    ADMIN DASHBOARD
+    ==========================================
+
+    This page currently uses demonstration data.
+
+    IMPORTANT:
+    The final application should get users,
+    products, orders and financial information
+    from a secure backend/database.
+
+    Admin actions must also be authenticated
+    and authorized on the server.
+    ==========================================
+    */
+
+
+    /* ==========================================
+       SALES CHART
+       ========================================== */
+
+    const salesChart =
+        new Chart(
+            document.getElementById(
+                "salesChart"
+            ),
+            {
+
+                type: "line",
+
+                data: {
+
+                    labels: [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep"
+                    ],
+
+                    datasets: [
+
+                        {
+
+                            label:
+                                "Marketplace Sales (R)",
+
+                            data: [
+                                32000,
+                                41000,
+                                38000,
+                                47000,
+                                52000,
+                                58000,
+                                61000,
+                                72000,
+                                85250
+                            ],
+
+                            borderColor:
+                                "#007749",
+
+                            backgroundColor:
+                                "rgba(0,119,73,0.12)",
+
+                            fill:
+                                true,
+
+                            tension:
+                                0.4
+
+                        }
+
+                    ]
+
+                },
+
+                options: {
+
+                    responsive:
+                        true,
+
+                    scales: {
+
+                        y: {
+
+                            beginAtZero:
+                                true
+
+                        }
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    /* ==========================================
+       SALES PERIOD
+       ========================================== */
+
+    document
+        .getElementById(
+            "salesPeriod"
+        )
+        .addEventListener(
+            "change",
+            function() {
+
+                if (
+                    this.value === "weekly"
+                ) {
+
+                    salesChart.data.labels = [
+                        "Mon",
+                        "Tue",
+                        "Wed",
+                        "Thu",
+                        "Fri",
+                        "Sat",
+                        "Sun"
+                    ];
+
+                    salesChart.data.datasets[0]
+                        .data = [
+                            5200,
+                            6800,
+                            7400,
+                            6200,
+                            9100,
+                            11200,
+                            13500
+                        ];
+
+                }
+
+
+                else if (
+                    this.value === "yearly"
+                ) {
+
+                    salesChart.data.labels = [
+                        "2022",
+                        "2023",
+                        "2024",
+                        "2025",
+                        "2026"
+                    ];
+
+                    salesChart.data.datasets[0]
+                        .data = [
+                            180000,
+                            260000,
+                            340000,
+                            410000,
+                            486250
+                        ];
+
+                }
+
+
+                else {
+
+                    salesChart.data.labels = [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep"
+                    ];
+
+                    salesChart.data.datasets[0]
+                        .data = [
+                            32000,
+                            41000,
+                            38000,
+                            47000,
+                            52000,
+                            58000,
+                            61000,
+                            72000,
+                            85250
+                        ];
+
+                }
+
+
+                salesChart.update();
+
+            }
+        );
+
+
+    /* ==========================================
+       USER REGISTRATION CHART
+       ========================================== */
+
+    new Chart(
+        document.getElementById(
+            "usersChart"
+        ),
+        {
+
+            type: "bar",
+
+            data: {
+
+                labels: [
+                    "Jan",
+                    "Feb",
+                    "Mar",
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep"
+                ],
+
+                datasets: [
+
+                    {
+
+                        label:
+                            "New Students",
+
+                        data: [
+                            80,
+                            95,
+                            110,
+                            130,
+                            145,
+                            170,
+                            190,
+                            210,
+                            240
+                        ],
+
+                        backgroundColor:
+                            "#007749"
+
+                    }
+
+                ]
+
+            },
+
+            options: {
+
+                responsive:
+                    true,
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero:
+                            true
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* ==========================================
+       CATEGORY CHART
+       ========================================== */
+
+    new Chart(
+        document.getElementById(
+            "categoryChart"
+        ),
+        {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+                    "Books",
+                    "Phones",
+                    "Laptops",
+                    "Accessories",
+                    "Other"
+                ],
+
+                datasets: [
+
+                    {
+
+                        data: [
+                            620,
+                            310,
+                            246,
+                            428,
+                            252
+                        ],
+
+                        backgroundColor: [
+
+                            "#007749",
+                            "#00a86b",
+                            "#f2c94c",
+                            "#2d9cdb",
+                            "#828282"
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+
+            options: {
+
+                responsive:
+                    true,
+
+                plugins: {
+
+                    legend: {
+
+                        position:
+                            "bottom"
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* ==========================================
+       APPROVE PRODUCT
+       ========================================== */
+
+    function approveProduct(button) {
+
+        const confirmed =
+            confirm(
+                "Approve this product listing?"
+            );
+
+
+        if (
+            !confirmed
+        ) {
+
+            return;
+
+        }
+
+
+        const row =
+            button.closest("tr");
+
+
+        row.style.backgroundColor =
+            "#e8f8ef";
+
+
+        button.parentElement.innerHTML =
+            `
+            <span class="status-active">
+                Approved
+            </span>
+            `;
+
+
+        alert(
+            "Product approved successfully."
+        );
+
+    }
+
+
+    /* ==========================================
+       REJECT PRODUCT
+       ========================================== */
+
+    function rejectProduct(button) {
+
+        const reason =
+            prompt(
+                "Enter the reason for rejecting this product:"
+            );
+
+
+        if (
+            !reason ||
+            reason.trim() === ""
+        ) {
+
+            return;
+
+        }
+
+
+        const row =
+            button.closest("tr");
+
+
+        row.style.backgroundColor =
+            "#fff0f0";
+
+
+        button.parentElement.innerHTML =
+            `
+            <span class="status-warning">
+                Rejected
+            </span>
+            `;
+
+
+        alert(
+            "Product rejected."
+        );
+
+    }
+
+
+    /* ==========================================
+       USER MANAGEMENT
+       ========================================== */
+
+    function viewUser(studentNumber) {
+
+        alert(
+            "Student Number: " +
+            studentNumber +
+            "\n\nUser profile would be loaded from the database."
+        );
+
+    }
+
+
+    function suspendUser(button) {
+
+        const confirmed =
+            confirm(
+                "Suspend this student account?"
+            );
+
+
+        if (
+            !confirmed
+        ) {
+
+            return;
+
+        }
+
+
+        const row =
+            button.closest("tr");
+
+
+        row.querySelector(
+            "td:nth-child(5)"
+        ).innerHTML =
+            `
+            <span class="status-warning">
+                Suspended
+            </span>
+            `;
+
+
+        button.textContent =
+            "Activate";
+
+
+        button.onclick =
+            function() {
+
+                activateUser(this);
+
+            };
+
+
+        alert(
+            "Student account suspended."
+        );
+
+    }
+
+
+    function activateUser(button) {
+
+        const row =
+            button.closest("tr");
+
+
+        row.querySelector(
+            "td:nth-child(5)"
+        ).innerHTML =
+            `
+            <span class="status-active">
+                Active
+            </span>
+            `;
+
+
+        button.textContent =
+            "Suspend";
+
+
+        button.onclick =
+            function() {
+
+                suspendUser(this);
+
+            };
+
+
+        alert(
+            "Student account activated."
+        );
+
+    }
+
+
+    /* ==========================================
+       REPORTS
+       ========================================== */
+
+    function reviewReport(reportNumber) {
+
+        const action =
+            prompt(
+                `Report ${reportNumber}\n\n` +
+                `Enter 1 to resolve report\n` +
+                `Enter 2 to keep report open`
+            );
+
+
+        if (
+            action === "1"
+        ) {
+
+            alert(
+                "Report marked as resolved."
+            );
+
+        }
+
+        else if (
+            action === "2"
+        ) {
+
+            alert(
+                "Report remains open."
+            );
+
+        }
+
+    }
+
+
+    /* ==========================================
+       SHOW SECTION
+       ========================================== */
+
+    function showSection(sectionId) {
+
+        const section =
+            document.getElementById(
+                sectionId
+            );
+
+
+        if (
+            section
+        ) {
+
+            section.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    }
+
+
+    /* ==========================================
+       REFRESH
+       ========================================== */
+
+    function refreshDashboard() {
+
+        alert(
+            "Dashboard refreshed. In the final system this button will retrieve the latest data from the database."
+        );
+
+    }
+
+
+    /* ==========================================
+       EXPORT
+       ========================================== */
+
+    function exportData() {
+
+        const report =
+
+            "NWU CAMPUS MONEY MARKET REPORT\n\n" +
+
+            "Registered Students: 1248\n" +
+
+            "Buyers: 982\n" +
+
+            "Sellers: 266\n" +
+
+            "Products: 1856\n" +
+
+            "Total Sales: R486250\n" +
+
+            "Platform Revenue: R48625\n";
+
+
+        const blob =
+            new Blob(
+                [report],
+                {
+                    type:
+                        "text/plain"
+                }
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            "nwu-market-report.txt";
+
+
+        link.click();
+
+
+        URL.revokeObjectURL(
+            url
+        );
+
+    }
+
+
+    /* ==========================================
+       BACKUP
+       ========================================== */
+
+    function backupSystem() {
+
+        alert(
+            "System backup would be handled by the secure backend/database."
+        );
+
+    }
+
+
+    /* ==========================================
+       SETTINGS
+       ========================================== */
+
+    function systemSettings() {
+
+        alert(
+            "System settings will be available after the backend is connected."
+        );
+
+    }
+
+
+    /* ==========================================
+       MAINTENANCE
+       ========================================== */
+
+    function maintenanceMode() {
+
+        const confirmed =
+            confirm(
+                "Enable maintenance mode?"
+            );
+
+
+        if (
+            confirmed
+        ) {
+
+            alert(
+                "Maintenance mode request recorded."
+            );
+
+        }
+
+    }
+
+
+    /* ==========================================
+       LOGOUT
+       ========================================== */
+
+    function logout() {
+
+        const confirmed =
+            confirm(
+                "Are you sure you want to logout?"
+            );
+
+
+        if (
+            confirmed
+        ) {
+
+            localStorage.removeItem(
+                "accountType"
+            );
+
+            localStorage.removeItem(
+                "nwuStudentNumber"
+            );
+
+            localStorage.removeItem(
+                "nwuEmail"
+            );
+
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
