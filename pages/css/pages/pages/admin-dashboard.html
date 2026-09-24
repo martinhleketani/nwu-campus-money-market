@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - NWU Campus Money Market</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>NWU</span> Campus Money Market
+        </div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="messages.html">Messages</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="profile.html" class="login-btn">Admin Profile</a>
+            <a href="login.html" class="register-btn">Logout</a>
+        </div>
+
+    </header>
+
+
+    <main class="dashboard">
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <span class="badge">
+                    🛡️ ADMINISTRATOR
+                </span>
+
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    Monitor and manage the NWU Campus Money Market
+                    from one central dashboard.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAIN STATISTICS -->
+
+        <section class="dashboard-stats">
+
+            <div class="stat-card">
+                <span>👥</span>
+                <h3>5,240</h3>
+                <p>Total Students</p>
+            </div>
+
+            <div class="stat-card">
+                <span>🛍️</span>
+                <h3>3,850</h3>
+                <p>Total Buyers</p>
+            </div>
+
+            <div class="stat-card">
+                <span>🏪</span>
+                <h3>1,390</h3>
+                <p>Total Sellers</p>
+            </div>
+
+            <div class="stat-card">
+                <span>📦</span>
+                <h3>8,642</h3>
+                <p>Total Products</p>
+            </div>
+
+        </section>
+
+
+        <!-- FINANCIAL STATISTICS -->
+
+        <section class="dashboard-stats">
+
+            <div class="stat-card">
+                <span>💰</span>
+                <h3>R1,245,680</h3>
+                <p>Total Transactions</p>
+            </div>
+
+            <div class="stat-card">
+                <span>🛒</span>
+                <h3>6,842</h3>
+                <p>Completed Orders</p>
+            </div>
+
+            <div class="stat-card">
+                <span>⏳</span>
+                <h3>326</h3>
+                <p>Pending Orders</p>
+            </div>
+
+            <div class="stat-card">
+                <span>🚨</span>
+                <h3>42</h3>
+                <p>Reported Listings</p>
+            </div>
+
+        </section>
+
+
+        <!-- ADMIN ACTIONS -->
+
+        <section class="quick-actions">
+
+            <h2>Administration</h2>
+
+            <div class="action-grid">
+
+                <a href="#" class="action-card">
+                    <span>👥</span>
+                    <h3>Manage Students</h3>
+                    <p>
+                        View and manage registered student accounts.
+                    </p>
+                </a>
+
+                <a href="#" class="action-card">
+                    <span>🏪</span>
+                    <h3>Manage Sellers</h3>
+                    <p>
+                        Review and manage seller accounts.
+                    </p>
+                </a>
+
+                <a href="#" class="action-card">
+                    <span>📦</span>
+                    <h3>Manage Products</h3>
+                    <p>
+                        Review marketplace product listings.
+                    </p>
+                </a>
+
+                <a href="#" class="action-card">
+                    <span>🚨</span>
+                    <h3>Reports</h3>
+                    <p>
+                        Review reported products and users.
+                    </p>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- GRAPHS -->
+
+        <section class="admin-charts">
+
+            <div class="chart-container">
+
+                <h2>Users by Campus</h2>
+
+                <canvas id="campusChart"></canvas>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <h2>Products by Category</h2>
+
+                <canvas id="categoryChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <section class="admin-charts">
+
+            <div class="chart-container">
+
+                <h2>Monthly Transactions</h2>
+
+                <canvas id="salesChart"></canvas>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <h2>Buyer vs Seller Accounts</h2>
+
+                <canvas id="usersChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT ACTIVITY -->
+
+        <section class="admin-table-section">
+
+            <div class="section-heading">
+
+                <h2>Recent Marketplace Activity</h2>
+
+                <p>
+                    Latest transactions and marketplace activity.
+                </p>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Student</th>
+                            <th>Activity</th>
+                            <th>Product</th>
+                            <th>Amount</th>
+                            <th>Campus</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Student 001</td>
+                            <td>Purchase</td>
+                            <td>Accounting Textbook</td>
+                            <td>R350</td>
+                            <td>Potchefstroom</td>
+                            <td class="status-active">Completed</td>
+                        </tr>
+
+                        <tr>
+                            <td>Student 002</td>
+                            <td>Sale</td>
+                            <td>Samsung Phone</td>
+                            <td>R4,500</td>
+                            <td>Mahikeng</td>
+                            <td class="status-active">Completed</td>
+                        </tr>
+
+                        <tr>
+                            <td>Student 003</td>
+                            <td>Purchase</td>
+                            <td>Laptop</td>
+                            <td>R6,500</td>
+                            <td>Vanderbijlpark</td>
+                            <td>Pending</td>
+                        </tr>
+
+                        <tr>
+                            <td>Student 004</td>
+                            <td>Report</td>
+                            <td>Unknown Listing</td>
+                            <td>---</td>
+                            <td>Potchefstroom</td>
+                            <td class="status-sold">Under Review</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- CAMPUS INFORMATION -->
+
+        <section class="location-section">
+
+            <div>
+
+                <span class="badge">
+                    📍 CAMPUS INFORMATION
+                </span>
+
+                <h2>NWU Marketplace Locations</h2>
+
+                <p>
+                    Monitor marketplace activity across the
+                    university campuses.
+                </p>
+
+
+                <div class="campus-list">
+
+                    <div class="campus-item">
+                        <strong>Potchefstroom</strong>
+                        <span>2,850 Students</span>
+                    </div>
+
+                    <div class="campus-item">
+                        <strong>Mahikeng</strong>
+                        <span>1,740 Students</span>
+                    </div>
+
+                    <div class="campus-item">
+                        <strong>Vanderbijlpark</strong>
+                        <span>650 Students</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <h3>NWU Campus Money Market</h3>
+
+                <p>
+                    Administration and marketplace management
+                    system for the NWU student community.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Administration</h4>
+
+                <a href="#">Students</a>
+                <a href="#">Sellers</a>
+                <a href="#">Products</a>
+                <a href="#">Reports</a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Account</h4>
+
+                <a href="profile.html">Admin Profile</a>
+                <a href="login.html">Logout</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 NWU Campus Money Market.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* USERS BY CAMPUS */
+
+        new Chart(
+            document.getElementById("campusChart"),
+            {
+                type: "bar",
+
+                data: {
+                    labels: [
+                        "Potchefstroom",
+                        "Mahikeng",
+                        "Vanderbijlpark"
+                    ],
+
+                    datasets: [{
+                        label: "Students",
+
+                        data: [
+                            2850,
+                            1740,
+                            650
+                        ],
+
+                        backgroundColor: [
+                            "#007749",
+                            "#f4c542",
+                            "#2563eb"
+                        ]
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        );
+
+
+        /* PRODUCTS BY CATEGORY */
+
+        new Chart(
+            document.getElementById("categoryChart"),
+            {
+                type: "doughnut",
+
+                data: {
+                    labels: [
+                        "Books",
+                        "Phones",
+                        "Laptops",
+                        "Accessories",
+                        "Electronics",
+                        "Clothing",
+                        "Furniture",
+                        "Other"
+                    ],
+
+                    datasets: [{
+                        data: [
+                            2200,
+                            1100,
+                            850,
+                            1250,
+                            900,
+                            750,
+                            620,
+                            972
+                        ],
+
+                        backgroundColor: [
+                            "#007749",
+                            "#2563eb",
+                            "#f4c542",
+                            "#9333ea",
+                            "#ef4444",
+                            "#14b8a6",
+                            "#f97316",
+                            "#64748b"
+                        ]
+                    }]
+                },
+
+                options: {
+                    responsive: true
+                }
+            }
+        );
+
+
+        /* MONTHLY TRANSACTIONS */
+
+        new Chart(
+            document.getElementById("salesChart"),
+            {
+                type: "line",
+
+                data: {
+                    labels: [
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun"
+                    ],
+
+                    datasets: [{
+                        label: "Transaction Value (R)",
+
+                        data: [
+                            120000,
+                            165000,
+                            190000,
+                            215000,
+                            260000,
+                            295000
+                        ],
+
+                        borderColor: "#007749",
+
+                        backgroundColor:
+                            "rgba(0,119,73,0.15)",
+
+                        fill: true,
+
+                        tension: 0.4
+                    }]
+                },
+
+                options: {
+                    responsive: true
+                }
+            }
+        );
+
+
+        /* BUYERS VS SELLERS */
+
+        new Chart(
+            document.getElementById("usersChart"),
+            {
+                type: "pie",
+
+                data: {
+                    labels: [
+                        "Buyers",
+                        "Sellers"
+                    ],
+
+                    datasets: [{
+                        data: [
+                            3850,
+                            1390
+                        ],
+
+                        backgroundColor: [
+                            "#007749",
+                            "#f4c542"
+                        ]
+                    }]
+                },
+
+                options: {
+                    responsive: true
+                }
+            }
+        );
+
+    </script>
+
+</body>
+</html>
