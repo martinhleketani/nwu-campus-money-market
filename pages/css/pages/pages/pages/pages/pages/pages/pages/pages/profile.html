@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - NWU Campus Money Market</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>NWU</span> Campus Money Market
+    </div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="buyer-dashboard.html">Buyer Dashboard</a>
+        <a href="seller-dashboard.html">Seller Dashboard</a>
+        <a href="orders.html">Orders</a>
+        <a href="messages.html">Messages</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <a href="profile.html" class="login-btn">Profile</a>
+        <a href="login.html" class="register-btn">Logout</a>
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+    <!-- PROFILE HEADER -->
+
+    <section class="profile-header">
+
+        <div class="profile-cover"></div>
+
+        <div class="profile-main">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+            <div class="profile-heading">
+
+                <span class="badge">
+                    ✓ VERIFIED NWU STUDENT
+                </span>
+
+                <h1 id="profileName">
+                    NWU Student
+                </h1>
+
+                <p>
+                    🎓 North-West University
+                </p>
+
+                <p>
+                    📍 <span id="profileCampus">Potchefstroom</span>
+                </p>
+
+            </div>
+
+            <button
+                class="primary-btn"
+                id="editProfileButton"
+            >
+                ✏️ Edit Profile
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFILE STATISTICS -->
+
+    <section class="dashboard-stats">
+
+        <div class="stat-card">
+
+            <span>🛒</span>
+
+            <h3>
+                12
+            </h3>
+
+            <p>
+                Purchases
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🏪</span>
+
+            <h3>
+                8
+            </h3>
+
+            <p>
+                Items Sold
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>⭐</span>
+
+            <h3>
+                4.9
+            </h3>
+
+            <p>
+                Seller Rating
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>❤️</span>
+
+            <h3>
+                6
+            </h3>
+
+            <p>
+                Favourites
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFILE INFORMATION -->
+
+    <section class="profile-grid">
+
+
+        <!-- PERSONAL INFORMATION -->
+
+        <div class="profile-card">
+
+            <div class="profile-card-header">
+
+                <div>
+
+                    <span class="card-icon">
+                        👤
+                    </span>
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                </div>
+
+                <button
+                    class="small-edit-btn"
+                    onclick="editProfile()"
+                >
+                    Edit
+                </button>
+
+            </div>
+
+
+            <div class="profile-information">
+
+                <div class="profile-field">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <p id="fullName">
+                        NWU Student
+                    </p>
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label>
+                        NWU Student Number
+                    </label>
+
+                    <p id="studentNumber">
+                        ********
+                    </p>
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label>
+                        Student Email
+                    </label>
+
+                    <p id="email">
+                        student@nwu.ac.za
+                    </p>
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <p id="phone">
+                        Not provided
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CAMPUS INFORMATION -->
+
+        <div class="profile-card">
+
+            <div class="profile-card-header">
+
+                <div>
+
+                    <span class="card-icon">
+                        🎓
+                    </span>
+
+                    <h2>
+                        Campus Information
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-information">
+
+                <div class="profile-field">
+
+                    <label>
+                        University
+                    </label>
+
+                    <p>
+                        North-West University
+                    </p>
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label>
+                        Campus
+                    </label>
+
+                    <p id="campus">
+                        Potchefstroom
+                    </p>
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label>
+                        Account Type
+                    </label>
+
+                    <p>
+                        Verified Student
+                    </p>
+
+                </div>
+
+
+                <div class="profile-field">
+
+                    <label>
+                        Member Since
+                    </label>
+
+                    <p>
+                        September 2026
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOCATION -->
+
+        <div class="profile-card">
+
+            <div class="profile-card-header">
+
+                <div>
+
+                    <span class="card-icon">
+                        📍
+                    </span>
+
+                    <h2>
+                        Location
+                    </h2>
+
+                </div>
+
+                <button
+                    class="small-edit-btn"
+                    id="locationButton"
+                >
+                    Detect
+                </button>
+
+            </div>
+
+
+            <div class="location-profile">
+
+                <div class="location-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Campus Location
+                    </h3>
+
+                    <p id="locationText">
+                        Location has not been detected.
+                    </p>
+
+                    <small>
+                        Your exact location is not displayed
+                        publicly to other users.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACCOUNT STATUS -->
+
+        <div class="profile-card">
+
+            <div class="profile-card-header">
+
+                <div>
+
+                    <span class="card-icon">
+                        🛡️
+                    </span>
+
+                    <h2>
+                        Account Security
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-list">
+
+                <div class="security-item">
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            NWU Student Verification
+                        </strong>
+
+                        <p>
+                            Verified
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Email Verification
+                        </strong>
+
+                        <p>
+                            Verified
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <span>
+                        🔒
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Password
+                        </strong>
+
+                        <p>
+                            Last changed recently
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="security-button"
+                        onclick="changePassword()"
+                    >
+                        Change
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SELLER PROFILE -->
+
+    <section class="profile-card seller-profile-card">
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    🏪
+                </span>
+
+                <h2>
+                    Seller Profile
+                </h2>
+
+            </div>
+
+            <span class="verified-label">
+                ✓ Verified Seller
+            </span>
+
+        </div>
+
+
+        <div class="seller-profile-content">
+
+            <div class="seller-rating">
+
+                <strong>
+                    4.9
+                </strong>
+
+                <div>
+                    ⭐⭐⭐⭐⭐
+                </div>
+
+                <p>
+                    Based on 18 verified reviews
+                </p>
+
+            </div>
+
+
+            <div class="seller-stat">
+
+                <strong>
+                    8
+                </strong>
+
+                <span>
+                    Items Sold
+                </span>
+
+            </div>
+
+
+            <div class="seller-stat">
+
+                <strong>
+                    3
+                </strong>
+
+                <span>
+                    Active Listings
+                </span>
+
+            </div>
+
+
+            <div class="seller-stat">
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    Completed Orders
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAVOURITES -->
+
+    <section class="profile-card">
+
+        <div class="profile-card-header">
+
+            <div>
+
+                <span class="card-icon">
+                    ❤️
+                </span>
+
+                <h2>
+                    Favourite Items
+                </h2>
+
+            </div>
+
+            <a
+                href="marketplace.html"
+                class="view-all"
+            >
+                Browse Marketplace →
+            </a>
+
+        </div>
+
+
+        <div class="favourites-grid">
+
+
+            <div class="favourite-item">
+
+                <div class="favourite-image">
+                    📱
+                </div>
+
+                <div>
+
+                    <h3>
+                        Samsung Galaxy A54
+                    </h3>
+
+                    <strong>
+                        R4,500
+                    </strong>
+
+                    <p>
+                        📍 Mahikeng
+                    </p>
+
+                </div>
+
+                <button
+                    onclick="removeFavourite(this)"
+                >
+                    ❤️
+                </button>
+
+            </div>
+
+
+            <div class="favourite-item">
+
+                <div class="favourite-image">
+                    💻
+                </div>
+
+                <div>
+
+                    <h3>
+                        Student Laptop
+                    </h3>
+
+                    <strong>
+                        R6,500
+                    </strong>
+
+                    <p>
+                        📍 Vanderbijlpark
+                    </p>
+
+                </div>
+
+                <button
+                    onclick="removeFavourite(this)"
+                >
+                    ❤️
+                </button>
+
+            </div>
+
+
+            <div class="favourite-item">
+
+                <div class="favourite-image">
+                    🎧
+                </div>
+
+                <div>
+
+                    <h3>
+                        Wireless Headphones
+                    </h3>
+
+                    <strong>
+                        R650
+                    </strong>
+
+                    <p>
+                        📍 Potchefstroom
+                    </p>
+
+                </div>
+
+                <button
+                    onclick="removeFavourite(this)"
+                >
+                    ❤️
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACCOUNT ACTIONS -->
+
+    <section class="profile-actions">
+
+        <button
+            class="secondary-btn"
+            onclick="editProfile()"
+        >
+            ✏️ Edit Profile
+        </button>
+
+        <button
+            class="secondary-btn"
+            onclick="changePassword()"
+        >
+            🔐 Change Password
+        </button>
+
+        <button
+            class="danger-btn"
+            onclick="logout()"
+        >
+            🚪 Logout
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <h3>
+                NWU Campus Money Market
+            </h3>
+
+            <p>
+                A student marketplace built for the
+                North-West University community.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Marketplace
+            </h4>
+
+            <a href="marketplace.html">
+                Marketplace
+            </a>
+
+            <a href="create-listing.html">
+                Sell an Item
+            </a>
+
+            <a href="orders.html">
+                Orders
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Account
+            </h4>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="messages.html">
+                Messages
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 NWU Campus Money Market.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* EDIT PROFILE */
+
+    function editProfile() {
+
+        const name =
+            prompt(
+                "Enter your full name:",
+                document.getElementById("fullName").textContent
+            );
+
+        if (
+            name &&
+            name.trim() !== ""
+        ) {
+
+            document.getElementById(
+                "fullName"
+            ).textContent =
+                name;
+
+            document.getElementById(
+                "profileName"
+            ).textContent =
+                name;
+
+        }
+
+
+        const phone =
+            prompt(
+                "Enter your phone number:"
+            );
+
+        if (
+            phone &&
+            phone.trim() !== ""
+        ) {
+
+            document.getElementById(
+                "phone"
+            ).textContent =
+                phone;
+
+        }
+
+    }
+
+
+    document
+        .getElementById("editProfileButton")
+        .addEventListener(
+            "click",
+            editProfile
+        );
+
+
+    /* LOCATION */
+
+    document
+        .getElementById("locationButton")
+        .addEventListener(
+            "click",
+            () => {
+
+                const locationText =
+                    document.getElementById(
+                        "locationText"
+                    );
+
+
+                if (
+                    !navigator.geolocation
+                ) {
+
+                    locationText.textContent =
+                        "Location services are not supported by this browser.";
+
+                    return;
+
+                }
+
+
+                locationText.textContent =
+                    "Requesting location permission...";
+
+
+                navigator.geolocation.getCurrentPosition(
+
+                    position => {
+
+                        const latitude =
+                            position.coords.latitude;
+
+                        const longitude =
+                            position.coords.longitude;
+
+
+                        locationText.textContent =
+                            `Location detected: ${latitude.toFixed(4)}, ${longitude.toFixed(4)}`;
+
+                    },
+
+                    () => {
+
+                        locationText.textContent =
+                            "Location permission was not granted.";
+
+                    }
+
+                );
+
+            }
+        );
+
+
+    /* CHANGE PASSWORD */
+
+    function changePassword() {
+
+        const currentPassword =
+            prompt(
+                "Enter your current password:"
+            );
+
+        if (!currentPassword) {
+            return;
+        }
+
+
+        const newPassword =
+            prompt(
+                "Enter your new password:"
+            );
+
+        if (!newPassword) {
+            return;
+        }
+
+
+        if (newPassword.length < 8) {
+
+            alert(
+                "Password must contain at least 8 characters."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "Password change request completed."
+        );
+
+    }
+
+
+    /* REMOVE FAVOURITE */
+
+    function removeFavourite(button) {
+
+        const item =
+            button.closest(
+                ".favourite-item"
+            );
+
+        if (item) {
+
+            item.remove();
+
+        }
+
+    }
+
+
+    /* LOGOUT */
+
+    function logout() {
+
+        const confirmed =
+            confirm(
+                "Are you sure you want to logout?"
+            );
+
+        if (confirmed) {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
