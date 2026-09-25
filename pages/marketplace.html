@@ -1,2496 +1,2947 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>
-Marketplace - NWU Campus Money Market
-</title>
-
-<link
-    rel="stylesheet"
-    href="../css/style.css"
->
-
-
-<style>
-
-.marketplace-page {
-
-    min-height: 100vh;
-
-    background: #f7f9fc;
-
-    padding: 40px 7% 70px;
-}
-
-
-.marketplace-container {
-
-    max-width: 1250px;
-
-    margin: auto;
-}
-
-
-.marketplace-header {
-
-    margin-bottom: 28px;
-}
-
-
-.marketplace-header p {
-
-    color: #6b7280;
-}
-
-
-.campus-message {
-
-    margin-top: 15px;
-
-    color: #007749;
-
-    font-weight: 700;
-}
-
-
-/*
-=========================================
-FILTERS
-=========================================
-*/
-
-.marketplace-filters {
-
-    background: white;
-
-    padding: 20px;
-
-    border-radius: 13px;
-
-    margin-bottom: 30px;
-
-    box-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.05);
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-}
-
-
-.marketplace-filters input,
-.marketplace-filters select {
-
-    min-width: 170px;
-
-    flex: 1;
-
-    padding: 12px;
-
-    border:
-        1px solid #d1d5db;
-
-    border-radius: 7px;
-
-    background: white;
-}
-
-
-#searchInput {
-
-    flex: 2;
-
-    min-width: 250px;
-}
-
-
-.dynamic-filter {
-
-    display: none;
-}
-
-
-/*
-=========================================
-RESULTS
-=========================================
-*/
-
-.results-heading {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 18px;
-}
-
-
-.results-heading h2 {
-
-    margin: 0;
-}
-
-
-#resultCount {
-
-    color: #6b7280;
-}
-
-
-/*
-=========================================
-PRODUCTS
-=========================================
-*/
-
-.product-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap: 22px;
-}
-
-
-.product-card {
-
-    background: white;
-
-    border:
-        1px solid #e5e7eb;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 5px 18px
-        rgba(0,0,0,0.05);
-}
-
-
-.product-image {
-
-    height: 260px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #eef2f7;
-
-    font-size: 65px;
-
-    overflow: hidden;
-}
-
-
-.product-image img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: contain;
-
-    background: white;
-}
-
-
-.product-info {
-
-    padding: 18px;
-}
-
-
-.category-label {
-
-    display: inline-block;
-
-    background: #e5f5ed;
-
-    color: #007749;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    margin-bottom: 8px;
-}
-
-
-.catalogue-label {
-
-    background: #fff5cc;
-
-    color: #755d00;
-
-    margin-left: 5px;
-}
-
-
-.product-info h3 {
-
-    margin:
-        4px 0 10px;
-}
-
-
-.product-details {
-
-    color: #4b5563;
-
-    font-size: 13px;
-
-    line-height: 1.7;
-}
-
-
-.product-price {
-
-    color: #007749;
-
-    font-size: 21px;
-
-    font-weight: 800;
-
-    margin: 12px 0;
-}
-
-
-.product-description {
-
-    color: #6b7280;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-
-.product-actions {
-
-    display: flex;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-    margin-top: 15px;
-}
-
-
-.cart-button {
-
-    border: none;
-
-    background: #007749;
-
-    color: white;
-
-    padding: 10px 13px;
-
-    border-radius: 7px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-
-.google-button {
-
-    border:
-        1px solid #d1d5db;
-
-    background: white;
-
-    padding: 10px 13px;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-}
-
-
-.empty-marketplace {
-
-    display: none;
-
-    background: white;
-
-    text-align: center;
-
-    padding: 50px;
-
-    border-radius: 13px;
-
-    color: #6b7280;
-}
-
-
-@media(max-width: 950px) {
-
-    .product-grid {
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-}
-
-
-@media(max-width: 600px) {
-
-    .product-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .marketplace-page {
-
-        padding:
-            25px 5%
-            60px;
-    }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marketplace - NWU Campus Money Market</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .marketplace-page {
+            min-height: 100vh;
+            background: #f7f9fc;
+            padding: 40px 7% 70px;
+        }
+
+        .marketplace-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .marketplace-header {
+            margin-bottom: 28px;
+        }
+
+        .marketplace-header p {
+            color: #6b7280;
+        }
+
+        .campus-message {
+            margin-top: 15px;
+            color: #007749;
+            font-weight: 700;
+        }
+
+        /* =========================
+           FILTERS
+        ========================= */
+
+        .marketplace-filters {
+            background: white;
+            padding: 20px;
+            border-radius: 13px;
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .marketplace-filters input,
+        .marketplace-filters select {
+            min-width: 170px;
+            flex: 1;
+            padding: 12px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+
+            background: white;
+            box-sizing: border-box;
+        }
+
+        #searchInput {
+            flex: 2;
+            min-width: 250px;
+        }
+
+        .dynamic-filter {
+            display: none;
+        }
+
+        /* =========================
+           RESULTS
+        ========================= */
+
+        .results-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .results-heading h2 {
+            margin: 0;
+        }
+
+        #resultCount {
+            color: #6b7280;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0, 0, 0, 0.05);
+        }
+
+        .product-image {
+            height: 260px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #eef2f7;
+            font-size: 65px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: white;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .category-label {
+            display: inline-block;
+
+            background: #e5f5ed;
+            color: #007749;
+
+            padding: 5px 9px;
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+        .catalogue-label {
+            background: #fff5cc;
+            color: #755d00;
+            margin-left: 5px;
+        }
+
+        .product-info h3 {
+            margin: 4px 0 10px;
+        }
+
+        .product-details {
+            color: #4b5563;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .product-price {
+            color: #007749;
+            font-size: 21px;
+            font-weight: 800;
+            margin: 12px 0;
+        }
+
+        .product-description {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .cart-button {
+            border: none;
+            background: #007749;
+            color: white;
+
+            padding: 10px 13px;
+            border-radius: 7px;
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background: #005f3a;
+        }
+
+        .google-button {
+            border: 1px solid #d1d5db;
+            background: white;
+
+            padding: 10px 13px;
+            border-radius: 7px;
+
+            cursor: pointer;
+        }
+
+        .empty-marketplace {
+            display: none;
+
+            background: white;
+
+            text-align: center;
+
+            padding: 50px;
+            border-radius: 13px;
+
+            color: #6b7280;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 950px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .marketplace-page {
+                padding: 25px 5% 60px;
+            }
+
+            .marketplace-filters {
+                flex-direction: column;
+            }
+
+            .marketplace-filters input,
+            .marketplace-filters select {
+                width: 100%;
+                min-width: 100%;
+            }
+        }
+    </style>
 </head>
 
 
 <body>
 
+    <!-- ==============================
+         NAVBAR
+    =============================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>NWU</span>
+            Campus Money Market
+        </div>
+
+        <nav>
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="marketplace.html">
+                Marketplace
+            </a>
+
+            <a
+                href="buyer-dashboard.html"
+                id="buyerLink"
+                style="display:none;"
+            >
+                Buyer Dashboard
+            </a>
+
+            <a
+                href="seller-dashboard.html"
+                id="sellerLink"
+                style="display:none;"
+            >
+                Seller Dashboard
+            </a>
+
+            <a
+                href="admin-dashboard.html"
+                id="adminLink"
+                style="display:none;"
+            >
+                Admin Dashboard
+            </a>
+        </nav>
+
+        <div class="nav-buttons">
+
+            <a
+                href="login.html"
+                id="loginLink"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                id="registerLink"
+                class="register-btn"
+            >
+                Register
+            </a>
+
+            <button
+                id="logoutButton"
+                class="register-btn"
+                type="button"
+                style="display:none;"
+                onclick="logoutUser()"
+            >
+                Logout
+            </button>
 
-<header class="navbar">
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         MARKETPLACE
+    =============================== -->
+
+    <main class="marketplace-page">
+
+        <div class="marketplace-container">
+
+            <section class="marketplace-header">
 
+                <span class="badge">
+                    🎓 NWU STUDENT MARKETPLACE
+                </span>
+
+                <h1>
+                    Campus Marketplace
+                </h1>
+
+                <p>
+                    Find textbooks, phones, laptops and other
+                    products being sold by students at your campus.
+                </p>
+
+                <div
+                    id="campusMessage"
+                    class="campus-message"
+                ></div>
 
-<div class="logo">
+            </section>
 
-<span>NWU</span>
 
-Campus Money Market
+            <!-- =========================
+                 FILTERS
+            ========================== -->
 
-</div>
+            <section class="marketplace-filters">
 
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search all products..."
+                >
 
-<nav>
 
-<a href="../index.html">
-Home
-</a>
+                <select id="categoryFilter">
 
-<a href="marketplace.html">
-Marketplace
-</a>
+                    <option value="all">
+                        All Categories
+                    </option>
 
-<a
-    href="buyer-dashboard.html"
-    id="buyerLink"
-    style="display:none;"
->
-Buyer Dashboard
-</a>
+                    <option value="books">
+                        📚 Textbooks
+                    </option>
 
-<a
-    href="seller-dashboard.html"
-    id="sellerLink"
-    style="display:none;"
->
-Seller Dashboard
-</a>
+                    <option value="phones">
+                        📱 Phones
+                    </option>
 
-<a
-    href="admin-dashboard.html"
-    id="adminLink"
-    style="display:none;"
->
-Admin
-</a>
+                    <option value="laptops">
+                        💻 Laptops
+                    </option>
 
-</nav>
+                    <option value="electronics">
+                        🎧 Electronics
+                    </option>
 
+                    <option value="accessories">
+                        🔌 Accessories
+                    </option>
 
-<div class="nav-buttons">
+                    <option value="clothing">
+                        👕 Clothing
+                    </option>
 
-<a
-    href="login.html"
-    id="loginLink"
-    class="login-btn"
->
-Login
-</a>
+                    <option value="furniture">
+                        🪑 Furniture
+                    </option>
 
-<a
-    href="register.html"
-    id="registerLink"
-    class="register-btn"
->
-Register
-</a>
+                    <option value="gaming">
+                        🎮 Gaming
+                    </option>
 
-<button
-    id="logoutButton"
-    class="register-btn"
-    style="display:none;"
->
-Logout
-</button>
+                    <option value="other">
+                        📦 Other
+                    </option>
 
-</div>
+                </select>
 
 
-</header>
+                <!-- TEXTBOOK FILTERS -->
 
+                <select
+                    id="subjectFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Subjects
+                    </option>
 
-<main class="marketplace-page">
+                    <option value="CMPG">
+                        CMPG
+                    </option>
 
-<div class="marketplace-container">
+                    <option value="Accounting">
+                        Accounting
+                    </option>
+                </select>
 
 
-<section class="marketplace-header">
+                <select
+                    id="yearFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Years
+                    </option>
 
-<span class="badge">
-🎓 NWU STUDENT MARKETPLACE
-</span>
+                    <option value="1">
+                        First Year
+                    </option>
 
-<h1>
-Campus Marketplace
-</h1>
+                    <option value="2">
+                        Second Year
+                    </option>
 
-<p>
-Find textbooks, phones, laptops and other products
-being sold by students at your campus.
-</p>
+                    <option value="3">
+                        Third Year
+                    </option>
+                </select>
 
-<div
-    id="campusMessage"
-    class="campus-message"
->
-</div>
 
-</section>
+                <select
+                    id="moduleFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Modules
+                    </option>
+                </select>
 
 
-<!-- =====================================
-FILTERS
-===================================== -->
+                <!-- BRAND FILTER -->
 
-<section class="marketplace-filters">
+                <select
+                    id="brandFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Brands
+                    </option>
+                </select>
 
 
-<input
-    type="text"
-    id="searchInput"
-    placeholder="Search products..."
->
+                <!-- MODEL FILTER -->
 
+                <select
+                    id="modelFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Models
+                    </option>
+                </select>
 
-<select id="categoryFilter">
 
-<option value="all">
-All Categories
-</option>
+                <!-- TYPE FILTER -->
 
-<option value="books">
-📚 Textbooks
-</option>
+                <select
+                    id="typeFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Types
+                    </option>
+                </select>
 
-<option value="phones">
-📱 Phones
-</option>
 
-<option value="laptops">
-💻 Laptops
-</option>
+                <!-- SIZE FILTER -->
 
-<option value="electronics">
-🎧 Electronics
-</option>
+                <select
+                    id="sizeFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Sizes
+                    </option>
+                </select>
 
-<option value="accessories">
-🔌 Accessories
-</option>
 
-<option value="clothing">
-👕 Clothing
-</option>
+                <!-- GAMING PLATFORM -->
 
-<option value="furniture">
-🪑 Furniture
-</option>
+                <select
+                    id="platformFilter"
+                    class="dynamic-filter"
+                >
+                    <option value="all">
+                        All Platforms
+                    </option>
+                </select>
 
-<option value="gaming">
-🎮 Gaming
-</option>
+            </section>
 
-<option value="other">
-📦 Other
-</option>
 
-</select>
+            <!-- =========================
+                 PRODUCTS
+            ========================== -->
 
+            <section>
 
-<!-- TEXTBOOK FILTERS -->
+                <div class="results-heading">
 
-<select
-    id="subjectFilter"
-    class="dynamic-filter textbook-filter"
->
+                    <h2>
+                        Available Products
+                    </h2>
 
-<option value="all">
-All Subjects
-</option>
+                    <span id="resultCount"></span>
 
-<option value="CMPG">
-CMPG
-</option>
+                </div>
 
-<option value="Accounting">
-Accounting
-</option>
 
-</select>
+                <div
+                    id="productGrid"
+                    class="product-grid"
+                ></div>
 
 
-<select
-    id="yearFilter"
-    class="dynamic-filter textbook-filter"
->
+                <div
+                    id="emptyMarketplace"
+                    class="empty-marketplace"
+                >
+                    <h2>
+                        No products found
+                    </h2>
 
-<option value="all">
-All Years
-</option>
+                    <p>
+                        There are currently no matching listings.
+                    </p>
+                </div>
 
-<option value="1">
-First Year
-</option>
+            </section>
 
-<option value="2">
-Second Year
-</option>
+        </div>
 
-<option value="3">
-Third Year
-</option>
+    </main>
 
-</select>
 
+    <footer>
+        <p>
+            ©
+            <span id="currentYear"></span>
+            NWU Campus Money Market
+        </p>
+    </footer>
 
-<select
-    id="moduleFilter"
-    class="dynamic-filter textbook-filter"
->
 
-<option value="all">
-All Modules
-</option>
+    <!-- ==============================
+         LOGOUT
+         This is deliberately before
+         the other JS.
+    =============================== -->
 
-</select>
+    <script>
+        function logoutUser() {
 
+            localStorage.removeItem("currentUser");
 
-<!-- BRAND -->
-
-<select
-    id="brandFilter"
-    class="dynamic-filter"
->
-</select>
-
-
-<!-- MODEL -->
-
-<select
-    id="modelFilter"
-    class="dynamic-filter"
->
-</select>
-
-
-<!-- TYPE -->
-
-<select
-    id="typeFilter"
-    class="dynamic-filter"
->
-</select>
-
-
-<!-- SIZE -->
-
-<select
-    id="sizeFilter"
-    class="dynamic-filter"
->
-</select>
-
-
-<!-- GAMING PLATFORM -->
-
-<select
-    id="platformFilter"
-    class="dynamic-filter"
->
-</select>
-
-
-</section>
-
-
-<section>
-
-
-<div class="results-heading">
-
-<h2>
-Available Products
-</h2>
-
-<span id="resultCount">
-</span>
-
-</div>
-
-
-<div
-    id="productGrid"
-    class="product-grid"
->
-</div>
-
-
-<div
-    id="emptyMarketplace"
-    class="empty-marketplace"
->
-
-<h2>
-No products found
-</h2>
-
-<p>
-There are currently no matching listings.
-</p>
-
-</div>
-
-
-</section>
-
-
-</div>
-
-</main>
-
-
-<footer>
-
-<p>
-
-©
-<span id="currentYear"></span>
-NWU Campus Money Market
-
-</p>
-
-</footer>
-
-
-<script src="../js/textbooks.js"></script>
-
-<script src="../js/products.js"></script>
-
-
-<script>
-
-document.addEventListener(
-"DOMContentLoaded",
-function () {
-
-
-/*
-========================================
-CURRENT USER
-========================================
-*/
-
-const currentUser =
-    JSON.parse(
-        localStorage.getItem(
-            "currentUser"
-        )
-    );
-
-
-/*
-========================================
-NAV
-========================================
-*/
-
-const loginLink =
-    document.getElementById(
-        "loginLink"
-    );
-
-const registerLink =
-    document.getElementById(
-        "registerLink"
-    );
-
-const logoutButton =
-    document.getElementById(
-        "logoutButton"
-    );
-
-const buyerLink =
-    document.getElementById(
-        "buyerLink"
-    );
-
-const sellerLink =
-    document.getElementById(
-        "sellerLink"
-    );
-
-const adminLink =
-    document.getElementById(
-        "adminLink"
-    );
-
-
-if (
-    currentUser &&
-    currentUser.loggedIn
-) {
-
-    loginLink.style.display =
-        "none";
-
-    registerLink.style.display =
-        "none";
-
-    logoutButton.style.display =
-        "inline-block";
-
-
-    if (
-        currentUser.accountType ===
-        "buyer"
-    ) {
-
-        buyerLink.style.display =
-            "inline-block";
-    }
-
-
-    if (
-        currentUser.accountType ===
-        "seller"
-    ) {
-
-        sellerLink.style.display =
-            "inline-block";
-    }
-
-
-    if (
-        currentUser.accountType ===
-        "admin"
-    ) {
-
-        adminLink.style.display =
-            "inline-block";
-    }
-}
-
-
-/*
-========================================
-CAMPUS
-========================================
-*/
-
-const campusMessage =
-    document.getElementById(
-        "campusMessage"
-    );
-
-
-if (
-    currentUser &&
-    currentUser.campus
-) {
-
-    campusMessage.textContent =
-
-        "📍 Showing seller listings available at "
-
-        +
-
-        normaliseCampus(
-            currentUser.campus
-        )
-
-        +
-
-        ".";
-
-} else {
-
-    campusMessage.textContent =
-
-        "📚 Browse the textbook catalogue. Login to view campus seller listings.";
-}
-
-
-/*
-========================================
-PRODUCT DATA
-========================================
-*/
-
-const sellerProducts =
-    JSON.parse(
-        localStorage.getItem(
-            "sellerListings"
-        )
-    ) || [];
-
-
-const catalogueProducts =
-    NWU_TEXTBOOKS.map(
-        function (book) {
-
-            return {
-
-                ...book,
-
-                type:
-                    "catalogue"
-            };
+            window.location.href = "login.html";
         }
-    );
+    </script>
 
 
-const allProducts = [
+    <!-- PRODUCT DATA -->
 
-    ...catalogueProducts,
-
-    ...sellerProducts
-];
+    <script src="../js/textbooks.js"></script>
+    <script src="../js/products.js"></script>
 
 
-/*
-========================================
-VISIBLE PRODUCTS
-========================================
-*/
+    <!-- ==============================
+         MARKETPLACE JAVASCRIPT
+    =============================== -->
 
-function getVisibleProducts() {
+    <script>
 
-    if (
-        currentUser &&
-        currentUser.campus
-    ) {
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
-        const campus =
-            normaliseCampus(
-                currentUser.campus
-            );
+                /* =========================
+                   CURRENT USER
+                ========================= */
+
+                const currentUser =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "currentUser"
+                        )
+                    );
 
 
-        return allProducts.filter(
-            function (product) {
+                /* =========================
+                   NAVIGATION
+                ========================= */
+
+                const loginLink =
+                    document.getElementById(
+                        "loginLink"
+                    );
+
+                const registerLink =
+                    document.getElementById(
+                        "registerLink"
+                    );
+
+                const logoutButton =
+                    document.getElementById(
+                        "logoutButton"
+                    );
+
+                const buyerLink =
+                    document.getElementById(
+                        "buyerLink"
+                    );
+
+                const sellerLink =
+                    document.getElementById(
+                        "sellerLink"
+                    );
+
+                const adminLink =
+                    document.getElementById(
+                        "adminLink"
+                    );
+
 
                 if (
-                    product.type ===
-                    "catalogue"
+                    currentUser &&
+                    currentUser.loggedIn
                 ) {
 
-                    return true;
+                    loginLink.style.display =
+                        "none";
+
+                    registerLink.style.display =
+                        "none";
+
+                    logoutButton.style.display =
+                        "inline-block";
+
+
+                    if (
+                        currentUser.accountType ===
+                        "buyer"
+                    ) {
+
+                        buyerLink.style.display =
+                            "inline-block";
+                    }
+
+
+                    if (
+                        currentUser.accountType ===
+                        "seller"
+                    ) {
+
+                        sellerLink.style.display =
+                            "inline-block";
+                    }
+
+
+                    if (
+                        currentUser.accountType ===
+                        "admin"
+                    ) {
+
+                        adminLink.style.display =
+                            "inline-block";
+                    }
                 }
 
-                return (
 
-                    normaliseCampus(
-                        product.campus
-                    ) ===
+                /* =========================
+                   CAMPUS MESSAGE
+                ========================= */
+
+                const campusMessage =
+                    document.getElementById(
+                        "campusMessage"
+                    );
+
+
+                function safeNormaliseCampus(
                     campus
-                );
-            }
-        );
-    }
+                ) {
 
-    return catalogueProducts;
-}
+                    if (
+                        typeof normaliseCampus ===
+                        "function"
+                    ) {
 
+                        return normaliseCampus(
+                            campus
+                        );
+                    }
 
-/*
-========================================
-ELEMENTS
-========================================
-*/
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-const categoryFilter =
-    document.getElementById(
-        "categoryFilter"
-    );
-
-const subjectFilter =
-    document.getElementById(
-        "subjectFilter"
-    );
-
-const yearFilter =
-    document.getElementById(
-        "yearFilter"
-    );
-
-const moduleFilter =
-    document.getElementById(
-        "moduleFilter"
-    );
-
-const brandFilter =
-    document.getElementById(
-        "brandFilter"
-    );
-
-const modelFilter =
-    document.getElementById(
-        "modelFilter"
-    );
-
-const typeFilter =
-    document.getElementById(
-        "typeFilter"
-    );
-
-const sizeFilter =
-    document.getElementById(
-        "sizeFilter"
-    );
-
-const platformFilter =
-    document.getElementById(
-        "platformFilter"
-    );
-
-const productGrid =
-    document.getElementById(
-        "productGrid"
-    );
-
-const emptyMarketplace =
-    document.getElementById(
-        "emptyMarketplace"
-    );
-
-const resultCount =
-    document.getElementById(
-        "resultCount"
-    );
+                    return campus || "";
+                }
 
 
-/*
-========================================
-SELECT HELPER
-========================================
-*/
+                if (
+                    currentUser &&
+                    currentUser.campus
+                ) {
 
-function fillFilter(
-    select,
-    values,
-    label
-) {
+                    campusMessage.textContent =
+                        "📍 Showing seller listings available at " +
+                        safeNormaliseCampus(
+                            currentUser.campus
+                        ) +
+                        ".";
 
-    select.innerHTML =
+                } else {
 
-        '<option value="all">' +
-        label +
-        '</option>';
-
-
-    values.forEach(
-        function (value) {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-            option.value =
-                value;
-
-            option.textContent =
-                value;
-
-            select.appendChild(
-                option
-            );
-        }
-    );
-}
+                    campusMessage.textContent =
+                        "📚 Browse the textbook catalogue. Login to view campus seller listings.";
+                }
 
 
-/*
-========================================
-HIDE FILTERS
-========================================
-*/
+                /* =========================
+                   PRODUCT DATA
+                ========================= */
 
-function hideDynamicFilters() {
-
-    document
-        .querySelectorAll(
-            ".dynamic-filter"
-        )
-        .forEach(
-            function (filter) {
-
-                filter.style.display =
-                    "none";
-            }
-        );
-}
+                const sellerProducts =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "sellerListings"
+                        )
+                    ) || [];
 
 
-/*
-========================================
-TEXTBOOK MODULE FILTER
-========================================
-*/
+                const catalogueProducts =
+                    typeof NWU_TEXTBOOKS !==
+                    "undefined"
 
-function loadModuleFilter() {
+                        ? NWU_TEXTBOOKS.map(
+                            function (book) {
 
-    moduleFilter.innerHTML =
-        '<option value="all">All Modules</option>';
+                                return {
+                                    ...book,
+                                    type: "catalogue"
+                                };
+                            }
+                        )
 
-
-    const subject =
-        subjectFilter.value;
-
-    const year =
-        yearFilter.value;
+                        : [];
 
 
-    let modules = [];
+                const allProducts = [
+                    ...catalogueProducts,
+                    ...sellerProducts
+                ];
 
 
-    if (
-        subject !== "all" &&
-        year !== "all"
-    ) {
+                /* =========================
+                   ELEMENTS
+                ========================= */
 
-        modules =
-            NWU_MODULES[
-                subject
-            ]?.[
-                year
-            ] || [];
-    }
+                const searchInput =
+                    document.getElementById(
+                        "searchInput"
+                    );
+
+                const categoryFilter =
+                    document.getElementById(
+                        "categoryFilter"
+                    );
+
+                const subjectFilter =
+                    document.getElementById(
+                        "subjectFilter"
+                    );
+
+                const yearFilter =
+                    document.getElementById(
+                        "yearFilter"
+                    );
+
+                const moduleFilter =
+                    document.getElementById(
+                        "moduleFilter"
+                    );
+
+                const brandFilter =
+                    document.getElementById(
+                        "brandFilter"
+                    );
+
+                const modelFilter =
+                    document.getElementById(
+                        "modelFilter"
+                    );
+
+                const typeFilter =
+                    document.getElementById(
+                        "typeFilter"
+                    );
+
+                const sizeFilter =
+                    document.getElementById(
+                        "sizeFilter"
+                    );
+
+                const platformFilter =
+                    document.getElementById(
+                        "platformFilter"
+                    );
+
+                const productGrid =
+                    document.getElementById(
+                        "productGrid"
+                    );
+
+                const emptyMarketplace =
+                    document.getElementById(
+                        "emptyMarketplace"
+                    );
+
+                const resultCount =
+                    document.getElementById(
+                        "resultCount"
+                    );
 
 
-    else if (
-        subject !== "all"
-    ) {
+                /* =========================
+                   SAFE PRODUCT HELPERS
 
-        const years =
-            NWU_MODULES[
-                subject
-            ];
+                   These fallbacks mean the
+                   marketplace will still work
+                   if products.js fails to load.
+                ========================= */
 
-        if (years) {
+                function categoryName(
+                    category
+                ) {
 
-            Object.values(
-                years
-            ).forEach(
-                function (items) {
+                    if (
+                        typeof getProductCategoryName ===
+                        "function"
+                    ) {
 
-                    modules.push(
-                        ...items
+                        return getProductCategoryName(
+                            category
+                        );
+                    }
+
+
+                    const names = {
+
+                        books:
+                            "Textbooks",
+
+                        phones:
+                            "Phones",
+
+                        laptops:
+                            "Laptops",
+
+                        electronics:
+                            "Electronics",
+
+                        accessories:
+                            "Accessories",
+
+                        clothing:
+                            "Clothing",
+
+                        furniture:
+                            "Furniture",
+
+                        gaming:
+                            "Gaming",
+
+                        other:
+                            "Other"
+                    };
+
+
+                    return (
+                        names[category] ||
+                        "Other"
                     );
                 }
-            );
-        }
-    }
 
 
-    else if (
-        year !== "all"
-    ) {
+                function categoryIcon(
+                    category
+                ) {
 
-        Object.values(
-            NWU_MODULES
-        ).forEach(
-            function (years) {
+                    if (
+                        typeof getProductCategoryIcon ===
+                        "function"
+                    ) {
 
-                modules.push(
-                    ...(
-                        years[
-                            year
+                        return getProductCategoryIcon(
+                            category
+                        );
+                    }
+
+
+                    const icons = {
+
+                        books: "📚",
+                        phones: "📱",
+                        laptops: "💻",
+                        electronics: "🎧",
+                        accessories: "🔌",
+                        clothing: "👕",
+                        furniture: "🪑",
+                        gaming: "🎮",
+                        other: "📦"
+                    };
+
+
+                    return (
+                        icons[category] ||
+                        "📦"
+                    );
+                }
+
+
+                /* =========================
+                   VISIBLE PRODUCTS
+                ========================= */
+
+                function getVisibleProducts() {
+
+                    if (
+                        currentUser &&
+                        currentUser.campus
+                    ) {
+
+                        const campus =
+                            safeNormaliseCampus(
+                                currentUser.campus
+                            );
+
+
+                        return allProducts.filter(
+                            function (product) {
+
+                                if (
+                                    product.type ===
+                                    "catalogue"
+                                ) {
+
+                                    return true;
+                                }
+
+
+                                return (
+                                    safeNormaliseCampus(
+                                        product.campus
+                                    ) ===
+                                    campus
+                                );
+                            }
+                        );
+                    }
+
+
+                    return catalogueProducts;
+                }
+
+
+                /* =========================
+                   SELECT HELPER
+                ========================= */
+
+                function fillFilter(
+                    select,
+                    values,
+                    label
+                ) {
+
+                    select.innerHTML = "";
+
+
+                    const firstOption =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    firstOption.value =
+                        "all";
+
+                    firstOption.textContent =
+                        label;
+
+
+                    select.appendChild(
+                        firstOption
+                    );
+
+
+                    values.forEach(
+                        function (value) {
+
+                            const option =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            option.value =
+                                value;
+
+                            option.textContent =
+                                value;
+
+                            select.appendChild(
+                                option
+                            );
+                        }
+                    );
+                }
+
+
+                /* =========================
+                   FALLBACK CATEGORY DATA
+                ========================= */
+
+                const fallbackData = {
+
+                    phones: {
+
+                        brands: {
+
+                            Apple: [
+                                "iPhone 11",
+                                "iPhone 12",
+                                "iPhone 13",
+                                "iPhone 14",
+                                "iPhone 15",
+                                "iPhone 16",
+                                "iPhone 17",
+                                "Other"
+                            ],
+
+                            Samsung: [
+                                "Galaxy A Series",
+                                "Galaxy S Series",
+                                "Galaxy Z Fold",
+                                "Galaxy Z Flip",
+                                "Other"
+                            ],
+
+                            Huawei: [
+                                "P Series",
+                                "Mate Series",
+                                "Nova Series",
+                                "Other"
+                            ],
+
+                            Xiaomi: [
+                                "Xiaomi Series",
+                                "Redmi Series",
+                                "POCO Series",
+                                "Other"
+                            ],
+
+                            OPPO: [
+                                "A Series",
+                                "Reno Series",
+                                "Find Series",
+                                "Other"
+                            ],
+
+                            Honor: [
+                                "Honor X Series",
+                                "Honor Magic Series",
+                                "Other"
+                            ],
+
+                            Nokia: [
+                                "Nokia Smartphone",
+                                "Other"
+                            ],
+
+                            Other: [
+                                "Other"
+                            ]
+                        }
+                    },
+
+
+                    laptops: {
+
+                        brands: {
+
+                            HP: [
+                                "Pavilion",
+                                "Envy",
+                                "ProBook",
+                                "EliteBook",
+                                "Victus",
+                                "OMEN",
+                                "Other"
+                            ],
+
+                            Dell: [
+                                "Inspiron",
+                                "Latitude",
+                                "XPS",
+                                "Vostro",
+                                "Alienware",
+                                "Other"
+                            ],
+
+                            Lenovo: [
+                                "IdeaPad",
+                                "ThinkPad",
+                                "Yoga",
+                                "Legion",
+                                "LOQ",
+                                "Other"
+                            ],
+
+                            Acer: [
+                                "Aspire",
+                                "Swift",
+                                "Nitro",
+                                "Predator",
+                                "Other"
+                            ],
+
+                            ASUS: [
+                                "VivoBook",
+                                "Zenbook",
+                                "TUF",
+                                "ROG",
+                                "Other"
+                            ],
+
+                            Apple: [
+                                "MacBook Air",
+                                "MacBook Pro",
+                                "Other"
+                            ],
+
+                            Other: [
+                                "Other"
+                            ]
+                        }
+                    },
+
+
+                    electronics: [
+                        "Headphones",
+                        "Earphones",
+                        "Bluetooth Speaker",
+                        "Smart Watch",
+                        "Tablet",
+                        "Monitor",
+                        "Television",
+                        "Keyboard",
+                        "Mouse",
+                        "Printer",
+                        "Calculator",
+                        "Camera",
+                        "Power Bank",
+                        "Other"
+                    ],
+
+
+                    accessories: [
+                        "Phone Charger",
+                        "Laptop Charger",
+                        "USB Cable",
+                        "USB-C Cable",
+                        "Lightning Cable",
+                        "Phone Cover",
+                        "Screen Protector",
+                        "Laptop Bag",
+                        "Laptop Stand",
+                        "USB Flash Drive",
+                        "Memory Card",
+                        "HDMI Cable",
+                        "Adapter",
+                        "Power Bank",
+                        "Extension Cable",
+                        "Other"
+                    ],
+
+
+                    clothing: {
+
+                        types: [
+                            "T-Shirt",
+                            "Shirt",
+                            "Hoodie",
+                            "Sweater",
+                            "Jacket",
+                            "Jeans",
+                            "Pants",
+                            "Shorts",
+                            "Dress",
+                            "Skirt",
+                            "Tracksuit",
+                            "Shoes",
+                            "Sneakers",
+                            "Formal Shoes",
+                            "Cap",
+                            "Other"
+                        ],
+
+                        sizes: [
+                            "XS",
+                            "S",
+                            "M",
+                            "L",
+                            "XL",
+                            "XXL",
+                            "XXXL",
+                            "UK 3",
+                            "UK 4",
+                            "UK 5",
+                            "UK 6",
+                            "UK 7",
+                            "UK 8",
+                            "UK 9",
+                            "UK 10",
+                            "UK 11",
+                            "UK 12",
+                            "Other"
+                        ]
+                    },
+
+
+                    furniture: [
+                        "Study Desk",
+                        "Office Chair",
+                        "Desk Chair",
+                        "Table",
+                        "Bed",
+                        "Mattress",
+                        "Couch",
+                        "Bookshelf",
+                        "Drawer",
+                        "Wardrobe",
+                        "Lamp",
+                        "Other"
+                    ],
+
+
+                    gaming: {
+
+                        PlayStation: [
+                            "Console",
+                            "Controller",
+                            "Game",
+                            "Headset",
+                            "Charging Dock",
+                            "Other"
+                        ],
+
+                        Xbox: [
+                            "Console",
+                            "Controller",
+                            "Game",
+                            "Headset",
+                            "Other"
+                        ],
+
+                        Nintendo: [
+                            "Console",
+                            "Controller",
+                            "Game",
+                            "Accessory",
+                            "Other"
+                        ],
+
+                        PC: [
+                            "Gaming PC",
+                            "Graphics Card",
+                            "Controller",
+                            "Keyboard",
+                            "Mouse",
+                            "Headset",
+                            "Game",
+                            "Other"
+                        ],
+
+                        Other: [
+                            "Other"
+                        ]
+                    }
+                };
+
+
+                /* =========================
+                   DATA HELPERS
+                ========================= */
+
+                function brandsFor(
+                    category
+                ) {
+
+                    if (
+                        typeof getCategoryBrands ===
+                        "function"
+                    ) {
+
+                        return getCategoryBrands(
+                            category
+                        );
+                    }
+
+
+                    return Object.keys(
+                        fallbackData[
+                            category
+                        ]?.brands || {}
+                    );
+                }
+
+
+                function modelsFor(
+                    category,
+                    brand
+                ) {
+
+                    if (
+                        typeof getCategoryModels ===
+                        "function"
+                    ) {
+
+                        return getCategoryModels(
+                            category,
+                            brand
+                        );
+                    }
+
+
+                    return (
+                        fallbackData[
+                            category
+                        ]?.brands?.[
+                            brand
                         ] || []
-                    )
+                    );
+                }
+
+
+                function typesFor(
+                    category
+                ) {
+
+                    if (
+                        typeof getCategoryTypes ===
+                        "function"
+                    ) {
+
+                        return getCategoryTypes(
+                            category
+                        );
+                    }
+
+
+                    if (
+                        category ===
+                        "clothing"
+                    ) {
+
+                        return (
+                            fallbackData
+                                .clothing
+                                .types
+                        );
+                    }
+
+
+                    return (
+                        fallbackData[
+                            category
+                        ] || []
+                    );
+                }
+
+
+                function clothingSizes() {
+
+                    if (
+                        typeof getClothingSizes ===
+                        "function"
+                    ) {
+
+                        return getClothingSizes();
+                    }
+
+
+                    return (
+                        fallbackData
+                            .clothing
+                            .sizes
+                    );
+                }
+
+
+                function gamingPlatforms() {
+
+                    if (
+                        typeof getGamingPlatforms ===
+                        "function"
+                    ) {
+
+                        return getGamingPlatforms();
+                    }
+
+
+                    return Object.keys(
+                        fallbackData.gaming
+                    );
+                }
+
+
+                function gamingTypes(
+                    platform
+                ) {
+
+                    if (
+                        typeof getGamingTypes ===
+                        "function"
+                    ) {
+
+                        return getGamingTypes(
+                            platform
+                        );
+                    }
+
+
+                    return (
+                        fallbackData
+                            .gaming[
+                                platform
+                            ] || []
+                    );
+                }
+
+
+                /* =========================
+                   HIDE FILTERS
+                ========================= */
+
+                function hideDynamicFilters() {
+
+                    document
+                        .querySelectorAll(
+                            ".dynamic-filter"
+                        )
+                        .forEach(
+                            function (filter) {
+
+                                filter.style.display =
+                                    "none";
+                            }
+                        );
+                }
+
+
+                /* =========================
+                   MODULE FILTER
+                ========================= */
+
+                function loadModuleFilter() {
+
+                    moduleFilter.innerHTML =
+                        '<option value="all">All Modules</option>';
+
+
+                    if (
+                        typeof NWU_MODULES ===
+                        "undefined"
+                    ) {
+
+                        return;
+                    }
+
+
+                    const subject =
+                        subjectFilter.value;
+
+                    const year =
+                        yearFilter.value;
+
+
+                    let modules = [];
+
+
+                    if (
+                        subject !== "all" &&
+                        year !== "all"
+                    ) {
+
+                        modules =
+                            NWU_MODULES[
+                                subject
+                            ]?.[
+                                year
+                            ] || [];
+                    }
+
+
+                    else if (
+                        subject !== "all"
+                    ) {
+
+                        const years =
+                            NWU_MODULES[
+                                subject
+                            ];
+
+
+                        if (years) {
+
+                            Object.values(
+                                years
+                            )
+                            .forEach(
+                                function (items) {
+
+                                    modules.push(
+                                        ...items
+                                    );
+                                }
+                            );
+                        }
+                    }
+
+
+                    else if (
+                        year !== "all"
+                    ) {
+
+                        Object.values(
+                            NWU_MODULES
+                        )
+                        .forEach(
+                            function (years) {
+
+                                modules.push(
+                                    ...(
+                                        years[
+                                            year
+                                        ] || []
+                                    )
+                                );
+                            }
+                        );
+                    }
+
+
+                    else {
+
+                        Object.values(
+                            NWU_MODULES
+                        )
+                        .forEach(
+                            function (years) {
+
+                                Object.values(
+                                    years
+                                )
+                                .forEach(
+                                    function (items) {
+
+                                        modules.push(
+                                            ...items
+                                        );
+                                    }
+                                );
+                            }
+                        );
+                    }
+
+
+                    [
+                        ...new Set(
+                            modules
+                        )
+                    ]
+                    .sort()
+                    .forEach(
+                        function (
+                            moduleCode
+                        ) {
+
+                            const option =
+                                document.createElement(
+                                    "option"
+                                );
+
+                            option.value =
+                                moduleCode;
+
+                            option.textContent =
+                                moduleCode;
+
+                            moduleFilter.appendChild(
+                                option
+                            );
+                        }
+                    );
+                }
+
+
+                /* =========================
+                   CATEGORY CHANGED
+                ========================= */
+
+                function updateCategoryFilters() {
+
+                    hideDynamicFilters();
+
+
+                    const category =
+                        categoryFilter.value;
+
+
+                    if (
+                        category === "all"
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search all products...";
+                    }
+
+
+                    else if (
+                        category === "books"
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search title, module or ISBN...";
+
+
+                        subjectFilter.style.display =
+                            "block";
+
+                        yearFilter.style.display =
+                            "block";
+
+                        moduleFilter.style.display =
+                            "block";
+
+
+                        loadModuleFilter();
+                    }
+
+
+                    else if (
+                        category === "phones"
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search phones...";
+
+
+                        brandFilter.style.display =
+                            "block";
+
+                        modelFilter.style.display =
+                            "block";
+
+
+                        fillFilter(
+                            brandFilter,
+                            brandsFor(
+                                "phones"
+                            ),
+                            "All Phone Brands"
+                        );
+
+
+                        fillFilter(
+                            modelFilter,
+                            [],
+                            "All Phone Models"
+                        );
+                    }
+
+
+                    else if (
+                        category === "laptops"
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search laptops...";
+
+
+                        brandFilter.style.display =
+                            "block";
+
+                        modelFilter.style.display =
+                            "block";
+
+
+                        fillFilter(
+                            brandFilter,
+                            brandsFor(
+                                "laptops"
+                            ),
+                            "All Laptop Brands"
+                        );
+
+
+                        fillFilter(
+                            modelFilter,
+                            [],
+                            "All Laptop Types"
+                        );
+                    }
+
+
+                    else if (
+                        category === "clothing"
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search clothing...";
+
+
+                        typeFilter.style.display =
+                            "block";
+
+                        sizeFilter.style.display =
+                            "block";
+
+
+                        fillFilter(
+                            typeFilter,
+                            typesFor(
+                                "clothing"
+                            ),
+                            "All Clothing Types"
+                        );
+
+
+                        fillFilter(
+                            sizeFilter,
+                            clothingSizes(),
+                            "All Sizes"
+                        );
+                    }
+
+
+                    else if (
+                        category === "gaming"
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search gaming products...";
+
+
+                        platformFilter.style.display =
+                            "block";
+
+                        typeFilter.style.display =
+                            "block";
+
+
+                        fillFilter(
+                            platformFilter,
+                            gamingPlatforms(),
+                            "All Platforms"
+                        );
+
+
+                        fillFilter(
+                            typeFilter,
+                            [],
+                            "All Gaming Products"
+                        );
+                    }
+
+
+                    else if (
+                        [
+                            "electronics",
+                            "accessories",
+                            "furniture"
+                        ].includes(
+                            category
+                        )
+                    ) {
+
+                        searchInput.placeholder =
+                            "Search " +
+                            categoryName(
+                                category
+                            ).toLowerCase() +
+                            "...";
+
+
+                        typeFilter.style.display =
+                            "block";
+
+
+                        fillFilter(
+                            typeFilter,
+                            typesFor(
+                                category
+                            ),
+                            "All Types"
+                        );
+                    }
+
+
+                    else {
+
+                        searchInput.placeholder =
+                            "Search products...";
+                    }
+
+
+                    filterProducts();
+                }
+
+
+                /* =========================
+                   BRAND CHANGED
+                ========================= */
+
+                brandFilter.addEventListener(
+                    "change",
+                    function () {
+
+                        const category =
+                            categoryFilter.value;
+
+
+                        if (
+                            ![
+                                "phones",
+                                "laptops"
+                            ].includes(
+                                category
+                            )
+                        ) {
+
+                            return;
+                        }
+
+
+                        if (
+                            brandFilter.value ===
+                            "all"
+                        ) {
+
+                            fillFilter(
+                                modelFilter,
+                                [],
+                                category ===
+                                "phones"
+
+                                    ? "All Phone Models"
+
+                                    : "All Laptop Types"
+                            );
+
+                        } else {
+
+                            fillFilter(
+                                modelFilter,
+
+                                modelsFor(
+                                    category,
+                                    brandFilter.value
+                                ),
+
+                                category ===
+                                "phones"
+
+                                    ? "All Phone Models"
+
+                                    : "All Laptop Types"
+                            );
+                        }
+
+
+                        filterProducts();
+                    }
                 );
+
+
+                /* =========================
+                   GAMING PLATFORM
+                ========================= */
+
+                platformFilter.addEventListener(
+                    "change",
+                    function () {
+
+                        if (
+                            platformFilter.value ===
+                            "all"
+                        ) {
+
+                            fillFilter(
+                                typeFilter,
+                                [],
+                                "All Gaming Products"
+                            );
+
+                        } else {
+
+                            fillFilter(
+                                typeFilter,
+
+                                gamingTypes(
+                                    platformFilter.value
+                                ),
+
+                                "All Gaming Products"
+                            );
+                        }
+
+
+                        filterProducts();
+                    }
+                );
+
+
+                /* =========================
+                   CREATE PRODUCT CARD
+                ========================= */
+
+                function createProductCard(
+                    product
+                ) {
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+
+                    card.className =
+                        "product-card";
+
+
+                    const imageContainer =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    imageContainer.className =
+                        "product-image";
+
+
+                    let catalogueBook =
+                        null;
+
+
+                    if (
+                        product.module &&
+                        typeof findTextbookByModule ===
+                        "function"
+                    ) {
+
+                        catalogueBook =
+                            findTextbookByModule(
+                                product.module
+                            );
+                    }
+
+
+                    const displayImage =
+                        product.image ||
+                        product.cover ||
+                        catalogueBook?.cover ||
+                        "";
+
+
+                    if (
+                        displayImage
+                    ) {
+
+                        const image =
+                            document.createElement(
+                                "img"
+                            );
+
+
+                        image.src =
+                            displayImage;
+
+                        image.alt =
+                            product.name;
+
+
+                        image.onerror =
+                            function () {
+
+                                imageContainer.innerHTML =
+                                    "";
+
+                                imageContainer.textContent =
+                                    categoryIcon(
+                                        product.category
+                                    );
+                            };
+
+
+                        imageContainer.appendChild(
+                            image
+                        );
+
+                    } else {
+
+                        imageContainer.textContent =
+                            categoryIcon(
+                                product.category
+                            );
+                    }
+
+
+                    const info =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    info.className =
+                        "product-info";
+
+
+                    const label =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    label.className =
+                        "category-label";
+
+
+                    label.textContent =
+                        product.category ===
+                        "books"
+
+                            ? (
+                                product.module ||
+                                "Textbook"
+                            )
+
+                            : (
+                                categoryIcon(
+                                    product.category
+                                )
+
+                                + " "
+
+                                + categoryName(
+                                    product.category
+                                )
+                            );
+
+
+                    info.appendChild(
+                        label
+                    );
+
+
+                    if (
+                        product.type ===
+                        "catalogue"
+                    ) {
+
+                        const catalogueLabel =
+                            document.createElement(
+                                "span"
+                            );
+
+
+                        catalogueLabel.className =
+                            "category-label catalogue-label";
+
+
+                        catalogueLabel.textContent =
+                            "CATALOGUE";
+
+
+                        info.appendChild(
+                            catalogueLabel
+                        );
+                    }
+
+
+                    const title =
+                        document.createElement(
+                            "h3"
+                        );
+
+
+                    title.textContent =
+                        product.name ||
+                        "Product";
+
+
+                    info.appendChild(
+                        title
+                    );
+
+
+                    const details =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    details.className =
+                        "product-details";
+
+
+                    let detailHTML =
+                        "";
+
+
+                    if (
+                        product.brand
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Brand:</strong> " +
+                            product.brand +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.model
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Model:</strong> " +
+                            product.model +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.storage
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Storage:</strong> " +
+                            product.storage +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.productType
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Type:</strong> " +
+                            product.productType +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.size
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Size:</strong> " +
+                            product.size +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.platform
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Platform:</strong> " +
+                            product.platform +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.author
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Author:</strong> " +
+                            product.author +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.edition
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Edition:</strong> " +
+                            product.edition +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.isbn
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>ISBN:</strong> " +
+                            product.isbn +
+                            "</div>";
+                    }
+
+
+                    if (
+                        product.type !==
+                        "catalogue"
+                    ) {
+
+                        detailHTML +=
+                            "<div><strong>Condition:</strong> " +
+                            (
+                                product.condition ||
+                                "Not specified"
+                            ) +
+                            "</div>";
+
+
+                        detailHTML +=
+                            "<div><strong>Campus:</strong> " +
+                            safeNormaliseCampus(
+                                product.campus
+                            ) +
+                            "</div>";
+
+
+                        detailHTML +=
+                            "<div><strong>Seller:</strong> " +
+                            (
+                                product.sellerName ||
+                                "NWU Student"
+                            ) +
+                            "</div>";
+                    }
+
+
+                    details.innerHTML =
+                        detailHTML;
+
+
+                    info.appendChild(
+                        details
+                    );
+
+
+                    const price =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    price.className =
+                        "product-price";
+
+
+                    if (
+                        product.type ===
+                        "catalogue"
+                    ) {
+
+                        price.textContent =
+                            "Check seller prices";
+
+                    } else {
+
+                        price.textContent =
+                            "R" +
+                            Number(
+                                product.price || 0
+                            )
+                            .toLocaleString();
+                    }
+
+
+                    info.appendChild(
+                        price
+                    );
+
+
+                    if (
+                        product.description
+                    ) {
+
+                        const description =
+                            document.createElement(
+                                "p"
+                            );
+
+
+                        description.className =
+                            "product-description";
+
+
+                        description.textContent =
+                            product.description;
+
+
+                        info.appendChild(
+                            description
+                        );
+                    }
+
+
+                    const actions =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    actions.className =
+                        "product-actions";
+
+
+                    if (
+                        product.type !==
+                        "catalogue"
+                    ) {
+
+                        const cartButton =
+                            document.createElement(
+                                "button"
+                            );
+
+
+                        cartButton.className =
+                            "cart-button";
+
+
+                        cartButton.textContent =
+                            "Add to Cart";
+
+
+                        cartButton.addEventListener(
+                            "click",
+                            function () {
+
+                                addToCart(
+                                    product
+                                );
+                            }
+                        );
+
+
+                        actions.appendChild(
+                            cartButton
+                        );
+                    }
+
+
+                    if (
+                        product.category ===
+                        "books"
+                    ) {
+
+                        const googleButton =
+                            document.createElement(
+                                "button"
+                            );
+
+
+                        googleButton.className =
+                            "google-button";
+
+
+                        googleButton.textContent =
+                            "🔎 View on Google";
+
+
+                        googleButton.addEventListener(
+                            "click",
+                            function () {
+
+                                const search =
+                                    product.isbn ||
+                                    catalogueBook?.googleQuery ||
+                                    (
+                                        (
+                                            product.name ||
+                                            ""
+                                        )
+                                        +
+                                        " "
+                                        +
+                                        (
+                                            product.author ||
+                                            ""
+                                        )
+                                    );
+
+
+                                window.open(
+                                    "https://www.google.com/search?q=" +
+                                    encodeURIComponent(
+                                        search
+                                    ),
+                                    "_blank"
+                                );
+                            }
+                        );
+
+
+                        actions.appendChild(
+                            googleButton
+                        );
+                    }
+
+
+                    info.appendChild(
+                        actions
+                    );
+
+
+                    card.append(
+                        imageContainer,
+                        info
+                    );
+
+
+                    return card;
+                }
+
+
+                /* =========================
+                   FILTER PRODUCTS
+                ========================= */
+
+                function filterProducts() {
+
+                    const category =
+                        categoryFilter.value;
+
+
+                    const search =
+                        searchInput.value
+                            .toLowerCase()
+                            .trim();
+
+
+                    const products =
+                        getVisibleProducts()
+                        .filter(
+                            function (product) {
+
+                                if (
+                                    category !== "all" &&
+                                    product.category !==
+                                    category
+                                ) {
+
+                                    return false;
+                                }
+
+
+                                const searchable = `
+                                    ${product.name || ""}
+                                    ${product.module || ""}
+                                    ${product.author || ""}
+                                    ${product.isbn || ""}
+                                    ${product.brand || ""}
+                                    ${product.model || ""}
+                                    ${product.storage || ""}
+                                    ${product.productType || ""}
+                                    ${product.platform || ""}
+                                    ${product.size || ""}
+                                    ${product.condition || ""}
+                                    ${product.description || ""}
+                                `
+                                .toLowerCase();
+
+
+                                if (
+                                    search &&
+                                    !searchable.includes(
+                                        search
+                                    )
+                                ) {
+
+                                    return false;
+                                }
+
+
+                                /* BOOKS */
+
+                                if (
+                                    category ===
+                                    "books"
+                                ) {
+
+                                    if (
+                                        subjectFilter.value !==
+                                        "all"
+
+                                        &&
+
+                                        product.subject !==
+                                        subjectFilter.value
+                                    ) {
+
+                                        return false;
+                                    }
+
+
+                                    if (
+                                        yearFilter.value !==
+                                        "all"
+
+                                        &&
+
+                                        String(
+                                            product.studyYear
+                                        ) !==
+                                        String(
+                                            yearFilter.value
+                                        )
+                                    ) {
+
+                                        return false;
+                                    }
+
+
+                                    if (
+                                        moduleFilter.value !==
+                                        "all"
+
+                                        &&
+
+                                        product.module !==
+                                        moduleFilter.value
+                                    ) {
+
+                                        return false;
+                                    }
+                                }
+
+
+                                /* PHONE / LAPTOP */
+
+                                if (
+                                    [
+                                        "phones",
+                                        "laptops"
+                                    ].includes(
+                                        category
+                                    )
+                                ) {
+
+                                    if (
+                                        brandFilter.value !==
+                                        "all"
+
+                                        &&
+
+                                        product.brand !==
+                                        brandFilter.value
+                                    ) {
+
+                                        return false;
+                                    }
+
+
+                                    if (
+                                        modelFilter.value !==
+                                        "all"
+
+                                        &&
+
+                                        product.model !==
+                                        modelFilter.value
+                                    ) {
+
+                                        return false;
+                                    }
+                                }
+
+
+                                /* PRODUCT TYPE */
+
+                                if (
+                                    [
+                                        "electronics",
+                                        "accessories",
+                                        "furniture",
+                                        "clothing",
+                                        "gaming"
+                                    ].includes(
+                                        category
+                                    )
+                                ) {
+
+                                    if (
+                                        typeFilter.value !==
+                                        "all"
+
+                                        &&
+
+                                        product.productType !==
+                                        typeFilter.value
+                                    ) {
+
+                                        return false;
+                                    }
+                                }
+
+
+                                /* CLOTHING SIZE */
+
+                                if (
+                                    category ===
+                                    "clothing"
+
+                                    &&
+
+                                    sizeFilter.value !==
+                                    "all"
+
+                                    &&
+
+                                    product.size !==
+                                    sizeFilter.value
+                                ) {
+
+                                    return false;
+                                }
+
+
+                                /* GAMING PLATFORM */
+
+                                if (
+                                    category ===
+                                    "gaming"
+
+                                    &&
+
+                                    platformFilter.value !==
+                                    "all"
+
+                                    &&
+
+                                    product.platform !==
+                                    platformFilter.value
+                                ) {
+
+                                    return false;
+                                }
+
+
+                                return true;
+                            }
+                        );
+
+
+                    displayProducts(
+                        products
+                    );
+                }
+
+
+                /* =========================
+                   DISPLAY PRODUCTS
+                ========================= */
+
+                function displayProducts(
+                    products
+                ) {
+
+                    productGrid.innerHTML =
+                        "";
+
+
+                    resultCount.textContent =
+                        products.length +
+                        (
+                            products.length ===
+                            1
+
+                                ? " result"
+
+                                : " results"
+                        );
+
+
+                    if (
+                        products.length === 0
+                    ) {
+
+                        emptyMarketplace.style.display =
+                            "block";
+
+                        return;
+                    }
+
+
+                    emptyMarketplace.style.display =
+                        "none";
+
+
+                    products.forEach(
+                        function (product) {
+
+                            productGrid.appendChild(
+                                createProductCard(
+                                    product
+                                )
+                            );
+                        }
+                    );
+                }
+
+
+                /* =========================
+                   ADD TO CART
+                ========================= */
+
+                function addToCart(
+                    product
+                ) {
+
+                    if (
+                        !currentUser ||
+                        !currentUser.loggedIn ||
+                        currentUser.accountType !==
+                        "buyer"
+                    ) {
+
+                        alert(
+                            "Please login with a buyer account."
+                        );
+
+                        window.location.href =
+                            "login.html";
+
+                        return;
+                    }
+
+
+                    let cart =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "cart"
+                            )
+                        ) || [];
+
+
+                    const existing =
+                        cart.find(
+                            function (item) {
+
+                                return (
+                                    String(
+                                        item.id
+                                    ) ===
+                                    String(
+                                        product.id
+                                    )
+                                );
+                            }
+                        );
+
+
+                    if (
+                        existing
+                    ) {
+
+                        existing.quantity =
+                            (
+                                Number(
+                                    existing.quantity
+                                ) || 1
+                            ) + 1;
+
+                    } else {
+
+                        cart.push({
+                            ...product,
+                            quantity: 1
+                        });
+                    }
+
+
+                    localStorage.setItem(
+                        "cart",
+                        JSON.stringify(
+                            cart
+                        )
+                    );
+
+
+                    alert(
+                        product.name +
+                        " added to cart."
+                    );
+                }
+
+
+                /* =========================
+                   EVENTS
+                ========================= */
+
+                categoryFilter.addEventListener(
+                    "change",
+                    updateCategoryFilters
+                );
+
+
+                searchInput.addEventListener(
+                    "input",
+                    filterProducts
+                );
+
+
+                subjectFilter.addEventListener(
+                    "change",
+                    function () {
+
+                        loadModuleFilter();
+
+                        filterProducts();
+                    }
+                );
+
+
+                yearFilter.addEventListener(
+                    "change",
+                    function () {
+
+                        loadModuleFilter();
+
+                        filterProducts();
+                    }
+                );
+
+
+                moduleFilter.addEventListener(
+                    "change",
+                    filterProducts
+                );
+
+
+                modelFilter.addEventListener(
+                    "change",
+                    filterProducts
+                );
+
+
+                typeFilter.addEventListener(
+                    "change",
+                    filterProducts
+                );
+
+
+                sizeFilter.addEventListener(
+                    "change",
+                    filterProducts
+                );
+
+
+                /* =========================
+                   YEAR
+                ========================= */
+
+                document.getElementById(
+                    "currentYear"
+                ).textContent =
+                    new Date().getFullYear();
+
+
+                /* =========================
+                   START MARKETPLACE
+                ========================= */
+
+                updateCategoryFilters();
+
             }
         );
-    }
 
-
-    else {
-
-        modules =
-            getAllModuleCodes();
-    }
-
-
-    [
-        ...new Set(
-            modules
-        )
-    ]
-    .sort()
-    .forEach(
-        function (moduleCode) {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-            option.value =
-                moduleCode;
-
-            option.textContent =
-                moduleCode;
-
-            moduleFilter.appendChild(
-                option
-            );
-        }
-    );
-}
-
-
-/*
-========================================
-CATEGORY FILTERS
-========================================
-*/
-
-function updateCategoryFilters() {
-
-    hideDynamicFilters();
-
-
-    const category =
-        categoryFilter.value;
-
-
-    /*
-    ALL
-    */
-
-    if (
-        category === "all"
-    ) {
-
-        searchInput.placeholder =
-            "Search all products...";
-    }
-
-
-    /*
-    BOOKS
-    */
-
-    else if (
-        category === "books"
-    ) {
-
-        searchInput.placeholder =
-            "Search title, module or ISBN...";
-
-        subjectFilter.style.display =
-            "block";
-
-        yearFilter.style.display =
-            "block";
-
-        moduleFilter.style.display =
-            "block";
-
-        loadModuleFilter();
-    }
-
-
-    /*
-    PHONES
-    */
-
-    else if (
-        category === "phones"
-    ) {
-
-        searchInput.placeholder =
-            "Search phones...";
-
-        brandFilter.style.display =
-            "block";
-
-        modelFilter.style.display =
-            "block";
-
-
-        fillFilter(
-            brandFilter,
-
-            getCategoryBrands(
-                "phones"
-            ),
-
-            "All Phone Brands"
-        );
-
-
-        fillFilter(
-            modelFilter,
-            [],
-            "All Phone Models"
-        );
-    }
-
-
-    /*
-    LAPTOPS
-    */
-
-    else if (
-        category === "laptops"
-    ) {
-
-        searchInput.placeholder =
-            "Search laptops...";
-
-        brandFilter.style.display =
-            "block";
-
-        modelFilter.style.display =
-            "block";
-
-
-        fillFilter(
-            brandFilter,
-
-            getCategoryBrands(
-                "laptops"
-            ),
-
-            "All Laptop Brands"
-        );
-
-
-        fillFilter(
-            modelFilter,
-            [],
-            "All Laptop Types"
-        );
-    }
-
-
-    /*
-    CLOTHING
-    */
-
-    else if (
-        category === "clothing"
-    ) {
-
-        searchInput.placeholder =
-            "Search clothing...";
-
-        typeFilter.style.display =
-            "block";
-
-        sizeFilter.style.display =
-            "block";
-
-
-        fillFilter(
-            typeFilter,
-
-            getCategoryTypes(
-                "clothing"
-            ),
-
-            "All Clothing Types"
-        );
-
-
-        fillFilter(
-            sizeFilter,
-
-            getClothingSizes(),
-
-            "All Sizes"
-        );
-    }
-
-
-    /*
-    GAMING
-    */
-
-    else if (
-        category === "gaming"
-    ) {
-
-        searchInput.placeholder =
-            "Search gaming products...";
-
-        platformFilter.style.display =
-            "block";
-
-        typeFilter.style.display =
-            "block";
-
-
-        fillFilter(
-            platformFilter,
-
-            getGamingPlatforms(),
-
-            "All Platforms"
-        );
-
-
-        fillFilter(
-            typeFilter,
-            [],
-            "All Gaming Products"
-        );
-    }
-
-
-    /*
-    ELECTRONICS
-    ACCESSORIES
-    FURNITURE
-    */
-
-    else if (
-        [
-            "electronics",
-            "accessories",
-            "furniture"
-        ].includes(
-            category
-        )
-    ) {
-
-        searchInput.placeholder =
-
-            PRODUCT_CATEGORIES[
-                category
-            ].searchPlaceholder;
-
-
-        typeFilter.style.display =
-            "block";
-
-
-        fillFilter(
-            typeFilter,
-
-            getCategoryTypes(
-                category
-            ),
-
-            "All Types"
-        );
-    }
-
-
-    /*
-    OTHER
-    */
-
-    else {
-
-        searchInput.placeholder =
-            "Search products...";
-    }
-
-
-    filterProducts();
-}
-
-
-/*
-========================================
-BRAND CHANGE
-========================================
-*/
-
-brandFilter.addEventListener(
-"change",
-function () {
-
-    const category =
-        categoryFilter.value;
-
-
-    if (
-        ![
-            "phones",
-            "laptops"
-        ].includes(
-            category
-        )
-    ) {
-
-        return;
-    }
-
-
-    if (
-        brandFilter.value ===
-        "all"
-    ) {
-
-        fillFilter(
-            modelFilter,
-            [],
-            category === "phones"
-                ? "All Phone Models"
-                : "All Laptop Types"
-        );
-
-    } else {
-
-        fillFilter(
-            modelFilter,
-
-            getCategoryModels(
-                category,
-                brandFilter.value
-            ),
-
-            category === "phones"
-                ? "All Phone Models"
-                : "All Laptop Types"
-        );
-    }
-
-
-    filterProducts();
-}
-);
-
-
-/*
-========================================
-GAMING PLATFORM
-========================================
-*/
-
-platformFilter.addEventListener(
-"change",
-function () {
-
-    if (
-        platformFilter.value ===
-        "all"
-    ) {
-
-        fillFilter(
-            typeFilter,
-            [],
-            "All Gaming Products"
-        );
-
-    } else {
-
-        fillFilter(
-            typeFilter,
-
-            getGamingTypes(
-                platformFilter.value
-            ),
-
-            "All Gaming Products"
-        );
-    }
-
-    filterProducts();
-}
-);
-
-
-/*
-========================================
-PRODUCT CARD
-========================================
-*/
-
-function createProductCard(
-    product
-) {
-
-const card =
-    document.createElement(
-        "article"
-    );
-
-card.className =
-    "product-card";
-
-
-const imageContainer =
-    document.createElement(
-        "div"
-    );
-
-imageContainer.className =
-    "product-image";
-
-
-const catalogueBook =
-    product.module
-        ? findTextbookByModule(
-            product.module
-          )
-        : null;
-
-
-const displayImage =
-
-    product.image ||
-
-    product.cover ||
-
-    catalogueBook?.cover ||
-
-    "";
-
-
-if (displayImage) {
-
-    const image =
-        document.createElement(
-            "img"
-        );
-
-    image.src =
-        displayImage;
-
-    image.alt =
-        product.name;
-
-    image.onerror =
-        function () {
-
-            imageContainer.innerHTML =
-                getProductCategoryIcon(
-                    product.category
-                );
-        };
-
-    imageContainer.appendChild(
-        image
-    );
-
-} else {
-
-    imageContainer.textContent =
-        getProductCategoryIcon(
-            product.category
-        );
-}
-
-
-const info =
-    document.createElement(
-        "div"
-    );
-
-info.className =
-    "product-info";
-
-
-const label =
-    document.createElement(
-        "span"
-    );
-
-label.className =
-    "category-label";
-
-
-label.textContent =
-
-    product.category === "books"
-
-        ? (
-            product.module ||
-            "Textbook"
-          )
-
-        : (
-            getProductCategoryIcon(
-                product.category
-            )
-
-            + " "
-
-            + getProductCategoryName(
-                product.category
-            )
-          );
-
-
-info.appendChild(
-    label
-);
-
-
-if (
-    product.type ===
-    "catalogue"
-) {
-
-    const catalogueLabel =
-        document.createElement(
-            "span"
-        );
-
-    catalogueLabel.className =
-        "category-label catalogue-label";
-
-    catalogueLabel.textContent =
-        "CATALOGUE";
-
-    info.appendChild(
-        catalogueLabel
-    );
-}
-
-
-const title =
-    document.createElement(
-        "h3"
-    );
-
-title.textContent =
-    product.name;
-
-info.appendChild(
-    title
-);
-
-
-const details =
-    document.createElement(
-        "div"
-    );
-
-details.className =
-    "product-details";
-
-
-let detailHTML = "";
-
-
-if (product.brand) {
-
-    detailHTML +=
-        "<div><strong>Brand:</strong> "
-        + product.brand
-        + "</div>";
-}
-
-
-if (product.model) {
-
-    detailHTML +=
-        "<div><strong>Model:</strong> "
-        + product.model
-        + "</div>";
-}
-
-
-if (product.storage) {
-
-    detailHTML +=
-        "<div><strong>Storage:</strong> "
-        + product.storage
-        + "</div>";
-}
-
-
-if (product.productType) {
-
-    detailHTML +=
-        "<div><strong>Type:</strong> "
-        + product.productType
-        + "</div>";
-}
-
-
-if (product.size) {
-
-    detailHTML +=
-        "<div><strong>Size:</strong> "
-        + product.size
-        + "</div>";
-}
-
-
-if (product.platform) {
-
-    detailHTML +=
-        "<div><strong>Platform:</strong> "
-        + product.platform
-        + "</div>";
-}
-
-
-if (product.author) {
-
-    detailHTML +=
-        "<div><strong>Author:</strong> "
-        + product.author
-        + "</div>";
-}
-
-
-if (product.edition) {
-
-    detailHTML +=
-        "<div><strong>Edition:</strong> "
-        + product.edition
-        + "</div>";
-}
-
-
-if (product.isbn) {
-
-    detailHTML +=
-        "<div><strong>ISBN:</strong> "
-        + product.isbn
-        + "</div>";
-}
-
-
-if (
-    product.type !==
-    "catalogue"
-) {
-
-    detailHTML +=
-        "<div><strong>Condition:</strong> "
-        + (
-            product.condition ||
-            "Not specified"
-          )
-        + "</div>";
-
-
-    detailHTML +=
-        "<div><strong>Campus:</strong> "
-        + normaliseCampus(
-            product.campus
-          )
-        + "</div>";
-
-
-    detailHTML +=
-        "<div><strong>Seller:</strong> "
-        + (
-            product.sellerName ||
-            "NWU Student"
-          )
-        + "</div>";
-}
-
-
-details.innerHTML =
-    detailHTML;
-
-info.appendChild(
-    details
-);
-
-
-const price =
-    document.createElement(
-        "div"
-    );
-
-price.className =
-    "product-price";
-
-
-price.textContent =
-
-    product.type ===
-    "catalogue"
-
-        ? "Check seller prices"
-
-        : (
-            "R" +
-            Number(
-                product.price
-            ).toLocaleString()
-          );
-
-
-info.appendChild(
-    price
-);
-
-
-if (
-    product.description
-) {
-
-    const description =
-        document.createElement(
-            "p"
-        );
-
-    description.className =
-        "product-description";
-
-    description.textContent =
-        product.description;
-
-    info.appendChild(
-        description
-    );
-}
-
-
-const actions =
-    document.createElement(
-        "div"
-    );
-
-actions.className =
-    "product-actions";
-
-
-if (
-    product.type !==
-    "catalogue"
-) {
-
-    const cartButton =
-        document.createElement(
-            "button"
-        );
-
-    cartButton.className =
-        "cart-button";
-
-    cartButton.textContent =
-        "Add to Cart";
-
-    cartButton.onclick =
-        function () {
-
-            addToCart(
-                product
-            );
-        };
-
-    actions.appendChild(
-        cartButton
-    );
-}
-
-
-if (
-    product.category ===
-    "books"
-) {
-
-    const googleButton =
-        document.createElement(
-            "button"
-        );
-
-    googleButton.className =
-        "google-button";
-
-    googleButton.textContent =
-        "🔎 View on Google";
-
-
-    googleButton.onclick =
-        function () {
-
-            const search =
-
-                product.isbn ||
-
-                catalogueBook?.googleQuery ||
-
-                (
-                    product.name +
-                    " " +
-                    (
-                        product.author ||
-                        ""
-                    )
-                );
-
-
-            window.open(
-
-                "https://www.google.com/search?q="
-
-                +
-
-                encodeURIComponent(
-                    search
-                ),
-
-                "_blank"
-            );
-        };
-
-
-    actions.appendChild(
-        googleButton
-    );
-}
-
-
-info.appendChild(
-    actions
-);
-
-
-card.append(
-    imageContainer,
-    info
-);
-
-
-return card;
-
-}
-
-
-/*
-========================================
-FILTER PRODUCTS
-========================================
-*/
-
-function filterProducts() {
-
-const category =
-    categoryFilter.value;
-
-const search =
-    searchInput.value
-        .toLowerCase()
-        .trim();
-
-
-const products =
-getVisibleProducts()
-.filter(
-function (product) {
-
-
-if (
-    category !== "all" &&
-    product.category !== category
-) {
-
-    return false;
-}
-
-
-const searchable = `
-
-${product.name || ""}
-${product.module || ""}
-${product.author || ""}
-${product.isbn || ""}
-${product.brand || ""}
-${product.model || ""}
-${product.storage || ""}
-${product.productType || ""}
-${product.platform || ""}
-${product.size || ""}
-${product.description || ""}
-
-`
-.toLowerCase();
-
-
-if (
-    !searchable.includes(
-        search
-    )
-) {
-
-    return false;
-}
-
-
-/*
-TEXTBOOKS
-*/
-
-if (
-    category === "books"
-) {
-
-    if (
-        subjectFilter.value !==
-            "all"
-
-        &&
-
-        product.subject !==
-            subjectFilter.value
-    ) {
-
-        return false;
-    }
-
-
-    if (
-        yearFilter.value !==
-            "all"
-
-        &&
-
-        String(
-            product.studyYear
-        ) !==
-        String(
-            yearFilter.value
-        )
-    ) {
-
-        return false;
-    }
-
-
-    if (
-        moduleFilter.value !==
-            "all"
-
-        &&
-
-        product.module !==
-            moduleFilter.value
-    ) {
-
-        return false;
-    }
-}
-
-
-/*
-PHONE / LAPTOP
-*/
-
-if (
-    [
-        "phones",
-        "laptops"
-    ].includes(
-        category
-    )
-) {
-
-    if (
-        brandFilter.value !==
-            "all"
-
-        &&
-
-        product.brand !==
-            brandFilter.value
-    ) {
-
-        return false;
-    }
-
-
-    if (
-        modelFilter.value !==
-            "all"
-
-        &&
-
-        product.model !==
-            modelFilter.value
-    ) {
-
-        return false;
-    }
-}
-
-
-/*
-TYPE
-*/
-
-if (
-    [
-        "electronics",
-        "accessories",
-        "furniture",
-        "clothing",
-        "gaming"
-    ].includes(
-        category
-    )
-) {
-
-    if (
-        typeFilter.value !==
-            "all"
-
-        &&
-
-        product.productType !==
-            typeFilter.value
-    ) {
-
-        return false;
-    }
-}
-
-
-/*
-CLOTHING SIZE
-*/
-
-if (
-    category === "clothing" &&
-    sizeFilter.value !== "all" &&
-    product.size !== sizeFilter.value
-) {
-
-    return false;
-}
-
-
-/*
-GAMING PLATFORM
-*/
-
-if (
-    category === "gaming" &&
-    platformFilter.value !== "all" &&
-    product.platform !==
-        platformFilter.value
-) {
-
-    return false;
-}
-
-
-return true;
-
-}
-);
-
-
-displayProducts(
-    products
-);
-
-}
-
-
-/*
-========================================
-DISPLAY
-========================================
-*/
-
-function displayProducts(
-    products
-) {
-
-productGrid.innerHTML =
-    "";
-
-
-resultCount.textContent =
-
-    products.length +
-
-    (
-        products.length === 1
-            ? " result"
-            : " results"
-    );
-
-
-if (
-    products.length === 0
-) {
-
-    emptyMarketplace.style.display =
-        "block";
-
-    return;
-}
-
-
-emptyMarketplace.style.display =
-    "none";
-
-
-products.forEach(
-function (product) {
-
-    productGrid.appendChild(
-
-        createProductCard(
-            product
-        )
-
-    );
-}
-);
-
-}
-
-
-/*
-========================================
-CART
-========================================
-*/
-
-function addToCart(
-    product
-) {
-
-if (
-    !currentUser ||
-    !currentUser.loggedIn ||
-    currentUser.accountType !==
-        "buyer"
-) {
-
-    alert(
-        "Please login with a buyer account."
-    );
-
-    window.location.href =
-        "login.html";
-
-    return;
-}
-
-
-let cart =
-    JSON.parse(
-        localStorage.getItem(
-            "cart"
-        )
-    ) || [];
-
-
-const existing =
-    cart.find(
-        function (item) {
-
-            return (
-                String(
-                    item.id
-                ) ===
-                String(
-                    product.id
-                )
-            );
-        }
-    );
-
-
-if (existing) {
-
-    existing.quantity =
-        (
-            Number(
-                existing.quantity
-            ) ||
-            1
-        ) + 1;
-
-} else {
-
-    cart.push({
-
-        ...product,
-
-        quantity: 1
-
-    });
-}
-
-
-localStorage.setItem(
-
-    "cart",
-
-    JSON.stringify(
-        cart
-    )
-);
-
-
-alert(
-    product.name +
-    " added to cart."
-);
-
-}
-
-
-/*
-========================================
-EVENTS
-========================================
-*/
-
-categoryFilter.addEventListener(
-    "change",
-    updateCategoryFilters
-);
-
-
-searchInput.addEventListener(
-    "input",
-    filterProducts
-);
-
-
-subjectFilter.addEventListener(
-"change",
-function () {
-
-    loadModuleFilter();
-
-    filterProducts();
-}
-);
-
-
-yearFilter.addEventListener(
-"change",
-function () {
-
-    loadModuleFilter();
-
-    filterProducts();
-}
-);
-
-
-moduleFilter.addEventListener(
-    "change",
-    filterProducts
-);
-
-
-modelFilter.addEventListener(
-    "change",
-    filterProducts
-);
-
-
-typeFilter.addEventListener(
-    "change",
-    filterProducts
-);
-
-
-sizeFilter.addEventListener(
-    "change",
-    filterProducts
-);
-
-
-logoutButton.addEventListener(
-"click",
-function () {
-
-    localStorage.removeItem(
-        "currentUser"
-    );
-
-    window.location.href =
-        "login.html";
-}
-);
-
-
-/*
-========================================
-START
-========================================
-*/
-
-document.getElementById(
-    "currentYear"
-).textContent =
-    new Date().getFullYear();
-
-
-updateCategoryFilters();
-
-}
-);
-
-</script>
-
+    </script>
 
 </body>
+
 </html>
