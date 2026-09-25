@@ -2,53 +2,353 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Register - NWU Campus Money Market</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
+    <title>
+        Register - NWU Campus Money Market
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+
+    <style>
+
+        .register-page {
+
+            min-height: calc(100vh - 80px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 50px 20px;
+
+            background: #f7f9fc;
+        }
+
+
+        .register-container {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 8px 30px
+                rgba(0, 0, 0, 0.08);
+        }
+
+
+        .register-header {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .register-header h1 {
+
+            margin-bottom: 8px;
+        }
+
+
+        .register-header p {
+
+            color: #6b7280;
+        }
+
+
+        .nwu-only-message {
+
+            background: #e7f6ef;
+
+            border: 1px solid #b7e1cc;
+
+            color: #006b42;
+
+            padding: 13px;
+
+            border-radius: 8px;
+
+            margin-bottom: 22px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 17px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 6px;
+
+            font-weight: 700;
+        }
+
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border:
+                1px solid #d1d5db;
+
+            border-radius: 7px;
+
+            outline: none;
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: #007749;
+        }
+
+
+        .form-group small {
+
+            display: block;
+
+            margin-top: 5px;
+
+            color: #6b7280;
+
+            line-height: 1.4;
+        }
+
+
+        .email-preview {
+
+            color: #007749 !important;
+
+            font-weight: 700;
+        }
+
+
+        .terms {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            margin:
+                5px 0
+                20px;
+        }
+
+
+        .terms input {
+
+            margin-top: 4px;
+        }
+
+
+        .register-submit {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 7px;
+
+            background: #007749;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .register-submit:hover {
+
+            background: #005f3a;
+        }
+
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #6b7280;
+        }
+
+
+        .login-text a {
+
+            color: #007749;
+
+            font-weight: 700;
+        }
+
+
+        @media (
+            max-width: 650px
+        ) {
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .register-container {
+
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
 <header class="navbar">
+
+
     <div class="logo">
-        <span>NWU</span> Campus Money Market
+
+        <span>NWU</span>
+
+        Campus Money Market
+
     </div>
 
-    <div class="nav-buttons">
-        <a href="../index.html" class="login-btn">
+
+    <nav>
+
+        <a href="../index.html">
             Home
         </a>
 
-        <a href="login.html" class="register-btn">
+        <a href="marketplace.html">
+            Marketplace
+        </a>
+
+    </nav>
+
+
+    <div class="nav-buttons">
+
+        <a
+            href="login.html"
+            class="login-btn"
+        >
             Login
         </a>
+
     </div>
+
+
 </header>
 
 
-<main class="login-page">
 
-    <div class="login-container">
+<main class="register-page">
 
-        <div style="text-align:center; margin-bottom:25px;">
 
-            <div style="font-size:45px;">
-                🎓
-            </div>
+    <div class="register-container">
 
-            <h1>Create Account</h1>
 
-            <p>NWU Campus Money Market</p>
+        <div class="register-header">
+
+            <span class="badge">
+                🎓 NWU STUDENTS
+            </span>
+
+            <h1>
+                Create Student Account
+            </h1>
+
+            <p>
+                Register for the NWU Campus Money Market
+            </p>
 
         </div>
 
 
+
+        <div class="nwu-only-message">
+
+            <strong>
+                NWU students only.
+            </strong>
+
+            <br>
+
+            Your student number must contain
+            exactly 8 digits and your email must
+            be the matching NWU Microsoft address:
+
+            <strong>
+                studentnumber@mynwu.ac.za
+            </strong>
+
+        </div>
+
+
+
         <form id="registerForm">
 
+
+            <!-- NAME -->
+
             <div class="form-group">
+
                 <label for="fullName">
                     Full Name
                 </label>
@@ -56,87 +356,146 @@
                 <input
                     type="text"
                     id="fullName"
-                    placeholder="Enter your full name"
+                    placeholder="Your full name"
                     required
                 >
+
             </div>
 
 
-            <div class="form-group">
-                <label for="studentNumber">
-                    NWU Student Number
-                </label>
 
-                <input
-                    type="text"
-                    id="studentNumber"
-                    placeholder="Enter your student number"
-                    required
-                >
+            <div class="form-row">
+
+
+                <!-- STUDENT NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="studentNumber">
+                        NWU Student Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="studentNumber"
+                        placeholder="12345678"
+                        inputmode="numeric"
+                        maxlength="8"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <small>
+                        Exactly 8 numbers.
+                    </small>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        NWU Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="12345678@mynwu.ac.za"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <small
+                        class="email-preview"
+                        id="emailPreview"
+                    >
+                        Use your official NWU email.
+                    </small>
+
+                </div>
+
+
             </div>
 
 
-            <div class="form-group">
-                <label for="email">
-                    Student Email
-                </label>
 
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="student@nwu.ac.za"
-                    required
-                >
+            <div class="form-row">
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="0712345678"
+                        inputmode="tel"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CAMPUS -->
+
+                <div class="form-group">
+
+                    <label for="campus">
+                        NWU Campus
+                    </label>
+
+                    <select
+                        id="campus"
+                        required
+                    >
+
+                        <option value="">
+                            Select your campus
+                        </option>
+
+                        <option value="Vanderbijlpark">
+                            Vanderbijlpark
+                        </option>
+
+                        <option value="Potchefstroom">
+                            Potchefstroom
+                        </option>
+
+                        <option value="Mahikeng">
+                            Mahikeng
+                        </option>
+
+                    </select>
+
+                </div>
+
+
             </div>
 
 
-            <div class="form-group">
-                <label for="phone">
-                    Phone Number
-                </label>
 
-                <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Enter your phone number"
-                    required
-                >
-            </div>
-
+            <!-- ACCOUNT TYPE -->
 
             <div class="form-group">
-                <label for="campus">
-                    NWU Campus
-                </label>
 
-                <select id="campus" required>
-
-                    <option value="">
-                        Select your campus
-                    </option>
-
-                    <option value="potchefstroom">
-                        Potchefstroom
-                    </option>
-
-                    <option value="mahikeng">
-                        Mahikeng
-                    </option>
-
-                    <option value="vanderbijlpark">
-                        Vanderbijlpark
-                    </option>
-
-                </select>
-            </div>
-
-
-            <div class="form-group">
                 <label for="accountType">
                     Account Type
                 </label>
 
-                <select id="accountType" required>
+                <select
+                    id="accountType"
+                    required
+                >
 
                     <option value="">
                         Select account type
@@ -151,45 +510,64 @@
                     </option>
 
                 </select>
+
             </div>
 
 
-            <div class="form-group">
-                <label for="registerPassword">
-                    Password
-                </label>
 
-                <input
-                    type="password"
-                    id="registerPassword"
-                    minlength="8"
-                    placeholder="Minimum 8 characters"
-                    required
-                >
+            <div class="form-row">
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create password"
+                        minlength="8"
+                        required
+                    >
+
+                    <small>
+                        At least 8 characters.
+                    </small>
+
+                </div>
+
+
+
+                <!-- CONFIRM -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Repeat password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
             </div>
 
 
-            <div class="form-group">
-                <label for="confirmPassword">
-                    Confirm Password
-                </label>
 
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    minlength="8"
-                    placeholder="Confirm your password"
-                    required
-                >
-            </div>
+            <!-- TERMS -->
 
-
-            <div style="
-                display:flex;
-                gap:10px;
-                align-items:flex-start;
-                margin-bottom:20px;
-            ">
+            <label class="terms">
 
                 <input
                     type="checkbox"
@@ -197,233 +575,784 @@
                     required
                 >
 
-                <label for="terms">
-                    I agree to use the NWU Campus Money
-                    Market responsibly.
-                </label>
+                <span>
+                    I confirm that I am an NWU student
+                    and agree to the marketplace terms.
+                </span>
 
-            </div>
+            </label>
+
 
 
             <button
                 type="submit"
-                class="form-button"
+                class="register-submit"
             >
                 Create Account
             </button>
 
+
         </form>
 
 
-        <div class="form-help">
 
-            <p>Already registered?</p>
+        <p class="login-text">
+
+            Already registered?
 
             <a href="login.html">
                 Login here
             </a>
 
-        </div>
+        </p>
+
 
     </div>
+
 
 </main>
 
 
+
+<footer>
+
+    <p>
+
+        ©
+        <span id="currentYear">
+        </span>
+
+        NWU Campus Money Market
+
+    </p>
+
+</footer>
+
+
+
 <script>
 
-document
-    .getElementById("registerForm")
-    .addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
 
-            const fullName =
-                document
-                    .getElementById("fullName")
-                    .value
-                    .trim();
+        /*
+        ============================================
+        ELEMENTS
+        ============================================
+        */
 
-            const studentNumber =
-                document
-                    .getElementById("studentNumber")
-                    .value
-                    .trim();
-
-            const email =
-                document
-                    .getElementById("email")
-                    .value
-                    .trim();
-
-            const phone =
-                document
-                    .getElementById("phone")
-                    .value
-                    .trim();
-
-            const campus =
-                document
-                    .getElementById("campus")
-                    .value;
-
-            const accountType =
-                document
-                    .getElementById("accountType")
-                    .value;
-
-            const password =
-                document
-                    .getElementById("registerPassword")
-                    .value;
-
-            const confirmPassword =
-                document
-                    .getElementById("confirmPassword")
-                    .value;
+        const registerForm =
+            document.getElementById(
+                "registerForm"
+            );
 
 
-            if (studentNumber.length < 5) {
+        const fullNameInput =
+            document.getElementById(
+                "fullName"
+            );
 
-                alert(
-                    "Please enter a valid student number."
-                );
 
-                return;
+        const studentNumberInput =
+            document.getElementById(
+                "studentNumber"
+            );
+
+
+        const emailInput =
+            document.getElementById(
+                "email"
+            );
+
+
+        const phoneInput =
+            document.getElementById(
+                "phone"
+            );
+
+
+        const campusInput =
+            document.getElementById(
+                "campus"
+            );
+
+
+        const accountTypeInput =
+            document.getElementById(
+                "accountType"
+            );
+
+
+        const passwordInput =
+            document.getElementById(
+                "registerPassword"
+            );
+
+
+        const confirmPasswordInput =
+            document.getElementById(
+                "confirmPassword"
+            );
+
+
+        const termsInput =
+            document.getElementById(
+                "terms"
+            );
+
+
+        const emailPreview =
+            document.getElementById(
+                "emailPreview"
+            );
+
+
+
+        /*
+        ============================================
+        STUDENT NUMBER
+
+        NWU currently documents student numbers
+        used in its student email as 8 digits.
+        ============================================
+        */
+
+        studentNumberInput.addEventListener(
+            "input",
+            function () {
+
+
+                /*
+                Remove everything except numbers.
+                */
+
+                studentNumberInput.value =
+                    studentNumberInput.value
+                        .replace(
+                            /\D/g,
+                            ""
+                        )
+                        .slice(
+                            0,
+                            8
+                        );
+
+
+                if (
+                    studentNumberInput.value.length ===
+                    8
+                ) {
+
+
+                    const expectedEmail =
+
+                        studentNumberInput.value +
+
+                        "@mynwu.ac.za";
+
+
+                    emailPreview.textContent =
+
+                        "Expected NWU email: " +
+
+                        expectedEmail;
+
+
+                } else {
+
+
+                    emailPreview.textContent =
+
+                        "Enter your 8-digit NWU student number.";
+
+                }
+
+
             }
+        );
 
 
-            if (password.length < 8) {
 
-                alert(
-                    "Password must contain at least 8 characters."
-                );
+        /*
+        ============================================
+        FORM SUBMISSION
+        ============================================
+        */
 
-                return;
-            }
-
-
-            if (password !== confirmPassword) {
-
-                alert(
-                    "Passwords do not match."
-                );
-
-                return;
-            }
+        registerForm.addEventListener(
+            "submit",
+            function (event) {
 
 
-            let users =
-                JSON.parse(
-                    localStorage.getItem(
-                        "registeredUsers"
+                event.preventDefault();
+
+
+
+                /*
+                ------------------------------------
+                CLEAN VALUES
+                ------------------------------------
+                */
+
+                const fullName =
+                    fullNameInput.value
+                        .trim();
+
+
+                const studentNumber =
+                    studentNumberInput.value
+                        .trim();
+
+
+                const email =
+                    emailInput.value
+                        .trim()
+                        .toLowerCase();
+
+
+                const phone =
+                    phoneInput.value
+                        .trim();
+
+
+                const campus =
+                    campusInput.value;
+
+
+                const accountType =
+                    accountTypeInput.value;
+
+
+                const password =
+                    passwordInput.value;
+
+
+                const confirmPassword =
+                    confirmPasswordInput.value;
+
+
+
+                /*
+                ====================================
+                VALIDATE NAME
+                ====================================
+                */
+
+                if (
+                    fullName.length < 2
+                ) {
+
+
+                    alert(
+                        "Please enter your full name."
+                    );
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                VALIDATE NWU STUDENT NUMBER
+                ====================================
+
+                Exactly 8 numeric digits.
+                */
+
+                const studentNumberPattern =
+                    /^\d{8}$/;
+
+
+                if (
+                    !studentNumberPattern.test(
+                        studentNumber
                     )
-                ) || [];
+                ) {
 
 
-            const studentExists =
-                users.some(
-                    function (user) {
+                    alert(
+                        "Invalid NWU student number. Enter exactly 8 digits."
+                    );
 
-                        return (
-                            user.studentNumber ===
-                            studentNumber
-                        );
 
-                    }
+                    studentNumberInput.focus();
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                VALIDATE NWU EMAIL
+                ====================================
+
+                Required format:
+
+                12345678@mynwu.ac.za
+                */
+
+                const nwuEmailPattern =
+                    /^\d{8}@mynwu\.ac\.za$/i;
+
+
+                if (
+                    !nwuEmailPattern.test(
+                        email
+                    )
+                ) {
+
+
+                    alert(
+                        "Registration requires your official NWU email address, for example 12345678@mynwu.ac.za."
+                    );
+
+
+                    emailInput.focus();
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                EMAIL NUMBER MUST MATCH STUDENT NUMBER
+                ====================================
+                */
+
+                const expectedEmail =
+
+                    studentNumber +
+
+                    "@mynwu.ac.za";
+
+
+                if (
+                    email !==
+                    expectedEmail.toLowerCase()
+                ) {
+
+
+                    alert(
+
+                        "Your NWU email does not match your student number.\n\n" +
+
+                        "Expected email:\n" +
+
+                        expectedEmail
+
+                    );
+
+
+                    emailInput.focus();
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                PHONE NUMBER
+                ====================================
+
+                For the demo we require 10 digits.
+
+                This is formatting validation,
+                not ownership verification.
+                ====================================
+                */
+
+                const cleanPhone =
+                    phone.replace(
+                        /\s+/g,
+                        ""
+                    );
+
+
+                const phonePattern =
+                    /^0\d{9}$/;
+
+
+                if (
+                    !phonePattern.test(
+                        cleanPhone
+                    )
+                ) {
+
+
+                    alert(
+                        "Please enter a valid 10-digit South African cellphone number, for example 0712345678."
+                    );
+
+
+                    phoneInput.focus();
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                CAMPUS
+                ====================================
+                */
+
+                const allowedCampuses = [
+
+                    "Vanderbijlpark",
+
+                    "Potchefstroom",
+
+                    "Mahikeng"
+
+                ];
+
+
+                if (
+                    !allowedCampuses.includes(
+                        campus
+                    )
+                ) {
+
+
+                    alert(
+                        "Please select your NWU campus."
+                    );
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                ACCOUNT TYPE
+                ====================================
+                */
+
+                if (
+                    accountType !== "buyer" &&
+                    accountType !== "seller"
+                ) {
+
+
+                    alert(
+                        "Please select Buyer or Seller."
+                    );
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                PASSWORD
+                ====================================
+                */
+
+                if (
+                    password.length < 8
+                ) {
+
+
+                    alert(
+                        "Your password must contain at least 8 characters."
+                    );
+
+
+                    passwordInput.focus();
+
+
+                    return;
+
+                }
+
+
+
+                if (
+                    password !==
+                    confirmPassword
+                ) {
+
+
+                    alert(
+                        "The passwords do not match."
+                    );
+
+
+                    confirmPasswordInput.focus();
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                TERMS
+                ====================================
+                */
+
+                if (
+                    !termsInput.checked
+                ) {
+
+
+                    alert(
+                        "Please confirm that you are an NWU student."
+                    );
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                EXISTING USERS
+                ====================================
+                */
+
+                const registeredUsers =
+
+                    JSON.parse(
+
+                        localStorage.getItem(
+                            "registeredUsers"
+                        )
+
+                    ) || [];
+
+
+
+                /*
+                Student number already registered?
+                */
+
+                const existingStudentNumber =
+
+                    registeredUsers.find(
+                        function (user) {
+
+
+                            return (
+
+                                String(
+                                    user.studentNumber
+                                ) ===
+                                studentNumber
+
+                            );
+
+
+                        }
+                    );
+
+
+                if (
+                    existingStudentNumber
+                ) {
+
+
+                    alert(
+                        "An account with this student number is already registered."
+                    );
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                Email already registered?
+                */
+
+                const existingEmail =
+
+                    registeredUsers.find(
+                        function (user) {
+
+
+                            return (
+
+                                String(
+                                    user.email
+                                )
+                                .toLowerCase() ===
+                                email
+
+                            );
+
+
+                        }
+                    );
+
+
+                if (
+                    existingEmail
+                ) {
+
+
+                    alert(
+                        "An account with this NWU email is already registered."
+                    );
+
+
+                    return;
+
+                }
+
+
+
+                /*
+                ====================================
+                CREATE USER
+                ====================================
+                */
+
+                const newUser = {
+
+
+                    id:
+                        Date.now(),
+
+
+                    fullName:
+                        fullName,
+
+
+                    studentNumber:
+                        studentNumber,
+
+
+                    email:
+                        email,
+
+
+                    phone:
+                        cleanPhone,
+
+
+                    campus:
+                        campus,
+
+
+                    accountType:
+                        accountType,
+
+
+                    password:
+                        password,
+
+
+                    /*
+                    IMPORTANT:
+
+                    This means the input FORMAT
+                    passed our local checks.
+
+                    It does NOT mean NWU itself
+                    authenticated this student.
+                    */
+
+                    nwuFormatValidated:
+                        true,
+
+
+                    nwuVerified:
+                        false,
+
+
+                    createdAt:
+                        new Date()
+                            .toISOString()
+
+
+                };
+
+
+
+                registeredUsers.push(
+                    newUser
                 );
 
 
-            if (studentExists) {
+
+                localStorage.setItem(
+
+                    "registeredUsers",
+
+                    JSON.stringify(
+                        registeredUsers
+                    )
+
+                );
+
+
 
                 alert(
-                    "An account with this student number already exists."
+
+                    "Account created successfully!\n\n" +
+
+                    "You can now login."
+
                 );
 
-                return;
+
+
+                window.location.href =
+                    "login.html";
+
+
             }
+        );
 
 
-            const emailExists =
-                users.some(
-                    function (user) {
 
-                        return (
-                            user.email.toLowerCase() ===
-                            email.toLowerCase()
-                        );
+        /*
+        ============================================
+        CURRENT YEAR
+        ============================================
+        */
 
-                    }
-                );
-
-
-            if (emailExists) {
-
-                alert(
-                    "An account with this email already exists."
-                );
-
-                return;
-            }
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
 
 
-            const newUser = {
-
-                id: Date.now(),
-
-                fullName:
-                    fullName,
-
-                studentNumber:
-                    studentNumber,
-
-                email:
-                    email,
-
-                phone:
-                    phone,
-
-                campus:
-                    campus,
-
-                accountType:
-                    accountType,
-
-                password:
-                    password,
-
-                createdAt:
-                    new Date().toISOString()
-
-            };
-
-
-            users.push(
-                newUser
-            );
-
-
-            localStorage.setItem(
-                "registeredUsers",
-                JSON.stringify(users)
-            );
-
-
-            alert(
-                "Account created successfully! You can now login."
-            );
-
-
-            window.location.href =
-                "login.html";
-
-        }
-    );
+    }
+);
 
 </script>
+
 
 </body>
 
