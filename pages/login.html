@@ -1,225 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Register - NWU Campus Money Market</title>
+    <title>Login - NWU Campus Money Market</title>
 
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
-    <header class="navbar">
+<header class="navbar">
 
-        <div class="logo">
-            <span>NWU</span> Campus Money Market
-        </div>
+    <div class="logo">
+        <span>NWU</span> Campus Money Market
+    </div>
 
-        <a href="../index.html" class="login-btn">
-            ← Back to Home
-        </a>
+    <a href="../index.html" class="login-btn">
+        ← Back to Home
+    </a>
 
-    </header>
+</header>
 
 
-    <main>
+<main>
 
-        <section class="auth-section">
+    <section class="auth-section">
 
-            <div class="auth-card">
+        <div class="auth-card">
 
-                <div class="auth-header">
+            <div class="auth-header">
 
-                    <span class="badge">
-                        🎓 NWU STUDENT REGISTRATION
-                    </span>
+                <span class="badge">
+                    🎓 NWU CAMPUS MONEY MARKET
+                </span>
 
-                    <h1>Create Account</h1>
+                <h1>Login</h1>
 
-                    <p>
-                        Join the NWU student marketplace.
-                    </p>
-
-                </div>
-
-
-                <form id="registerForm">
-
-                    <div class="form-group">
-
-                        <label for="fullName">
-                            Full Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="fullName"
-                            placeholder="Enter your full name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="studentNumber">
-                            NWU Student Number
-                        </label>
-
-                        <input
-                            type="text"
-                            id="studentNumber"
-                            placeholder="Enter your NWU student number"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Student Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter your student email"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="campus">
-                            Campus
-                        </label>
-
-                        <select id="campus" required>
-
-                            <option value="">
-                                Select your campus
-                            </option>
-
-                            <option value="Potchefstroom">
-                                Potchefstroom
-                            </option>
-
-                            <option value="Mahikeng">
-                                Mahikeng
-                            </option>
-
-                            <option value="Vanderbijlpark">
-                                Vanderbijlpark
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="role">
-                            Account Type
-                        </label>
-
-                        <select id="role" required>
-
-                            <option value="">
-                                Select account type
-                            </option>
-
-                            <option value="buyer">
-                                Buyer
-                            </option>
-
-                            <option value="seller">
-                                Seller
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="password">
-                            Password
-                        </label>
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Create a password"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="confirmPassword">
-                            Confirm Password
-                        </label>
-
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            placeholder="Confirm your password"
-                            required
-                        >
-
-                    </div>
-
-
-                    <label class="terms">
-
-                        <input
-                            type="checkbox"
-                            required
-                        >
-
-                        I agree to the marketplace terms and conditions.
-
-                    </label>
-
-
-                    <button
-                        type="submit"
-                        class="auth-btn"
-                    >
-                        Create Account
-                    </button>
-
-                </form>
-
-
-                <div class="auth-footer">
-
-                    <p>
-                        Already have an account?
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </p>
-
-                </div>
+                <p>
+                    Login to access your marketplace account.
+                </p>
 
             </div>
 
-        </section>
 
-    </main>
+            <form id="loginForm">
+
+                <!-- USERNAME / STUDENT NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="loginUsername">
+                        Student Number / Admin Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="loginUsername"
+                        placeholder="Enter student number or admin username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="loginPassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SHOW PASSWORD -->
+
+                <div
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin-bottom: 20px;
+                    "
+                >
+
+                    <input
+                        type="checkbox"
+                        id="showPassword"
+                    >
+
+                    <label for="showPassword">
+                        Show password
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-btn"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <div class="auth-footer">
+
+                <p>
+                    Don't have an account?
+                    <a href="register.html">
+                        Register here
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const usernameInput =
+            document.getElementById("loginUsername");
+
+        const passwordInput =
+            document.getElementById("loginPassword");
+
+        const showPassword =
+            document.getElementById("showPassword");
+
+
+        // ==========================================
+        // DEMO ADMIN ACCOUNT
+        // ==========================================
+
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "NWUAdmin@2026";
+
+
+        // ==========================================
+        // SHOW / HIDE PASSWORD
+        // ==========================================
+
+        showPassword.addEventListener(
+            "change",
+            function () {
+
+                if (showPassword.checked) {
+
+                    passwordInput.type = "text";
+
+                } else {
+
+                    passwordInput.type = "password";
+
+                }
+
+            }
+        );
+
+
+        // ==========================================
+        // LOGIN
+        // ==========================================
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const username =
+                    usernameInput.value.trim();
+
+                const password =
+                    passwordInput.value;
+
+
+                // ==================================
+                // ADMIN LOGIN
+                // ==================================
+
+                if (
+                    username === ADMIN_USERNAME &&
+                    password === ADMIN_PASSWORD
+                ) {
+
+                    localStorage.setItem(
+                        "isLoggedIn",
+                        "true"
+                    );
+
+                    localStorage.setItem(
+                        "accountType",
+                        "admin"
+                    );
+
+                    localStorage.setItem(
+                        "adminLoggedIn",
+                        "true"
+                    );
+
+
+                    alert(
+                        "Admin login successful."
+                    );
+
+
+                    window.location.href =
+                        "admin-dashboard.html";
+
+                    return;
+                }
+
+
+                // ==================================
+                // BLOCK WRONG ADMIN PASSWORD
+                // ==================================
+
+                if (
+                    username.toLowerCase() ===
+                    ADMIN_USERNAME
+                ) {
+
+                    alert(
+                        "Incorrect admin password."
+                    );
+
+                    return;
+                }
+
+
+                // ==================================
+                // STUDENT LOGIN
+                // ==================================
+
+                const savedStudentNumber =
+                    localStorage.getItem(
+                        "nwuStudentNumber"
+                    );
+
+                const savedPassword =
+                    localStorage.getItem(
+                        "nwuPassword"
+                    );
+
+                const accountType =
+                    localStorage.getItem(
+                        "accountType"
+                    );
+
+
+                if (
+                    !savedStudentNumber
+                ) {
+
+                    alert(
+                        "No student account was found. Please register first."
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    username !== savedStudentNumber
+                ) {
+
+                    alert(
+                        "Incorrect student number."
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    savedPassword &&
+                    password !== savedPassword
+                ) {
+
+                    alert(
+                        "Incorrect password."
+                    );
+
+                    return;
+                }
+
+
+                localStorage.setItem(
+                    "isLoggedIn",
+                    "true"
+                );
+
+
+                // BUYER
+
+                if (
+                    accountType === "buyer"
+                ) {
+
+                    window.location.href =
+                        "buyer-dashboard.html";
+
+                    return;
+                }
+
+
+                // SELLER
+
+                if (
+                    accountType === "seller"
+                ) {
+
+                    window.location.href =
+                        "seller-dashboard.html";
+
+                    return;
+                }
+
+
+                alert(
+                    "Account type could not be identified."
+                );
+
+            }
+        );
+
+    }
+);
+
+</script>
 
 </body>
-</html>
 
+</html>
