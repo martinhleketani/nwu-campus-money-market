@@ -2,135 +2,162 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login - NWU Campus Money Market</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
+    <title>
+        Login - NWU Campus Money Market
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
 </head>
 
 <body>
 
+
 <header class="navbar">
 
     <div class="logo">
-        <span>NWU</span> Campus Money Market
+        <span>NWU</span>
+        Campus Money Market
     </div>
 
-    <a href="../index.html" class="login-btn">
-        ← Back to Home
-    </a>
+    <div class="nav-buttons">
+
+        <a
+            href="../index.html"
+            class="login-btn"
+        >
+            Home
+        </a>
+
+        <a
+            href="register.html"
+            class="register-btn"
+        >
+            Register
+        </a>
+
+    </div>
 
 </header>
 
 
-<main>
+<main class="login-page">
 
-    <section class="auth-section">
+    <div class="login-container">
 
-        <div class="auth-card">
+        <div
+            style="
+                text-align:center;
+                margin-bottom:25px;
+            "
+        >
 
-            <div class="auth-header">
-
-                <span class="badge">
-                    🎓 NWU CAMPUS MONEY MARKET
-                </span>
-
-                <h1>Login</h1>
-
-                <p>
-                    Login to access your marketplace account.
-                </p>
-
+            <div style="font-size:45px;">
+                🎓
             </div>
 
+            <h1>
+                Login
+            </h1>
 
-            <form id="loginForm">
-
-                <!-- USERNAME / STUDENT NUMBER -->
-
-                <div class="form-group">
-
-                    <label for="loginUsername">
-                        Student Number / Admin Username
-                    </label>
-
-                    <input
-                        type="text"
-                        id="loginUsername"
-                        placeholder="Enter student number or admin username"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- PASSWORD -->
-
-                <div class="form-group">
-
-                    <label for="loginPassword">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        placeholder="Enter your password"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- SHOW PASSWORD -->
-
-                <div
-                    style="
-                        display: flex;
-                        align-items: center;
-                        gap: 8px;
-                        margin-bottom: 20px;
-                    "
-                >
-
-                    <input
-                        type="checkbox"
-                        id="showPassword"
-                    >
-
-                    <label for="showPassword">
-                        Show password
-                    </label>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="auth-btn"
-                >
-                    Login
-                </button>
-
-            </form>
-
-
-            <div class="auth-footer">
-
-                <p>
-                    Don't have an account?
-                    <a href="register.html">
-                        Register here
-                    </a>
-                </p>
-
-            </div>
+            <p>
+                NWU Campus Money Market
+            </p>
 
         </div>
 
-    </section>
+
+        <form id="loginForm">
+
+
+            <div class="form-group">
+
+                <label for="loginUsername">
+                    Student Number / Admin Username
+                </label>
+
+                <input
+                    type="text"
+                    id="loginUsername"
+                    placeholder="Student number or admin"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+            </div>
+
+
+            <div
+                style="
+                    display:flex;
+                    gap:8px;
+                    align-items:center;
+                    margin-bottom:20px;
+                "
+            >
+
+                <input
+                    type="checkbox"
+                    id="showPassword"
+                >
+
+                <label for="showPassword">
+                    Show password
+                </label>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="form-button"
+            >
+                Login
+            </button>
+
+
+        </form>
+
+
+        <div class="form-help">
+
+            <p>
+                Don't have an account?
+            </p>
+
+            <a href="register.html">
+                Register here
+            </a>
+
+        </div>
+
+    </div>
 
 </main>
 
@@ -141,52 +168,53 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
+
+        /*
+        =========================================
+        DEMO ADMIN ACCOUNT
+        =========================================
+        */
+
+        const ADMIN_USERNAME =
+            "admin";
+
+        const ADMIN_PASSWORD =
+            "NWUAdmin@2026";
+
+
         const loginForm =
-            document.getElementById("loginForm");
+            document.getElementById(
+                "loginForm"
+            );
 
         const usernameInput =
-            document.getElementById("loginUsername");
+            document.getElementById(
+                "loginUsername"
+            );
 
         const passwordInput =
-            document.getElementById("loginPassword");
+            document.getElementById(
+                "loginPassword"
+            );
 
         const showPassword =
-            document.getElementById("showPassword");
+            document.getElementById(
+                "showPassword"
+            );
 
-
-        // ==========================================
-        // DEMO ADMIN ACCOUNT
-        // ==========================================
-
-        const ADMIN_USERNAME = "admin";
-        const ADMIN_PASSWORD = "NWUAdmin@2026";
-
-
-        // ==========================================
-        // SHOW / HIDE PASSWORD
-        // ==========================================
 
         showPassword.addEventListener(
             "change",
             function () {
 
-                if (showPassword.checked) {
-
-                    passwordInput.type = "text";
-
-                } else {
-
-                    passwordInput.type = "password";
-
-                }
+                passwordInput.type =
+                    showPassword.checked
+                        ? "text"
+                        : "password";
 
             }
         );
 
-
-        // ==========================================
-        // LOGIN
-        // ==========================================
 
         loginForm.addEventListener(
             "submit",
@@ -196,34 +224,47 @@ document.addEventListener(
 
 
                 const username =
-                    usernameInput.value.trim();
+                    usernameInput
+                        .value
+                        .trim();
 
                 const password =
-                    passwordInput.value;
+                    passwordInput
+                        .value;
 
 
-                // ==================================
-                // ADMIN LOGIN
-                // ==================================
+                /*
+                =================================
+                ADMIN LOGIN
+                =================================
+                */
 
                 if (
-                    username === ADMIN_USERNAME &&
-                    password === ADMIN_PASSWORD
+                    username.toLowerCase() ===
+                        ADMIN_USERNAME &&
+                    password ===
+                        ADMIN_PASSWORD
                 ) {
 
-                    localStorage.setItem(
-                        "isLoggedIn",
-                        "true"
-                    );
+                    const adminSession = {
+
+                        username:
+                            ADMIN_USERNAME,
+
+                        accountType:
+                            "admin",
+
+                        loggedIn:
+                            true
+
+                    };
+
 
                     localStorage.setItem(
-                        "accountType",
-                        "admin"
-                    );
-
-                    localStorage.setItem(
-                        "adminLoggedIn",
-                        "true"
+                        "currentUser",
+                        JSON.stringify(
+                            adminSession
+                        )
                     );
 
 
@@ -239,10 +280,6 @@ document.addEventListener(
                 }
 
 
-                // ==================================
-                // BLOCK WRONG ADMIN PASSWORD
-                // ==================================
-
                 if (
                     username.toLowerCase() ===
                     ADMIN_USERNAME
@@ -256,32 +293,37 @@ document.addEventListener(
                 }
 
 
-                // ==================================
-                // STUDENT LOGIN
-                // ==================================
+                /*
+                =================================
+                STUDENT LOGIN
+                =================================
+                */
 
-                const savedStudentNumber =
-                    localStorage.getItem(
-                        "nwuStudentNumber"
+                const users =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "registeredUsers"
+                        )
+                    ) || [];
+
+
+                const user =
+                    users.find(
+                        function (registeredUser) {
+
+                            return (
+                                registeredUser.studentNumber ===
+                                username
+                            );
+
+                        }
                     );
 
-                const savedPassword =
-                    localStorage.getItem(
-                        "nwuPassword"
-                    );
 
-                const accountType =
-                    localStorage.getItem(
-                        "accountType"
-                    );
-
-
-                if (
-                    !savedStudentNumber
-                ) {
+                if (!user) {
 
                     alert(
-                        "No student account was found. Please register first."
+                        "Account not found. Please register first."
                     );
 
                     return;
@@ -289,20 +331,8 @@ document.addEventListener(
 
 
                 if (
-                    username !== savedStudentNumber
-                ) {
-
-                    alert(
-                        "Incorrect student number."
-                    );
-
-                    return;
-                }
-
-
-                if (
-                    savedPassword &&
-                    password !== savedPassword
+                    user.password !==
+                    password
                 ) {
 
                     alert(
@@ -313,16 +343,46 @@ document.addEventListener(
                 }
 
 
+                const currentUser = {
+
+                    id:
+                        user.id,
+
+                    fullName:
+                        user.fullName,
+
+                    studentNumber:
+                        user.studentNumber,
+
+                    email:
+                        user.email,
+
+                    phone:
+                        user.phone,
+
+                    campus:
+                        user.campus,
+
+                    accountType:
+                        user.accountType,
+
+                    loggedIn:
+                        true
+
+                };
+
+
                 localStorage.setItem(
-                    "isLoggedIn",
-                    "true"
+                    "currentUser",
+                    JSON.stringify(
+                        currentUser
+                    )
                 );
 
 
-                // BUYER
-
                 if (
-                    accountType === "buyer"
+                    user.accountType ===
+                    "buyer"
                 ) {
 
                     window.location.href =
@@ -332,10 +392,9 @@ document.addEventListener(
                 }
 
 
-                // SELLER
-
                 if (
-                    accountType === "seller"
+                    user.accountType ===
+                    "seller"
                 ) {
 
                     window.location.href =
@@ -346,7 +405,7 @@ document.addEventListener(
 
 
                 alert(
-                    "Account type could not be identified."
+                    "Invalid account type."
                 );
 
             }
