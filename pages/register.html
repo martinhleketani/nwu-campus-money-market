@@ -3,300 +3,427 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Register - NWU Campus Money Market</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-
 <body>
 
-    <!-- ==========================================
-         NAVIGATION
-    =========================================== -->
+<header class="navbar">
+    <div class="logo">
+        <span>NWU</span> Campus Money Market
+    </div>
 
-    <header class="navbar">
+    <div class="nav-buttons">
+        <a href="../index.html" class="login-btn">
+            Home
+        </a>
 
-        <div class="logo">
-            <span>NWU</span> Campus Money Market
+        <a href="login.html" class="register-btn">
+            Login
+        </a>
+    </div>
+</header>
+
+
+<main class="login-page">
+
+    <div class="login-container">
+
+        <div style="text-align:center; margin-bottom:25px;">
+
+            <div style="font-size:45px;">
+                🎓
+            </div>
+
+            <h1>Create Account</h1>
+
+            <p>NWU Campus Money Market</p>
+
         </div>
 
-        <div class="nav-buttons">
 
-            <a
-                href="../index.html"
-                class="login-btn"
+        <form id="registerForm">
+
+            <div class="form-group">
+                <label for="fullName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="studentNumber">
+                    NWU Student Number
+                </label>
+
+                <input
+                    type="text"
+                    id="studentNumber"
+                    placeholder="Enter your student number"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="email">
+                    Student Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="student@nwu.ac.za"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="campus">
+                    NWU Campus
+                </label>
+
+                <select id="campus" required>
+
+                    <option value="">
+                        Select your campus
+                    </option>
+
+                    <option value="potchefstroom">
+                        Potchefstroom
+                    </option>
+
+                    <option value="mahikeng">
+                        Mahikeng
+                    </option>
+
+                    <option value="vanderbijlpark">
+                        Vanderbijlpark
+                    </option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="accountType">
+                    Account Type
+                </label>
+
+                <select id="accountType" required>
+
+                    <option value="">
+                        Select account type
+                    </option>
+
+                    <option value="buyer">
+                        Buyer
+                    </option>
+
+                    <option value="seller">
+                        Seller
+                    </option>
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    minlength="8"
+                    placeholder="Minimum 8 characters"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    minlength="8"
+                    placeholder="Confirm your password"
+                    required
+                >
+            </div>
+
+
+            <div style="
+                display:flex;
+                gap:10px;
+                align-items:flex-start;
+                margin-bottom:20px;
+            ">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                >
+
+                <label for="terms">
+                    I agree to use the NWU Campus Money
+                    Market responsibly.
+                </label>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="form-button"
             >
-                ← Back to Home
+                Create Account
+            </button>
+
+        </form>
+
+
+        <div class="form-help">
+
+            <p>Already registered?</p>
+
+            <a href="login.html">
+                Login here
             </a>
 
         </div>
 
-    </header>
+    </div>
 
+</main>
 
-    <!-- ==========================================
-         REGISTRATION SECTION
-    =========================================== -->
 
-    <main>
+<script>
 
-        <section class="auth-section">
+document
+    .getElementById("registerForm")
+    .addEventListener(
+        "submit",
+        function (event) {
 
-            <div class="auth-card">
+            event.preventDefault();
 
 
-                <!-- HEADER -->
+            const fullName =
+                document
+                    .getElementById("fullName")
+                    .value
+                    .trim();
 
-                <div class="auth-header">
+            const studentNumber =
+                document
+                    .getElementById("studentNumber")
+                    .value
+                    .trim();
 
-                    <span class="badge">
-                        🎓 NWU STUDENT REGISTRATION
-                    </span>
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
 
-                    <h1>
-                        Create Account
-                    </h1>
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
 
-                    <p>
-                        Join the NWU student marketplace.
-                    </p>
+            const campus =
+                document
+                    .getElementById("campus")
+                    .value;
 
-                </div>
+            const accountType =
+                document
+                    .getElementById("accountType")
+                    .value;
 
+            const password =
+                document
+                    .getElementById("registerPassword")
+                    .value;
 
-                <!-- ==========================================
-                     REGISTRATION FORM
-                =========================================== -->
+            const confirmPassword =
+                document
+                    .getElementById("confirmPassword")
+                    .value;
 
-                <form id="registerForm">
 
+            if (studentNumber.length < 5) {
 
-                    <!-- FULL NAME -->
+                alert(
+                    "Please enter a valid student number."
+                );
 
-                    <div class="form-group">
+                return;
+            }
 
-                        <label for="fullName">
-                            Full Name
-                        </label>
 
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            placeholder="Enter your full name"
-                            required
-                        >
+            if (password.length < 8) {
 
-                    </div>
+                alert(
+                    "Password must contain at least 8 characters."
+                );
 
+                return;
+            }
 
-                    <!-- STUDENT NUMBER -->
 
-                    <div class="form-group">
+            if (password !== confirmPassword) {
 
-                        <label for="studentNumber">
-                            NWU Student Number
-                        </label>
+                alert(
+                    "Passwords do not match."
+                );
 
-                        <input
-                            type="text"
-                            id="studentNumber"
-                            name="studentNumber"
-                            placeholder="Enter your NWU student number"
-                            required
-                        >
+                return;
+            }
 
-                    </div>
 
+            let users =
+                JSON.parse(
+                    localStorage.getItem(
+                        "registeredUsers"
+                    )
+                ) || [];
 
-                    <!-- EMAIL -->
 
-                    <div class="form-group">
+            const studentExists =
+                users.some(
+                    function (user) {
 
-                        <label for="email">
-                            Student Email
-                        </label>
+                        return (
+                            user.studentNumber ===
+                            studentNumber
+                        );
 
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Enter your student email"
-                            required
-                        >
+                    }
+                );
 
-                    </div>
 
+            if (studentExists) {
 
-                    <!-- CAMPUS -->
+                alert(
+                    "An account with this student number already exists."
+                );
 
-                    <div class="form-group">
+                return;
+            }
 
-                        <label for="campus">
-                            Campus
-                        </label>
 
-                        <select
-                            id="campus"
-                            name="campus"
-                            required
-                        >
+            const emailExists =
+                users.some(
+                    function (user) {
 
-                            <option value="">
-                                Select your campus
-                            </option>
+                        return (
+                            user.email.toLowerCase() ===
+                            email.toLowerCase()
+                        );
 
-                            <option value="Potchefstroom">
-                                Potchefstroom
-                            </option>
+                    }
+                );
 
-                            <option value="Mahikeng">
-                                Mahikeng
-                            </option>
 
-                            <option value="Vanderbijlpark">
-                                Vanderbijlpark
-                            </option>
+            if (emailExists) {
 
-                        </select>
+                alert(
+                    "An account with this email already exists."
+                );
 
-                    </div>
+                return;
+            }
 
 
-                    <!-- ACCOUNT TYPE -->
+            const newUser = {
 
-                    <div class="form-group">
+                id: Date.now(),
 
-                        <label for="role">
-                            Account Type
-                        </label>
+                fullName:
+                    fullName,
 
-                        <select
-                            id="role"
-                            name="role"
-                            required
-                        >
+                studentNumber:
+                    studentNumber,
 
-                            <option value="">
-                                Select account type
-                            </option>
+                email:
+                    email,
 
-                            <option value="buyer">
-                                Buyer
-                            </option>
+                phone:
+                    phone,
 
-                            <option value="seller">
-                                Seller
-                            </option>
+                campus:
+                    campus,
 
-                        </select>
+                accountType:
+                    accountType,
 
-                    </div>
+                password:
+                    password,
 
+                createdAt:
+                    new Date().toISOString()
 
-                    <!-- PASSWORD -->
+            };
 
-                    <div class="form-group">
 
-                        <label for="password">
-                            Password
-                        </label>
+            users.push(
+                newUser
+            );
 
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Create a password"
-                            minlength="8"
-                            required
-                        >
 
-                    </div>
+            localStorage.setItem(
+                "registeredUsers",
+                JSON.stringify(users)
+            );
 
 
-                    <!-- CONFIRM PASSWORD -->
+            alert(
+                "Account created successfully! You can now login."
+            );
 
-                    <div class="form-group">
 
-                        <label for="confirmPassword">
-                            Confirm Password
-                        </label>
+            window.location.href =
+                "login.html";
 
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            placeholder="Confirm your password"
-                            minlength="8"
-                            required
-                        >
+        }
+    );
 
-                    </div>
-
-
-                    <!-- TERMS -->
-
-                    <label class="terms">
-
-                        <input
-                            type="checkbox"
-                            id="terms"
-                            required
-                        >
-
-                        I agree to the marketplace terms and conditions.
-
-                    </label>
-
-
-                    <!-- SUBMIT BUTTON -->
-
-                    <button
-                        type="submit"
-                        class="auth-btn"
-                    >
-                        Create Account
-                    </button>
-
-                </form>
-
-
-                <!-- ==========================================
-                     LOGIN LINK
-                =========================================== -->
-
-                <div class="auth-footer">
-
-                    <p>
-                        Already have an account?
-
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ==========================================
-         JAVASCRIPT
-    =========================================== -->
-
-    <script src="../js/script.js"></script>
+</script>
 
 </body>
 
