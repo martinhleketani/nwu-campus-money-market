@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -10,561 +9,295 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Register - NWU Campus Money Market
-    </title>
+    <title>Register - NWU Campus Money Market</title>
 
-    <meta
-        name="description"
-        content="Register for the NWU Campus Money Market."
-    >
-
-    <link
-        rel="stylesheet"
-        href="../css/style.css"
-    >
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 
 <body>
 
+    <!-- ==========================================
+         NAVIGATION
+    =========================================== -->
 
-    <div class="login-page">
+    <header class="navbar">
 
+        <div class="logo">
+            <span>NWU</span> Campus Money Market
+        </div>
 
-        <div class="login-container">
+        <div class="nav-buttons">
 
-
-            <!-- LOGO -->
-
-            <div
-                style="
-                    text-align: center;
-                    margin-bottom: 25px;
-                "
+            <a
+                href="../index.html"
+                class="login-btn"
             >
-
-                <div style="font-size: 45px;">
-                    🎓
-                </div>
-
-                <h1>
-                    Create Account
-                </h1>
-
-                <p>
-                    NWU Campus Money Market
-                </p>
-
-            </div>
-
-
-            <!-- REGISTRATION FORM -->
-
-            <form id="registerForm">
-
-
-                <!-- FULL NAME -->
-
-                <div class="form-group">
-
-                    <label for="fullName">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        placeholder="Enter your full name"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- STUDENT NUMBER -->
-
-                <div class="form-group">
-
-                    <label for="studentNumber">
-                        NWU Student Number
-                    </label>
-
-                    <input
-                        type="text"
-                        id="studentNumber"
-                        name="studentNumber"
-                        placeholder="Enter your NWU student number"
-                        required
-                    >
-
-                    <small
-                        style="
-                            color: #6b7280;
-                            display: block;
-                            margin-top: 5px;
-                        "
-                    >
-                        Your student number is required
-                        to access the marketplace.
-                    </small>
-
-                </div>
-
-
-                <!-- EMAIL -->
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Student Email
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="student@nwu.ac.za"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- PHONE -->
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="Enter your phone number"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- CAMPUS -->
-
-                <div class="form-group">
-
-                    <label for="campus">
-                        NWU Campus
-                    </label>
-
-                    <select
-                        id="campus"
-                        name="campus"
-                        required
-                    >
-
-                        <option value="">
-                            Select your campus
-                        </option>
-
-                        <option value="potchefstroom">
-                            Potchefstroom Campus
-                        </option>
-
-                        <option value="mahikeng">
-                            Mahikeng Campus
-                        </option>
-
-                        <option value="vanderbijlpark">
-                            Vanderbijlpark Campus
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- PASSWORD -->
-
-                <div class="form-group">
-
-                    <label for="registerPassword">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="registerPassword"
-                        name="password"
-                        placeholder="Create a password"
-                        required
-                        minlength="8"
-                    >
-
-                </div>
-
-
-                <!-- CONFIRM PASSWORD -->
-
-                <div class="form-group">
-
-                    <label for="confirmPassword">
-                        Confirm Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        placeholder="Confirm your password"
-                        required
-                        minlength="8"
-                    >
-
-                </div>
-
-
-                <!-- ACCOUNT TYPE -->
-
-                <div class="form-group">
-
-                    <label for="accountType">
-                        Account Type
-                    </label>
-
-                    <select
-                        id="accountType"
-                        name="accountType"
-                        required
-                    >
-
-                        <option value="">
-                            Select account type
-                        </option>
-
-                        <option value="buyer">
-                            Buyer
-                        </option>
-
-                        <option value="seller">
-                            Seller
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- TERMS -->
-
-                <div
-                    style="
-                        display: flex;
-                        gap: 10px;
-                        align-items: flex-start;
-                        margin-bottom: 20px;
-                    "
-                >
-
-                    <input
-                        type="checkbox"
-                        id="terms"
-                        required
-                        style="margin-top: 5px;"
-                    >
-
-                    <label
-                        for="terms"
-                        style="
-                            font-size: 13px;
-                            color: #6b7280;
-                        "
-                    >
-                        I agree to use the NWU Campus Money
-                        Market responsibly and follow the
-                        marketplace rules.
-                    </label>
-
-                </div>
-
-
-                <!-- REGISTER BUTTON -->
-
-                <button
-                    type="submit"
-                    class="form-button"
-                >
-                    Create Account
-                </button>
-
-
-            </form>
-
-
-            <!-- LOGIN LINK -->
-
-            <div class="form-help">
-
-                <p>
-                    Already have an account?
-                </p>
-
-                <a href="login.html">
-                    Login here
-                </a>
-
-            </div>
-
-
-            <!-- SECURITY MESSAGE -->
-
-            <div
-                style="
-                    margin-top: 25px;
-                    padding: 15px;
-                    background: #f3f8f5;
-                    border-radius: 8px;
-                    text-align: center;
-                    font-size: 13px;
-                    color: #6b7280;
-                "
-            >
-
-                🔐
-                NWU student information should be
-                protected and only used for marketplace
-                access and account management.
-
-            </div>
-
-
-            <!-- HOME -->
-
-            <div
-                style="
-                    text-align: center;
-                    margin-top: 20px;
-                "
-            >
-
-                <a
-                    href="../index.html"
-                    style="color: #007749;"
-                >
-                    ← Back to Home
-                </a>
-
-            </div>
-
+                ← Back to Home
+            </a>
 
         </div>
 
-    </div>
+    </header>
 
 
-    <!-- JAVASCRIPT -->
+    <!-- ==========================================
+         REGISTRATION SECTION
+    =========================================== -->
+
+    <main>
+
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+
+                <!-- HEADER -->
+
+                <div class="auth-header">
+
+                    <span class="badge">
+                        🎓 NWU STUDENT REGISTRATION
+                    </span>
+
+                    <h1>
+                        Create Account
+                    </h1>
+
+                    <p>
+                        Join the NWU student marketplace.
+                    </p>
+
+                </div>
+
+
+                <!-- ==========================================
+                     REGISTRATION FORM
+                =========================================== -->
+
+                <form id="registerForm">
+
+
+                    <!-- FULL NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- STUDENT NUMBER -->
+
+                    <div class="form-group">
+
+                        <label for="studentNumber">
+                            NWU Student Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="studentNumber"
+                            name="studentNumber"
+                            placeholder="Enter your NWU student number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Student Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your student email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CAMPUS -->
+
+                    <div class="form-group">
+
+                        <label for="campus">
+                            Campus
+                        </label>
+
+                        <select
+                            id="campus"
+                            name="campus"
+                            required
+                        >
+
+                            <option value="">
+                                Select your campus
+                            </option>
+
+                            <option value="Potchefstroom">
+                                Potchefstroom
+                            </option>
+
+                            <option value="Mahikeng">
+                                Mahikeng
+                            </option>
+
+                            <option value="Vanderbijlpark">
+                                Vanderbijlpark
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ACCOUNT TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="role">
+                            Account Type
+                        </label>
+
+                        <select
+                            id="role"
+                            name="role"
+                            required
+                        >
+
+                            <option value="">
+                                Select account type
+                            </option>
+
+                            <option value="buyer">
+                                Buyer
+                            </option>
+
+                            <option value="seller">
+                                Seller
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            minlength="8"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            minlength="8"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        I agree to the marketplace terms and conditions.
+
+                    </label>
+
+
+                    <!-- SUBMIT BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="auth-btn"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <!-- ==========================================
+                     LOGIN LINK
+                =========================================== -->
+
+                <div class="auth-footer">
+
+                    <p>
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
 
     <script src="../js/script.js"></script>
 
+</body>
 
-    <!-- REGISTRATION LOGIC -->
-
-    <script>
-
-        document
-            .getElementById("registerForm")
-            .addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    const fullName =
-                        document
-                            .getElementById("fullName")
-                            .value
-                            .trim();
-
-
-                    const studentNumber =
-                        document
-                            .getElementById("studentNumber")
-                            .value
-                            .trim();
-
-
-                    const email =
-                        document
-                            .getElementById("email")
-                            .value
-                            .trim();
-
-
-                    const phone =
-                        document
-                            .getElementById("phone")
-                            .value
-                            .trim();
-
-
-                    const campus =
-                        document
-                            .getElementById("campus")
-                            .value;
-
-
-                    const password =
-                        document
-                            .getElementById("registerPassword")
-                            .value;
-
-
-                    const confirmPassword =
-                        document
-                            .getElementById("confirmPassword")
-                            .value;
-
-
-                    const accountType =
-                        document
-                            .getElementById("accountType")
-                            .value;
-
-
-                    /*
-                     * CHECK STUDENT NUMBER
-                     */
-
-                    if (
-                        studentNumber.length < 5
-                    ) {
-
-                        alert(
-                            "Please enter a valid NWU student number."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * CHECK PASSWORD
-                     */
-
-                    if (
-                        password.length < 8
-                    ) {
-
-                        alert(
-                            "Password must contain at least 8 characters."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * CHECK PASSWORD MATCH
-                     */
-
-                    if (
-                        password !== confirmPassword
-                    ) {
-
-                        alert(
-                            "Passwords do not match."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * CHECK ACCOUNT TYPE
-                     */
-
-                    if (
-                        accountType === ""
-                    ) {
-
-                        alert(
-                            "Please select an account type."
-                        );
-
-                        return;
-
-                    }
-
-
-                    /*
-                     * DEMO STORAGE
-                     *
-                     * This is temporary.
-                     * A real application should
-                     * save accounts in a secure
-                     * backend database.
-                     */
-
-                    localStorage.setItem(
-                        "nwuStudentNumber",
-                        studentNumber
-                    );
-
-
-                    localStorage.setItem(
-                        "nwuStudentName",
-                        fullName
-                    );
-
-
-                    localStorage.setItem(
-                        "nwuEmail",
-                        email
-                    );
-
-
-                    localStorage.setItem(
-                        "nwuPhone",
-                        phone
-                    );
-
-
-                    localStorage.setItem(
-                        "nwuCampus",
-                        campus
-                    );
-
-
-                    localStorage.setItem(
-                        "accountType",
-                        accountType
-                    );
-
-
-                    /*
-                     * REGISTRATION SUCCESS
-                     */
-
-                    alert(
-                        "Account created successfully!"
-                    );
-
-
-                    /*
-                     * SEND USER TO LOGIN
-                     */
-
-                    window.location.href =
-                        "login.html";
-
-                }
-            );
-
-    </script>
+</html>
