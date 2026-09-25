@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marketplace - NWU Campus Money Market</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span>NWU</span> Campus Money Market
+        </div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="buyer-dashboard.html">Buyer Dashboard</a>
+            <a href="seller-dashboard.html">Sell</a>
+        </nav>
+
+        <div class="nav-buttons">
+
+            <a href="buyer-dashboard.html" class="login-btn">
+                🛒 Cart (<span class="cart-count">0</span>)
+            </a>
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="register.html" class="register-btn">
+                Register
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN MARKETPLACE
+    ========================================== -->
+
+    <main class="dashboard">
+
+        <!-- MARKETPLACE HEADER -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <span class="badge">
+                    🎓 NWU STUDENT MARKETPLACE
+                </span>
+
+                <h1>Campus Marketplace</h1>
+
+                <p>
+                    Buy and sell products with students
+                    across NWU campuses.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SEARCH
+        ========================================== -->
+
+        <section>
+
+            <form class="search-box" id="marketplaceSearchForm">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search books, phones, laptops..."
+                >
+
+                <select id="categorySelect">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="books">
+                        Books
+                    </option>
+
+                    <option value="phones">
+                        Phones
+                    </option>
+
+                    <option value="laptops">
+                        Laptops
+                    </option>
+
+                    <option value="electronics">
+                        Electronics
+                    </option>
+
+                    <option value="accessories">
+                        Accessories
+                    </option>
+
+                    <option value="clothing">
+                        Clothing
+                    </option>
+
+                    <option value="furniture">
+                        Furniture
+                    </option>
+
+                    <option value="gaming">
+                        Gaming
+                    </option>
+
+                    <option value="other">
+                        Other
+                    </option>
+
+                </select>
+
+                <button type="submit" class="primary-btn">
+                    🔍 Search
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =========================================
+             PRODUCTS
+        ========================================== -->
+
+        <section class="products-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Available Products</h2>
+                    <p>
+                        Browse products listed by NWU students.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="product-grid" id="productGrid">
+
+
+                <!-- =================================
+                     SAMPLE PRODUCT 1
+                ================================== -->
+
+                <div
+                    class="product-card"
+                    data-id="sample-book-001"
+                    data-name="Accounting Textbook"
+                    data-category="books"
+                    data-price="350"
+                    data-location="Potchefstroom"
+                >
+
+                    <div class="product-image">
+                        📚
+                    </div>
+
+                    <div class="product-details">
+
+                        <h3>Accounting Textbook</h3>
+
+                        <p class="product-category">
+                            Books
+                        </p>
+
+                        <div class="product-price">
+                            R350
+                        </div>
+
+                        <div class="product-location">
+                            📍 Potchefstroom Campus
+                        </div>
+
+                        <p class="product-condition">
+                            Condition: Good
+                        </p>
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="favourite-btn"
+                                title="Add to favourites"
+                            >
+                                ♡
+                            </button>
+
+                            <button
+                                type="button"
+                                class="add-to-cart"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     SAMPLE PRODUCT 2
+                ================================== -->
+
+                <div
+                    class="product-card"
+                    data-id="sample-phone-001"
+                    data-name="Samsung Galaxy Phone"
+                    data-category="phones"
+                    data-price="3500"
+                    data-location="Mahikeng"
+                >
+
+                    <div class="product-image">
+                        📱
+                    </div>
+
+                    <div class="product-details">
+
+                        <h3>Samsung Galaxy Phone</h3>
+
+                        <p class="product-category">
+                            Phones
+                        </p>
+
+                        <div class="product-price">
+                            R3,500
+                        </div>
+
+                        <div class="product-location">
+                            📍 Mahikeng Campus
+                        </div>
+
+                        <p class="product-condition">
+                            Condition: Used
+                        </p>
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="favourite-btn"
+                                title="Add to favourites"
+                            >
+                                ♡
+                            </button>
+
+                            <button
+                                type="button"
+                                class="add-to-cart"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     SAMPLE PRODUCT 3
+                ================================== -->
+
+                <div
+                    class="product-card"
+                    data-id="sample-laptop-001"
+                    data-name="HP Student Laptop"
+                    data-category="laptops"
+                    data-price="5500"
+                    data-location="Vanderbijlpark"
+                >
+
+                    <div class="product-image">
+                        💻
+                    </div>
+
+                    <div class="product-details">
+
+                        <h3>HP Student Laptop</h3>
+
+                        <p class="product-category">
+                            Laptops
+                        </p>
+
+                        <div class="product-price">
+                            R5,500
+                        </div>
+
+                        <div class="product-location">
+                            📍 Vanderbijlpark Campus
+                        </div>
+
+                        <p class="product-condition">
+                            Condition: Good
+                        </p>
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="favourite-btn"
+                                title="Add to favourites"
+                            >
+                                ♡
+                            </button>
+
+                            <button
+                                type="button"
+                                class="add-to-cart"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     SAMPLE PRODUCT 4
+                ================================== -->
+
+                <div
+                    class="product-card"
+                    data-id="sample-headphones-001"
+                    data-name="Wireless Headphones"
+                    data-category="electronics"
+                    data-price="650"
+                    data-location="Potchefstroom"
+                >
+
+                    <div class="product-image">
+                        🎧
+                    </div>
+
+                    <div class="product-details">
+
+                        <h3>Wireless Headphones</h3>
+
+                        <p class="product-category">
+                            Electronics
+                        </p>
+
+                        <div class="product-price">
+                            R650
+                        </div>
+
+                        <div class="product-location">
+                            📍 Potchefstroom Campus
+                        </div>
+
+                        <p class="product-condition">
+                            Condition: Like New
+                        </p>
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="favourite-btn"
+                                title="Add to favourites"
+                            >
+                                ♡
+                            </button>
+
+                            <button
+                                type="button"
+                                class="add-to-cart"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     SAMPLE PRODUCT 5
+                ================================== -->
+
+                <div
+                    class="product-card"
+                    data-id="sample-charger-001"
+                    data-name="USB-C Fast Charger"
+                    data-category="accessories"
+                    data-price="250"
+                    data-location="Potchefstroom"
+                >
+
+                    <div class="product-image">
+                        🔌
+                    </div>
+
+                    <div class="product-details">
+
+                        <h3>USB-C Fast Charger</h3>
+
+                        <p class="product-category">
+                            Accessories
+                        </p>
+
+                        <div class="product-price">
+                            R250
+                        </div>
+
+                        <div class="product-location">
+                            📍 Potchefstroom Campus
+                        </div>
+
+                        <p class="product-condition">
+                            Condition: New
+                        </p>
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="favourite-btn"
+                                title="Add to favourites"
+                            >
+                                ♡
+                            </button>
+
+                            <button
+                                type="button"
+                                class="add-to-cart"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     SAMPLE PRODUCT 6
+                ================================== -->
+
+                <div
+                    class="product-card"
+                    data-id="sample-controller-001"
+                    data-name="PlayStation Controller"
+                    data-category="gaming"
+                    data-price="900"
+                    data-location="Vanderbijlpark"
+                >
+
+                    <div class="product-image">
+                        🎮
+                    </div>
+
+                    <div class="product-details">
+
+                        <h3>PlayStation Controller</h3>
+
+                        <p class="product-category">
+                            Gaming
+                        </p>
+
+                        <div class="product-price">
+                            R900
+                        </div>
+
+                        <div class="product-location">
+                            📍 Vanderbijlpark Campus
+                        </div>
+
+                        <p class="product-condition">
+                            Condition: Good
+                        </p>
+
+                        <div class="product-actions">
+
+                            <button
+                                type="button"
+                                class="favourite-btn"
+                                title="Add to favourites"
+                            >
+                                ♡
+                            </button>
+
+                            <button
+                                type="button"
+                                class="add-to-cart"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NO RESULTS -->
+
+            <div
+                id="noResults"
+                style="
+                    display: none;
+                    text-align: center;
+                    padding: 40px;
+                "
+            >
+
+                <h3>No products found</h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SELL CTA
+        ========================================== -->
+
+        <section class="cta-section">
+
+            <div>
+
+                <h2>Have something to sell?</h2>
+
+                <p>
+                    List your product and connect with
+                    other NWU students.
+                </p>
+
+            </div>
+
+            <a
+                href="seller-dashboard.html"
+                class="primary-btn"
+            >
+                Sell a Product
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <div class="logo">
+                    <span>NWU</span> Campus Money Market
+                </div>
+
+                <p>
+                    A student marketplace for the
+                    NWU community.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                &copy;
+                <span class="current-year"></span>
+                NWU Campus Money Market
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         MAIN JAVASCRIPT
+    ========================================== -->
+
+    <script src="../js/script.js"></script>
+
+
+    <!-- =========================================
+         MARKETPLACE JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            // =====================================
+            // ELEMENTS
+            // =====================================
+
+            const productGrid =
+                document.getElementById("productGrid");
+
+            const searchForm =
+                document.getElementById(
+                    "marketplaceSearchForm"
+                );
+
+            const searchInput =
+                document.getElementById(
+                    "searchInput"
+                );
+
+            const categorySelect =
+                document.getElementById(
+                    "categorySelect"
+                );
+
+            const noResults =
+                document.getElementById(
+                    "noResults"
+                );
+
+
+            // =====================================
+            // CATEGORY ICONS
+            // =====================================
+
+            function getCategoryIcon(category) {
+
+                const value =
+                    String(category || "")
+                        .toLowerCase();
+
+                if (value === "books") {
+                    return "📚";
+                }
+
+                if (value === "phones") {
+                    return "📱";
+                }
+
+                if (value === "laptops") {
+                    return "💻";
+                }
+
+                if (value === "electronics") {
+                    return "🎧";
+                }
+
+                if (value === "accessories") {
+                    return "🔌";
+                }
+
+                if (value === "clothing") {
+                    return "👕";
+                }
+
+                if (value === "furniture") {
+                    return "🪑";
+                }
+
+                if (value === "gaming") {
+                    return "🎮";
+                }
+
+                return "📦";
+            }
+
+
+            // =====================================
+            // LOAD SELLER LISTINGS
+            // =====================================
+
+            function loadSellerListings() {
+
+                let sellerListings = [];
+
+                try {
+
+                    sellerListings =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "sellerListings"
+                            )
+                        ) || [];
+
+                } catch (error) {
+
+                    sellerListings = [];
+
+                    console.error(
+                        "Could not load seller listings.",
+                        error
+                    );
+                }
+
+
+                sellerListings.forEach(
+                    function (product, index) {
+
+                        createSellerProductCard(
+                            product,
+                            index
+                        );
+
+                    }
+                );
+
+            }
+
+
+            // =====================================
+            // CREATE SELLER PRODUCT CARD
+            // =====================================
+
+            function createSellerProductCard(
+                product,
+                index
+            ) {
+
+                const productName =
+                    product.name ||
+                    product.productName ||
+                    product.title ||
+                    "Unnamed Product";
+
+
+                const productCategory =
+                    product.category ||
+                    product.productCategory ||
+                    "Other";
+
+
+                const productPrice =
+                    Number(
+                        product.price ||
+                        product.productPrice ||
+                        0
+                    );
+
+
+                const productCampus =
+                    product.campus ||
+                    product.location ||
+                    product.productCampus ||
+                    "NWU Campus";
+
+
+                const productCondition =
+                    product.condition ||
+                    product.productCondition ||
+                    "Used";
+
+
+                const productDescription =
+                    product.description ||
+                    product.productDescription ||
+                    "";
+
+
+                const productImage =
+                    product.image ||
+                    product.imageData ||
+                    product.productImage ||
+                    "";
+
+
+                const productId =
+                    String(
+                        product.id ||
+                        "seller-product-" + index
+                    );
+
+
+                // Prevent duplicate IDs
+
+                const existingProduct =
+                    productGrid.querySelector(
+                        '[data-id="' +
+                        CSS.escape(productId) +
+                        '"]'
+                    );
+
+
+                if (existingProduct) {
+                    return;
+                }
+
+
+                // PRODUCT CARD
+
+                const productCard =
+                    document.createElement("div");
+
+                productCard.className =
+                    "product-card";
+
+                productCard.dataset.id =
+                    productId;
+
+                productCard.dataset.name =
+                    productName;
+
+                productCard.dataset.category =
+                    String(
+                        productCategory
+                    ).toLowerCase();
+
+                productCard.dataset.price =
+                    productPrice;
+
+                productCard.dataset.location =
+                    productCampus;
+
+
+                // =================================
+                // IMAGE
+                // =================================
+
+                const imageContainer =
+                    document.createElement("div");
+
+                imageContainer.className =
+                    "product-image";
+
+
+                if (productImage) {
+
+                    const image =
+                        document.createElement("img");
+
+                    image.src =
+                        productImage;
+
+                    image.alt =
+                        productName;
+
+                    image.style.width =
+                        "100%";
+
+                    image.style.height =
+                        "100%";
+
+                    image.style.objectFit =
+                        "cover";
+
+                    imageContainer.appendChild(
+                        image
+                    );
+
+                } else {
+
+                    imageContainer.textContent =
+                        getCategoryIcon(
+                            productCategory
+                        );
+
+                }
+
+
+                // =================================
+                // DETAILS
+                // =================================
+
+                const details =
+                    document.createElement("div");
+
+                details.className =
+                    "product-details";
+
+
+                const title =
+                    document.createElement("h3");
+
+                title.textContent =
+                    productName;
+
+
+                const category =
+                    document.createElement("p");
+
+                category.className =
+                    "product-category";
+
+                category.textContent =
+                    productCategory;
+
+
+                const price =
+                    document.createElement("div");
+
+                price.className =
+                    "product-price";
+
+                price.textContent =
+                    "R" +
+                    productPrice.toLocaleString(
+                        "en-ZA",
+                        {
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 2
+                        }
+                    );
+
+
+                const location =
+                    document.createElement("div");
+
+                location.className =
+                    "product-location";
+
+                location.textContent =
+                    "📍 " + productCampus;
+
+
+                const condition =
+                    document.createElement("p");
+
+                condition.className =
+                    "product-condition";
+
+                condition.textContent =
+                    "Condition: " +
+                    productCondition;
+
+
+                // =================================
+                // DESCRIPTION
+                // =================================
+
+                let description = null;
+
+
+                if (productDescription) {
+
+                    description =
+                        document.createElement("p");
+
+                    description.className =
+                        "product-description";
+
+                    description.textContent =
+                        productDescription;
+
+                }
+
+
+                // =================================
+                // ACTION BUTTONS
+                // =================================
+
+                const actions =
+                    document.createElement("div");
+
+                actions.className =
+                    "product-actions";
+
+
+                const favouriteButton =
+                    document.createElement("button");
+
+                favouriteButton.type =
+                    "button";
+
+                favouriteButton.className =
+                    "favourite-btn";
+
+                favouriteButton.title =
+                    "Add to favourites";
+
+                favouriteButton.textContent =
+                    "♡";
+
+
+                const cartButton =
+                    document.createElement("button");
+
+                cartButton.type =
+                    "button";
+
+                cartButton.className =
+                    "add-to-cart";
+
+                cartButton.textContent =
+                    "Add to Cart";
+
+
+                actions.appendChild(
+                    favouriteButton
+                );
+
+                actions.appendChild(
+                    cartButton
+                );
+
+
+                // =================================
+                // BUILD CARD
+                // =================================
+
+                details.appendChild(
+                    title
+                );
+
+                details.appendChild(
+                    category
+                );
+
+                details.appendChild(
+                    price
+                );
+
+                details.appendChild(
+                    location
+                );
+
+                details.appendChild(
+                    condition
+                );
+
+
+                if (description) {
+
+                    details.appendChild(
+                        description
+                    );
+
+                }
+
+
+                details.appendChild(
+                    actions
+                );
+
+
+                productCard.appendChild(
+                    imageContainer
+                );
+
+                productCard.appendChild(
+                    details
+                );
+
+
+                productGrid.appendChild(
+                    productCard
+                );
+
+            }
+
+
+            // =====================================
+            // CART
+            // =====================================
+
+            function getCart() {
+
+                try {
+
+                    return (
+                        JSON.parse(
+                            localStorage.getItem(
+                                "cart"
+                            )
+                        ) || []
+                    );
+
+                } catch (error) {
+
+                    return [];
+
+                }
+
+            }
+
+
+            function saveCart(cart) {
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+            }
+
+
+            function addToCart(productCard) {
+
+                const cart =
+                    getCart();
+
+
+                const productId =
+                    productCard.dataset.id;
+
+
+                const existingProduct =
+                    cart.find(
+                        function (item) {
+
+                            return (
+                                String(item.id) ===
+                                String(productId)
+                            );
+
+                        }
+                    );
+
+
+                if (existingProduct) {
+
+                    existingProduct.quantity =
+                        Number(
+                            existingProduct.quantity ||
+                            1
+                        ) + 1;
+
+                } else {
+
+                    cart.push({
+
+                        id:
+                            productId,
+
+                        name:
+                            productCard.dataset.name,
+
+                        price:
+                            Number(
+                                productCard.dataset.price
+                            ),
+
+                        location:
+                            productCard.dataset.location,
+
+                        category:
+                            productCard.dataset.category,
+
+                        quantity:
+                            1
+
+                    });
+
+                }
+
+
+                saveCart(cart);
+
+                updateCartCount();
+
+
+                alert(
+                    productCard.dataset.name +
+                    " added to cart!"
+                );
+
+            }
+
+
+            // =====================================
+            // CART COUNT
+            // =====================================
+
+            function updateCartCount() {
+
+                const cart =
+                    getCart();
+
+
+                const totalItems =
+                    cart.reduce(
+                        function (total, item) {
+
+                            return (
+                                total +
+                                Number(
+                                    item.quantity || 1
+                                )
+                            );
+
+                        },
+                        0
+                    );
+
+
+                const cartCounts =
+                    document.querySelectorAll(
+                        ".cart-count"
+                    );
+
+
+                cartCounts.forEach(
+                    function (counter) {
+
+                        counter.textContent =
+                            totalItems;
+
+                    }
+                );
+
+            }
+
+
+            // =====================================
+            // FAVOURITES
+            // =====================================
+
+            function getFavourites() {
+
+                try {
+
+                    return (
+                        JSON.parse(
+                            localStorage.getItem(
+                                "favourites"
+                            )
+                        ) || []
+                    );
+
+                } catch (error) {
+
+                    return [];
+
+                }
+
+            }
+
+
+            function toggleFavourite(
+                productCard,
+                button
+            ) {
+
+                let favourites =
+                    getFavourites();
+
+
+                const productId =
+                    productCard.dataset.id;
+
+
+                const existingIndex =
+                    favourites.findIndex(
+                        function (item) {
+
+                            return (
+                                String(item.id) ===
+                                String(productId)
+                            );
+
+                        }
+                    );
+
+
+                if (existingIndex >= 0) {
+
+                    favourites.splice(
+                        existingIndex,
+                        1
+                    );
+
+                    button.textContent =
+                        "♡";
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                } else {
+
+                    favourites.push({
+
+                        id:
+                            productId,
+
+                        name:
+                            productCard.dataset.name,
+
+                        price:
+                            Number(
+                                productCard.dataset.price
+                            ),
+
+                        location:
+                            productCard.dataset.location,
+
+                        category:
+                            productCard.dataset.category
+
+                    });
+
+
+                    button.textContent =
+                        "♥";
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                localStorage.setItem(
+                    "favourites",
+                    JSON.stringify(
+                        favourites
+                    )
+                );
+
+            }
+
+
+            // =====================================
+            // RESTORE FAVOURITE HEARTS
+            // =====================================
+
+            function restoreFavourites() {
+
+                const favourites =
+                    getFavourites();
+
+
+                document
+                    .querySelectorAll(
+                        "#productGrid .product-card"
+                    )
+                    .forEach(
+                        function (productCard) {
+
+                            const found =
+                                favourites.some(
+                                    function (item) {
+
+                                        return (
+                                            String(
+                                                item.id
+                                            ) ===
+                                            String(
+                                                productCard
+                                                    .dataset
+                                                    .id
+                                            )
+                                        );
+
+                                    }
+                                );
+
+
+                            if (found) {
+
+                                const button =
+                                    productCard
+                                        .querySelector(
+                                            ".favourite-btn"
+                                        );
+
+
+                                if (button) {
+
+                                    button.textContent =
+                                        "♥";
+
+                                    button.classList.add(
+                                        "active"
+                                    );
+
+                                }
+
+                            }
+
+                        }
+                    );
+
+            }
+
+
+            // =====================================
+            // PRODUCT BUTTON EVENTS
+            // =====================================
+
+            productGrid.addEventListener(
+                "click",
+                function (event) {
+
+                    const productCard =
+                        event.target.closest(
+                            ".product-card"
+                        );
+
+
+                    if (!productCard) {
+                        return;
+                    }
+
+
+                    // ADD TO CART
+
+                    if (
+                        event.target.closest(
+                            ".add-to-cart"
+                        )
+                    ) {
+
+                        addToCart(
+                            productCard
+                        );
+
+                        return;
+                    }
+
+
+                    // FAVOURITE
+
+                    const favouriteButton =
+                        event.target.closest(
+                            ".favourite-btn"
+                        );
+
+
+                    if (favouriteButton) {
+
+                        toggleFavourite(
+                            productCard,
+                            favouriteButton
+                        );
+
+                    }
+
+                }
+            );
+
+
+            // =====================================
+            // SEARCH / FILTER
+            // =====================================
+
+            function filterProducts() {
+
+                const searchValue =
+                    searchInput.value
+                        .trim()
+                        .toLowerCase();
+
+
+                const selectedCategory =
+                    categorySelect.value
+                        .toLowerCase();
+
+
+                const products =
+                    document.querySelectorAll(
+                        "#productGrid .product-card"
+                    );
+
+
+                let visibleProducts =
+                    0;
+
+
+                products.forEach(
+                    function (product) {
+
+                        const name =
+                            String(
+                                product.dataset.name ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const category =
+                            String(
+                                product.dataset.category ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const location =
+                            String(
+                                product.dataset.location ||
+                                ""
+                            ).toLowerCase();
+
+
+                        const matchesSearch =
+                            name.includes(
+                                searchValue
+                            ) ||
+                            location.includes(
+                                searchValue
+                            );
+
+
+                        const matchesCategory =
+                            selectedCategory ===
+                            "all" ||
+                            category ===
+                            selectedCategory;
+
+
+                        if (
+                            matchesSearch &&
+                            matchesCategory
+                        ) {
+
+                            product.style.display =
+                                "";
+
+                            visibleProducts++;
+
+                        } else {
+
+                            product.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (visibleProducts === 0) {
+
+                    noResults.style.display =
+                        "block";
+
+                } else {
+
+                    noResults.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            // =====================================
+            // SEARCH FORM
+            // =====================================
+
+            searchForm.addEventListener(
+                "submit",
+                function (event) {
+
+                    event.preventDefault();
+
+                    filterProducts();
+
+                }
+            );
+
+
+            // LIVE SEARCH
+
+            searchInput.addEventListener(
+                "input",
+                filterProducts
+            );
+
+
+            // CATEGORY CHANGE
+
+            categorySelect.addEventListener(
+                "change",
+                filterProducts
+            );
+
+
+            // =====================================
+            // CURRENT YEAR
+            // =====================================
+
+            document
+                .querySelectorAll(
+                    ".current-year"
+                )
+                .forEach(
+                    function (element) {
+
+                        element.textContent =
+                            new Date()
+                                .getFullYear();
+
+                    }
+                );
+
+
+            // =====================================
+            // START MARKETPLACE
+            // =====================================
+
+            loadSellerListings();
+
+            updateCartCount();
+
+            restoreFavourites();
+
+            filterProducts();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
