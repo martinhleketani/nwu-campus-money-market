@@ -22,109 +22,94 @@
 
     <style>
 
-        /* =====================================
-           MARKETPLACE PAGE
-        ===================================== */
-
         .marketplace-page {
-            background: #f7f9fc;
+
             min-height: 100vh;
-            padding: 45px 7%;
+
+            background: #f7f9fc;
+
+            padding: 40px 7%;
+        }
+
+
+        .marketplace-container {
+
+            max-width: 1250px;
+
+            margin: auto;
         }
 
 
         .marketplace-header {
-            max-width: 1200px;
-            margin: 0 auto 30px;
-        }
 
-
-        .marketplace-header h1 {
-            margin-bottom: 8px;
+            margin-bottom: 25px;
         }
 
 
         .marketplace-header p {
+
             color: #6b7280;
         }
 
 
-        /* =====================================
-           SEARCH
-        ===================================== */
+        .campus-message {
 
-        .marketplace-search {
-            max-width: 1200px;
-            margin: 0 auto 35px;
-            padding: 18px;
-            background: white;
-            border-radius: 12px;
+            margin-top: 12px;
 
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            color: #007749;
 
-            box-shadow:
-                0 5px 20px
-                rgba(0, 0, 0, 0.05);
+            font-weight: 700;
         }
 
 
-        .marketplace-search input,
-        .marketplace-search select {
+        /*
+        =====================================
+        FILTERS
+        =====================================
+        */
 
-            flex: 1;
+        .marketplace-filters {
 
-            min-width: 200px;
+            background: white;
 
-            padding: 13px;
+            padding: 20px;
+
+            border-radius: 12px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.05);
+
+            display: grid;
+
+            grid-template-columns:
+                2fr repeat(4, 1fr);
+
+            gap: 10px;
+        }
+
+
+        .marketplace-filters input,
+        .marketplace-filters select {
+
+            width: 100%;
+
+            padding: 12px;
 
             border:
                 1px solid #d1d5db;
 
             border-radius: 7px;
-
-            outline: none;
         }
 
 
-        .marketplace-search button {
-
-            border: none;
-
-            padding: 13px 22px;
-
-            border-radius: 7px;
-
-            background: #007749;
-
-            color: white;
-
-            font-weight: 700;
-
-            cursor: pointer;
-        }
-
-
-        .marketplace-search button:hover {
-            background: #005f3a;
-        }
-
-
-        /* =====================================
-           PRODUCT GRID
-        ===================================== */
-
-        .marketplace-products {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-
-        .marketplace-products h2 {
-            margin-bottom: 20px;
-        }
-
+        /*
+        =====================================
+        PRODUCT GRID
+        =====================================
+        */
 
         .product-grid {
 
@@ -133,13 +118,9 @@
             grid-template-columns:
                 repeat(3, 1fr);
 
-            gap: 20px;
+            gap: 22px;
         }
 
-
-        /* =====================================
-           PRODUCT CARD
-        ===================================== */
 
         .product-card {
 
@@ -148,34 +129,25 @@
             border:
                 1px solid #e5e7eb;
 
-            border-radius: 12px;
+            border-radius: 13px;
 
             overflow: hidden;
 
-            position: relative;
-
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
-
-
-        .product-card:hover {
-
-            transform:
-                translateY(-3px);
-
             box-shadow:
-                0 8px 25px
-                rgba(0, 0, 0, 0.08);
+                0 4px 15px
+                rgba(0,0,0,0.04);
         }
 
+
+        /*
+        =====================================
+        BOOK / PRODUCT IMAGE
+        =====================================
+        */
 
         .product-image {
 
-            width: 100%;
-
-            height: 190px;
+            height: 260px;
 
             background: #eef2f7;
 
@@ -185,9 +157,9 @@
 
             justify-content: center;
 
-            font-size: 60px;
-
             overflow: hidden;
+
+            font-size: 65px;
         }
 
 
@@ -197,25 +169,31 @@
 
             height: 100%;
 
-            object-fit: cover;
+            object-fit: contain;
+
+            background: white;
         }
 
 
         .product-info {
+
             padding: 18px;
         }
 
 
-        .product-info h3 {
-            margin-bottom: 8px;
-        }
+        .module-label {
 
+            display: inline-block;
 
-        .product-price {
+            background: #e5f5ed;
 
             color: #007749;
 
-            font-size: 21px;
+            padding: 5px 9px;
+
+            border-radius: 15px;
+
+            font-size: 12px;
 
             font-weight: 800;
 
@@ -223,57 +201,89 @@
         }
 
 
-        .product-location,
-        .product-condition,
-        .product-seller {
+        .product-info h3 {
+
+            margin-bottom: 8px;
+        }
+
+
+        .book-details {
+
+            color: #4b5563;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            margin-bottom: 10px;
+        }
+
+
+        .product-price {
+
+            color: #007749;
+
+            font-size: 22px;
+
+            font-weight: 800;
+
+            margin: 10px 0;
+        }
+
+
+        .product-meta {
 
             color: #6b7280;
 
             font-size: 13px;
 
-            margin-bottom: 5px;
+            line-height: 1.7;
         }
 
 
         .product-description {
 
+            margin-top: 10px;
+
             color: #4b5563;
 
             font-size: 14px;
-
-            margin-top: 10px;
-
-            margin-bottom: 15px;
         }
 
 
-        /* =====================================
-           PRODUCT BUTTONS
-        ===================================== */
+        /*
+        =====================================
+        BUTTONS
+        =====================================
+        */
 
         .product-actions {
 
             display: flex;
 
-            gap: 8px;
+            flex-wrap: wrap;
+
+            gap: 7px;
 
             margin-top: 15px;
         }
 
 
-        .add-to-cart {
+        .cart-button {
 
             flex: 1;
 
+            min-width: 120px;
+
             border: none;
-
-            padding: 11px;
-
-            border-radius: 6px;
 
             background: #007749;
 
             color: white;
+
+            padding: 10px;
+
+            border-radius: 6px;
 
             font-weight: 700;
 
@@ -281,118 +291,54 @@
         }
 
 
-        .add-to-cart:hover {
-            background: #005f3a;
-        }
-
-
-        .favourite-btn {
-
-            width: 44px;
+        .google-button {
 
             border:
-                1px solid #e5e7eb;
-
-            border-radius: 6px;
+                1px solid #d1d5db;
 
             background: white;
 
+            padding: 10px;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+
             cursor: pointer;
-
-            font-size: 18px;
         }
 
 
-        .favourite-btn.active {
-
-            background: #fee2e2;
-        }
-
-
-        /* =====================================
-           EMPTY SEARCH
-        ===================================== */
-
-        .no-results {
+        .empty-marketplace {
 
             display: none;
 
             text-align: center;
 
-            padding: 50px 20px;
+            background: white;
+
+            padding: 50px;
+
+            border-radius: 12px;
 
             color: #6b7280;
         }
 
 
-        /* =====================================
-           SELLER CTA
-        ===================================== */
-
-        .seller-cta {
-
-            max-width: 1200px;
-
-            margin:
-                50px auto 0;
-
-            padding: 30px;
-
-            background: #007749;
-
-            color: white;
-
-            border-radius: 14px;
-
-            display: flex;
-
-            justify-content:
-                space-between;
-
-            align-items: center;
-
-            gap: 20px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .seller-cta p {
-            color: #e1f1e9;
-        }
-
-
-        .seller-cta a {
-
-            display: inline-block;
-
-            padding: 12px 20px;
-
-            background: white;
-
-            color: #007749;
-
-            border-radius: 7px;
-
-            text-decoration: none;
-
-            font-weight: 700;
-        }
-
-
-        /* =====================================
-           RESPONSIVE
-        ===================================== */
-
         @media (
-            max-width: 900px
+            max-width: 1000px
         ) {
+
+            .marketplace-filters {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
 
             .product-grid {
 
                 grid-template-columns:
                     repeat(2, 1fr);
-
             }
 
         }
@@ -402,27 +348,15 @@
             max-width: 600px
         ) {
 
-            .marketplace-page {
+            .marketplace-filters {
 
-                padding:
-                    30px 5%;
-
+                grid-template-columns: 1fr;
             }
 
 
             .product-grid {
 
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .marketplace-search {
-
-                flex-direction:
-                    column;
-
+                grid-template-columns: 1fr;
             }
 
         }
@@ -435,9 +369,6 @@
 <body>
 
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
 
 <header class="navbar">
 
@@ -462,7 +393,7 @@
 
         <a
             href="buyer-dashboard.html"
-            id="buyerDashboardLink"
+            id="buyerLink"
             style="display:none;"
         >
             Buyer Dashboard
@@ -470,7 +401,7 @@
 
         <a
             href="seller-dashboard.html"
-            id="sellerDashboardLink"
+            id="sellerLink"
             style="display:none;"
         >
             Seller Dashboard
@@ -478,7 +409,7 @@
 
         <a
             href="admin-dashboard.html"
-            id="adminDashboardLink"
+            id="adminLink"
             style="display:none;"
         >
             Admin
@@ -488,19 +419,6 @@
 
 
     <div class="nav-buttons">
-
-
-        <a
-            href="buyer-dashboard.html"
-            id="cartLink"
-            class="login-btn"
-            style="display:none;"
-        >
-
-            🛒 Cart
-            (<span id="cartCount">0</span>)
-
-        </a>
 
 
         <a
@@ -537,211 +455,193 @@
 
 
 
-<!-- =========================================
-     MARKETPLACE
-========================================= -->
-
 <main class="marketplace-page">
 
 
-    <!-- HEADER -->
-
-    <section class="marketplace-header">
+    <div class="marketplace-container">
 
 
-        <span class="badge">
-            🎓 NWU STUDENT MARKETPLACE
-        </span>
+        <section class="marketplace-header">
 
 
-        <h1>
-            Campus Marketplace
-        </h1>
+            <span class="badge">
+                🎓 NWU STUDENT MARKETPLACE
+            </span>
 
 
-        <p>
+            <h1>
+                Campus Marketplace
+            </h1>
 
-            Buy and sell products with
-            students across NWU campuses.
-
-        </p>
-
-
-        <p
-            id="welcomeMessage"
-            style="
-                margin-top:10px;
-                font-weight:600;
-                color:#007749;
-            "
-        >
-        </p>
-
-
-    </section>
-
-
-
-    <!-- =====================================
-         SEARCH
-    ====================================== -->
-
-    <form
-        class="marketplace-search"
-        id="marketplaceSearchForm"
-    >
-
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search products..."
-        >
-
-
-        <select id="categorySelect">
-
-
-            <option value="all">
-                All Categories
-            </option>
-
-
-            <option value="books">
-                Books
-            </option>
-
-
-            <option value="phones">
-                Phones
-            </option>
-
-
-            <option value="laptops">
-                Laptops
-            </option>
-
-
-            <option value="electronics">
-                Electronics
-            </option>
-
-
-            <option value="accessories">
-                Accessories
-            </option>
-
-
-            <option value="clothing">
-                Clothing
-            </option>
-
-
-            <option value="furniture">
-                Furniture
-            </option>
-
-
-            <option value="gaming">
-                Gaming
-            </option>
-
-
-            <option value="other">
-                Other
-            </option>
-
-
-        </select>
-
-
-        <button type="submit">
-            Search
-        </button>
-
-
-    </form>
-
-
-
-    <!-- =====================================
-         PRODUCTS
-    ====================================== -->
-
-    <section class="marketplace-products">
-
-
-        <h2>
-            Products
-        </h2>
-
-
-        <div
-            class="product-grid"
-            id="productGrid"
-        >
-        </div>
-
-
-        <div
-            class="no-results"
-            id="noResults"
-        >
-
-            <h3>
-                No products found
-            </h3>
 
             <p>
-                Try another search or category.
+                Buy textbooks and other products
+                from NWU students.
             </p>
 
-        </div>
+
+            <div
+                class="campus-message"
+                id="campusMessage"
+            >
+            </div>
 
 
-    </section>
+        </section>
 
 
 
-    <!-- =====================================
-         SELLER CTA
-    ====================================== -->
+        <!-- ===================================
+             FILTERS
+        ==================================== -->
 
-    <section class="seller-cta">
-
-
-        <div>
-
-            <h2>
-                Have something to sell?
-            </h2>
-
-            <p>
-                List your product and reach
-                fellow NWU students.
-            </p>
-
-        </div>
+        <section class="marketplace-filters">
 
 
-        <a
-            href="seller-dashboard.html"
-            id="sellButton"
-        >
-            Start Selling
-        </a>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search books or products..."
+            >
 
 
-    </section>
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="books">
+                    📚 Textbooks
+                </option>
+
+                <option value="phones">
+                    📱 Phones
+                </option>
+
+                <option value="laptops">
+                    💻 Laptops
+                </option>
+
+                <option value="electronics">
+                    🎧 Electronics
+                </option>
+
+                <option value="accessories">
+                    🔌 Accessories
+                </option>
+
+                <option value="clothing">
+                    👕 Clothing
+                </option>
+
+                <option value="furniture">
+                    🪑 Furniture
+                </option>
+
+                <option value="gaming">
+                    🎮 Gaming
+                </option>
+
+                <option value="other">
+                    📦 Other
+                </option>
+
+            </select>
+
+
+
+            <select id="subjectFilter">
+
+                <option value="all">
+                    All Subjects
+                </option>
+
+                <option value="CMPG">
+                    CMPG
+                </option>
+
+                <option value="Accounting">
+                    Accounting
+                </option>
+
+            </select>
+
+
+
+            <select id="yearFilter">
+
+                <option value="all">
+                    All Years
+                </option>
+
+                <option value="1">
+                    First Year
+                </option>
+
+                <option value="2">
+                    Second Year
+                </option>
+
+                <option value="3">
+                    Third Year
+                </option>
+
+            </select>
+
+
+
+            <select id="moduleFilter">
+
+                <option value="all">
+                    All Modules
+                </option>
+
+            </select>
+
+
+        </section>
+
+
+
+        <!-- PRODUCTS -->
+
+        <section>
+
+
+            <div
+                class="product-grid"
+                id="productGrid"
+            >
+            </div>
+
+
+            <div
+                class="empty-marketplace"
+                id="emptyMarketplace"
+            >
+
+                <h2>
+                    No products found
+                </h2>
+
+                <p>
+                    There are currently no matching
+                    listings for this campus.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
 
 
 </main>
 
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
 
 <footer>
 
@@ -758,24 +658,24 @@
 
 
 
+<!-- MODULE/TEXTBOOK DATABASE -->
+
+<script src="../js/textbooks.js"></script>
+
+
+
 <script>
-
-/*
-=============================================
-NWU CAMPUS MONEY MARKET
-MARKETPLACE
-=============================================
-*/
-
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
 
-        /* =====================================
-           CURRENT USER
-        ===================================== */
+        /*
+        ==========================================
+        CURRENT USER
+        ==========================================
+        */
 
         const currentUser =
             JSON.parse(
@@ -785,45 +685,12 @@ document.addEventListener(
             );
 
 
-        /* =====================================
-           ELEMENTS
-        ===================================== */
 
-        const productGrid =
-            document.getElementById(
-                "productGrid"
-            );
-
-
-        const searchInput =
-            document.getElementById(
-                "searchInput"
-            );
-
-
-        const categorySelect =
-            document.getElementById(
-                "categorySelect"
-            );
-
-
-        const searchForm =
-            document.getElementById(
-                "marketplaceSearchForm"
-            );
-
-
-        const noResults =
-            document.getElementById(
-                "noResults"
-            );
-
-
-        const cartCount =
-            document.getElementById(
-                "cartCount"
-            );
-
+        /*
+        ==========================================
+        NAVIGATION
+        ==========================================
+        */
 
         const loginLink =
             document.getElementById(
@@ -843,46 +710,23 @@ document.addEventListener(
             );
 
 
-        const cartLink =
+        const buyerLink =
             document.getElementById(
-                "cartLink"
+                "buyerLink"
             );
 
 
-        const buyerDashboardLink =
+        const sellerLink =
             document.getElementById(
-                "buyerDashboardLink"
+                "sellerLink"
             );
 
 
-        const sellerDashboardLink =
+        const adminLink =
             document.getElementById(
-                "sellerDashboardLink"
+                "adminLink"
             );
 
-
-        const adminDashboardLink =
-            document.getElementById(
-                "adminDashboardLink"
-            );
-
-
-        const welcomeMessage =
-            document.getElementById(
-                "welcomeMessage"
-            );
-
-
-        const sellButton =
-            document.getElementById(
-                "sellButton"
-            );
-
-
-
-        /* =====================================
-           LOGIN NAVIGATION
-        ===================================== */
 
         if (
             currentUser &&
@@ -903,291 +747,83 @@ document.addEventListener(
 
 
             if (
-                currentUser.fullName
-            ) {
-
-                welcomeMessage.textContent =
-                    "Welcome, " +
-                    currentUser.fullName +
-                    "!";
-
-            }
-
-
-            /* BUYER */
-
-            if (
                 currentUser.accountType ===
                 "buyer"
             ) {
 
-                buyerDashboardLink
-                    .style.display =
+                buyerLink.style.display =
                     "inline-block";
-
-
-                cartLink.style.display =
-                    "inline-block";
-
-
-                sellButton.href =
-                    "register.html";
-
-                sellButton.textContent =
-                    "Register a Seller Account";
 
             }
 
-
-            /* SELLER */
 
             if (
                 currentUser.accountType ===
                 "seller"
             ) {
 
-                sellerDashboardLink
-                    .style.display =
+                sellerLink.style.display =
                     "inline-block";
-
-
-                sellButton.href =
-                    "seller-dashboard.html";
-
-                sellButton.textContent =
-                    "Manage My Listings";
 
             }
 
-
-            /* ADMIN */
 
             if (
                 currentUser.accountType ===
                 "admin"
             ) {
 
-                adminDashboardLink
-                    .style.display =
+                adminLink.style.display =
                     "inline-block";
 
-
-                sellButton.style.display =
-                    "none";
-
             }
+
+        }
+
+
+
+        /*
+        ==========================================
+        CAMPUS
+        ==========================================
+        */
+
+        const campusMessage =
+            document.getElementById(
+                "campusMessage"
+            );
+
+
+        if (
+            currentUser &&
+            currentUser.campus
+        ) {
+
+
+            campusMessage.textContent =
+
+                "📍 Showing products available at " +
+                currentUser.campus +
+                ".";
+
+
+        } else {
+
+
+            campusMessage.textContent =
+
+                "Login to see listings for your NWU campus.";
 
 
         }
 
 
 
-        /* =====================================
-           SAMPLE PRODUCTS
-        ===================================== */
-
-        const sampleProducts = [
-
-
-            {
-
-                id:
-                    "sample-book-1",
-
-                name:
-                    "Accounting Textbook",
-
-                category:
-                    "books",
-
-                price:
-                    350,
-
-                campus:
-                    "Potchefstroom",
-
-                condition:
-                    "Good",
-
-                description:
-                    "Accounting textbook in good condition.",
-
-                image:
-                    "",
-
-                sellerName:
-                    "NWU Student"
-
-            },
-
-
-            {
-
-                id:
-                    "sample-phone-1",
-
-                name:
-                    "Samsung Galaxy Phone",
-
-                category:
-                    "phones",
-
-                price:
-                    3500,
-
-                campus:
-                    "Mahikeng",
-
-                condition:
-                    "Good",
-
-                description:
-                    "Samsung smartphone in good working condition.",
-
-                image:
-                    "",
-
-                sellerName:
-                    "NWU Student"
-
-            },
-
-
-            {
-
-                id:
-                    "sample-laptop-1",
-
-                name:
-                    "HP Student Laptop",
-
-                category:
-                    "laptops",
-
-                price:
-                    5500,
-
-                campus:
-                    "Vanderbijlpark",
-
-                condition:
-                    "Good",
-
-                description:
-                    "Laptop suitable for university work.",
-
-                image:
-                    "",
-
-                sellerName:
-                    "NWU Student"
-
-            },
-
-
-            {
-
-                id:
-                    "sample-headphones-1",
-
-                name:
-                    "Wireless Headphones",
-
-                category:
-                    "electronics",
-
-                price:
-                    650,
-
-                campus:
-                    "Potchefstroom",
-
-                condition:
-                    "Like New",
-
-                description:
-                    "Wireless headphones with charging cable.",
-
-                image:
-                    "",
-
-                sellerName:
-                    "NWU Student"
-
-            },
-
-
-            {
-
-                id:
-                    "sample-charger-1",
-
-                name:
-                    "USB-C Fast Charger",
-
-                category:
-                    "accessories",
-
-                price:
-                    250,
-
-                campus:
-                    "Potchefstroom",
-
-                condition:
-                    "New",
-
-                description:
-                    "USB-C fast charger.",
-
-                image:
-                    "",
-
-                sellerName:
-                    "NWU Student"
-
-            },
-
-
-            {
-
-                id:
-                    "sample-controller-1",
-
-                name:
-                    "PlayStation Controller",
-
-                category:
-                    "gaming",
-
-                price:
-                    900,
-
-                campus:
-                    "Vanderbijlpark",
-
-                condition:
-                    "Good",
-
-                description:
-                    "PlayStation controller in good condition.",
-
-                image:
-                    "",
-
-                sellerName:
-                    "NWU Student"
-
-            }
-
-
-        ];
-
-
-
-        /* =====================================
-           SELLER PRODUCTS
-        ===================================== */
+        /*
+        ==========================================
+        PRODUCTS
+        ==========================================
+        */
 
         const sellerProducts =
             JSON.parse(
@@ -1199,23 +835,204 @@ document.addEventListener(
 
 
         /*
-        Combine demonstration products with
-        products created in Seller Dashboard.
+        Logged-in students see their own campus.
+
+        Logged-out users can currently view listings.
+        We can make login compulsory later when
+        NWU authentication is implemented.
         */
 
-        const allProducts = [
-
-            ...sampleProducts,
-
-            ...sellerProducts
-
-        ];
+        function getCampusProducts() {
 
 
+            if (
+                currentUser &&
+                currentUser.campus
+            ) {
 
-        /* =====================================
-           CATEGORY ICON
-        ===================================== */
+
+                return sellerProducts.filter(
+                    function (product) {
+
+
+                        return (
+                            product.campus ===
+                            currentUser.campus
+                        );
+
+
+                    }
+                );
+
+            }
+
+
+            return sellerProducts;
+
+        }
+
+
+
+        /*
+        ==========================================
+        ELEMENTS
+        ==========================================
+        */
+
+        const productGrid =
+            document.getElementById(
+                "productGrid"
+            );
+
+
+        const emptyMarketplace =
+            document.getElementById(
+                "emptyMarketplace"
+            );
+
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        const categoryFilter =
+            document.getElementById(
+                "categoryFilter"
+            );
+
+
+        const subjectFilter =
+            document.getElementById(
+                "subjectFilter"
+            );
+
+
+        const yearFilter =
+            document.getElementById(
+                "yearFilter"
+            );
+
+
+        const moduleFilter =
+            document.getElementById(
+                "moduleFilter"
+            );
+
+
+
+        /*
+        ==========================================
+        MODULE FILTER
+        ==========================================
+        */
+
+        function loadModuleFilter() {
+
+
+            moduleFilter.innerHTML =
+
+                '<option value="all">All Modules</option>';
+
+
+            const subject =
+                subjectFilter.value;
+
+
+            const year =
+                yearFilter.value;
+
+
+
+            let modules = [];
+
+
+
+            if (
+                subject !== "all" &&
+                year !== "all"
+            ) {
+
+
+                modules =
+                    NWU_MODULES[subject]?.[year] ||
+                    [];
+
+
+            } else {
+
+
+                Object.values(
+                    NWU_MODULES
+                ).forEach(
+                    function (subjectYears) {
+
+
+                        Object.values(
+                            subjectYears
+                        ).forEach(
+                            function (yearModules) {
+
+
+                                modules.push(
+                                    ...yearModules
+                                );
+
+
+                            }
+                        );
+
+
+                    }
+                );
+
+            }
+
+
+
+            modules = [
+                ...new Set(modules)
+            ];
+
+
+
+            modules.forEach(
+                function (moduleCode) {
+
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        moduleCode;
+
+
+                    option.textContent =
+                        moduleCode;
+
+
+                    moduleFilter.appendChild(
+                        option
+                    );
+
+
+                }
+            );
+
+
+        }
+
+
+
+        /*
+        ==========================================
+        CATEGORY ICON
+        ==========================================
+        */
 
         function getCategoryIcon(
             category
@@ -1224,32 +1041,15 @@ document.addEventListener(
 
             const icons = {
 
-                books:
-                    "📚",
-
-                phones:
-                    "📱",
-
-                laptops:
-                    "💻",
-
-                electronics:
-                    "🎧",
-
-                accessories:
-                    "🔌",
-
-                clothing:
-                    "👕",
-
-                furniture:
-                    "🪑",
-
-                gaming:
-                    "🎮",
-
-                other:
-                    "📦"
+                books: "📚",
+                phones: "📱",
+                laptops: "💻",
+                electronics: "🎧",
+                accessories: "🔌",
+                clothing: "👕",
+                furniture: "🪑",
+                gaming: "🎮",
+                other: "📦"
 
             };
 
@@ -1263,9 +1063,11 @@ document.addEventListener(
 
 
 
-        /* =====================================
-           CREATE PRODUCT CARD
-        ===================================== */
+        /*
+        ==========================================
+        CREATE PRODUCT CARD
+        ==========================================
+        */
 
         function createProductCard(
             product
@@ -1282,38 +1084,14 @@ document.addEventListener(
                 "product-card";
 
 
-            card.dataset.id =
-                String(
-                    product.id
-                );
 
+            /*
+            IMAGE PRIORITY:
 
-            card.dataset.name =
-                (
-                    product.name ||
-                    ""
-                )
-                .toLowerCase();
-
-
-            card.dataset.category =
-                (
-                    product.category ||
-                    "other"
-                )
-                .toLowerCase();
-
-
-            card.dataset.location =
-                (
-                    product.campus ||
-                    ""
-                )
-                .toLowerCase();
-
-
-
-            /* IMAGE */
+            1. Seller's actual uploaded photo
+            2. Verified catalogue cover
+            3. Category icon
+            */
 
             const imageContainer =
                 document.createElement(
@@ -1325,9 +1103,41 @@ document.addEventListener(
                 "product-image";
 
 
+
+            let displayImage =
+                product.image || "";
+
+
+
             if (
-                product.image
+                !displayImage &&
+                product.module
             ) {
+
+
+                const catalogueBook =
+                    findTextbookByModule(
+                        product.module
+                    );
+
+
+                if (
+                    catalogueBook &&
+                    catalogueBook.cover
+                ) {
+
+
+                    displayImage =
+                        catalogueBook.cover;
+
+
+                }
+
+            }
+
+
+
+            if (displayImage) {
 
 
                 const image =
@@ -1337,17 +1147,16 @@ document.addEventListener(
 
 
                 image.src =
-                    product.image;
+                    displayImage;
 
 
                 image.alt =
                     product.name;
 
 
-                imageContainer
-                    .appendChild(
-                        image
-                    );
+                imageContainer.appendChild(
+                    image
+                );
 
 
             } else {
@@ -1363,7 +1172,9 @@ document.addEventListener(
 
 
 
-            /* INFO */
+            /*
+            INFO
+            */
 
             const info =
                 document.createElement(
@@ -1373,6 +1184,33 @@ document.addEventListener(
 
             info.className =
                 "product-info";
+
+
+
+            if (
+                product.module
+            ) {
+
+
+                const moduleLabel =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                moduleLabel.className =
+                    "module-label";
+
+
+                moduleLabel.textContent =
+                    product.module;
+
+
+                info.appendChild(
+                    moduleLabel
+                );
+
+            }
 
 
 
@@ -1387,6 +1225,114 @@ document.addEventListener(
                 "Unnamed Product";
 
 
+            info.appendChild(
+                title
+            );
+
+
+
+            /*
+            BOOK INFORMATION
+            */
+
+            if (
+                product.category ===
+                "books"
+            ) {
+
+
+                const details =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                details.className =
+                    "book-details";
+
+
+
+                if (
+                    product.author
+                ) {
+
+
+                    const author =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    author.textContent =
+                        "Author: " +
+                        product.author;
+
+
+                    details.appendChild(
+                        author
+                    );
+
+                }
+
+
+
+                if (
+                    product.edition
+                ) {
+
+
+                    const edition =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    edition.textContent =
+                        product.edition;
+
+
+                    details.appendChild(
+                        edition
+                    );
+
+                }
+
+
+
+                if (
+                    product.isbn
+                ) {
+
+
+                    const isbn =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    isbn.textContent =
+                        "ISBN: " +
+                        product.isbn;
+
+
+                    details.appendChild(
+                        isbn
+                    );
+
+                }
+
+
+                info.appendChild(
+                    details
+                );
+
+            }
+
+
+
+            /*
+            PRICE
+            */
 
             const price =
                 document.createElement(
@@ -1401,87 +1347,87 @@ document.addEventListener(
             price.textContent =
                 "R" +
                 Number(
-                    product.price || 0
+                    product.price ||
+                    0
                 )
                 .toLocaleString();
 
 
+            info.appendChild(
+                price
+            );
 
-            const location =
+
+
+            /*
+            META
+            */
+
+            const meta =
                 document.createElement(
                     "div"
                 );
 
 
-            location.className =
-                "product-location";
+            meta.className =
+                "product-meta";
 
 
-            location.textContent =
-                "📍 " +
-                (
-                    product.campus ||
-                    "NWU Campus"
+            meta.innerHTML = `
+
+                <div>
+                    📍 ${product.campus || "NWU"}
+                </div>
+
+                <div>
+                    Condition:
+                    ${product.condition || "Not specified"}
+                </div>
+
+                <div>
+                    Seller:
+                    ${product.sellerName || "NWU Student"}
+                </div>
+
+            `;
+
+
+            info.appendChild(
+                meta
+            );
+
+
+
+            if (
+                product.description
+            ) {
+
+
+                const description =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                description.className =
+                    "product-description";
+
+
+                description.textContent =
+                    product.description;
+
+
+                info.appendChild(
+                    description
                 );
 
-
-
-            const condition =
-                document.createElement(
-                    "div"
-                );
-
-
-            condition.className =
-                "product-condition";
-
-
-            condition.textContent =
-                "Condition: " +
-                (
-                    product.condition ||
-                    "Not specified"
-                );
+            }
 
 
 
-            const seller =
-                document.createElement(
-                    "div"
-                );
-
-
-            seller.className =
-                "product-seller";
-
-
-            seller.textContent =
-                "Seller: " +
-                (
-                    product.sellerName ||
-                    product.seller ||
-                    "NWU Student"
-                );
-
-
-
-            const description =
-                document.createElement(
-                    "p"
-                );
-
-
-            description.className =
-                "product-description";
-
-
-            description.textContent =
-                product.description ||
-                "No description provided.";
-
-
-
-            /* ACTIONS */
+            /*
+            ACTIONS
+            */
 
             const actions =
                 document.createElement(
@@ -1501,12 +1447,11 @@ document.addEventListener(
 
 
             cartButton.className =
-                "add-to-cart";
+                "cart-button";
 
 
             cartButton.textContent =
                 "Add to Cart";
-
 
 
             cartButton.addEventListener(
@@ -1523,59 +1468,107 @@ document.addEventListener(
             );
 
 
-
-            const favouriteButton =
-                document.createElement(
-                    "button"
-                );
-
-
-            favouriteButton.className =
-                "favourite-btn";
-
-
-            favouriteButton.textContent =
-                "♡";
-
-
-            favouriteButton.title =
-                "Add to favourites";
+            actions.appendChild(
+                cartButton
+            );
 
 
 
-            favouriteButton.addEventListener(
-                "click",
-                function () {
+            /*
+            GOOGLE BOOK SEARCH
+            */
+
+            if (
+                product.category ===
+                "books"
+            ) {
 
 
-                    toggleFavourite(
-                        product,
-                        favouriteButton
+                const googleButton =
+                    document.createElement(
+                        "button"
                     );
 
 
-                }
-            );
+                googleButton.className =
+                    "google-button";
+
+
+                googleButton.textContent =
+                    "🔎 Google Book";
+
+
+                googleButton.addEventListener(
+                    "click",
+                    function () {
+
+
+                        const catalogueBook =
+                            product.module
+                                ? findTextbookByModule(
+                                    product.module
+                                  )
+                                : null;
 
 
 
-            actions.append(
-                cartButton,
-                favouriteButton
-            );
+                        const searchTerm =
+
+                            product.isbn ||
+
+                            catalogueBook?.googleQuery ||
+
+                            (
+                                (
+                                    product.bookTitle ||
+                                    product.name ||
+                                    ""
+                                ) +
+
+                                " " +
+
+                                (
+                                    product.author ||
+                                    ""
+                                ) +
+
+                                " " +
+
+                                (
+                                    product.edition ||
+                                    ""
+                                )
+                            );
 
 
 
-            info.append(
-                title,
-                price,
-                location,
-                condition,
-                seller,
-                description,
+                        window.open(
+
+                            "https://www.google.com/search?q=" +
+                            encodeURIComponent(
+                                searchTerm
+                            ),
+
+                            "_blank"
+
+                        );
+
+
+                    }
+                );
+
+
+                actions.appendChild(
+                    googleButton
+                );
+
+            }
+
+
+
+            info.appendChild(
                 actions
             );
-
 
 
             card.append(
@@ -1590,9 +1583,11 @@ document.addEventListener(
 
 
 
-        /* =====================================
-           DISPLAY PRODUCTS
-        ===================================== */
+        /*
+        ==========================================
+        DISPLAY
+        ==========================================
+        */
 
         function displayProducts(
             products
@@ -1608,7 +1603,7 @@ document.addEventListener(
             ) {
 
 
-                noResults.style.display =
+                emptyMarketplace.style.display =
                     "block";
 
 
@@ -1617,7 +1612,7 @@ document.addEventListener(
             }
 
 
-            noResults.style.display =
+            emptyMarketplace.style.display =
                 "none";
 
 
@@ -1625,34 +1620,176 @@ document.addEventListener(
                 function (product) {
 
 
-                    productGrid
-                        .appendChild(
-                            createProductCard(
-                                product
-                            )
-                        );
+                    productGrid.appendChild(
+                        createProductCard(
+                            product
+                        )
+                    );
 
 
                 }
             );
 
+
         }
 
 
 
-        /* =====================================
-           ADD TO CART
-        ===================================== */
+        /*
+        ==========================================
+        FILTER
+        ==========================================
+        */
+
+        function filterProducts() {
+
+
+            const search =
+                searchInput
+                    .value
+                    .toLowerCase()
+                    .trim();
+
+
+            const category =
+                categoryFilter.value;
+
+
+            const subject =
+                subjectFilter.value;
+
+
+            const year =
+                yearFilter.value;
+
+
+            const module =
+                moduleFilter.value;
+
+
+
+            const products =
+                getCampusProducts()
+                    .filter(
+                        function (product) {
+
+
+                            const searchable =
+
+                                (
+                                    product.name ||
+                                    ""
+                                ) +
+
+                                " " +
+
+                                (
+                                    product.description ||
+                                    ""
+                                ) +
+
+                                " " +
+
+                                (
+                                    product.module ||
+                                    ""
+                                ) +
+
+                                " " +
+
+                                (
+                                    product.author ||
+                                    ""
+                                ) +
+
+                                " " +
+
+                                (
+                                    product.isbn ||
+                                    ""
+                                );
+
+
+
+                            const matchesSearch =
+                                searchable
+                                    .toLowerCase()
+                                    .includes(
+                                        search
+                                    );
+
+
+                            const matchesCategory =
+
+                                category === "all" ||
+
+                                product.category ===
+                                    category;
+
+
+                            const matchesSubject =
+
+                                subject === "all" ||
+
+                                product.subject ===
+                                    subject;
+
+
+                            const matchesYear =
+
+                                year === "all" ||
+
+                                String(
+                                    product.studyYear
+                                ) ===
+                                String(
+                                    year
+                                );
+
+
+                            const matchesModule =
+
+                                module === "all" ||
+
+                                product.module ===
+                                    module;
+
+
+
+                            return (
+
+                                matchesSearch &&
+                                matchesCategory &&
+                                matchesSubject &&
+                                matchesYear &&
+                                matchesModule
+
+                            );
+
+
+                        }
+                    );
+
+
+            displayProducts(
+                products
+            );
+
+
+        }
+
+
+
+        /*
+        ==========================================
+        CART
+        ==========================================
+        */
 
         function addToCart(
             product
         ) {
 
-
-            /*
-            Only buyers can add products
-            to the shopping cart.
-            */
 
             if (
                 !currentUser ||
@@ -1686,7 +1823,7 @@ document.addEventListener(
 
 
 
-            const existingProduct =
+            const existing =
                 cart.find(
                     function (item) {
 
@@ -1702,16 +1839,13 @@ document.addEventListener(
 
 
 
-            if (
-                existingProduct
-            ) {
+            if (existing) {
 
 
-                existingProduct.quantity =
+                existing.quantity =
                     (
                         Number(
-                            existingProduct
-                                .quantity
+                            existing.quantity
                         ) ||
                         1
                     ) + 1;
@@ -1733,11 +1867,17 @@ document.addEventListener(
                             product.price
                         ),
 
-                    category:
-                        product.category,
+                    image:
+                        product.image || "",
+
+                    module:
+                        product.module || "",
 
                     campus:
                         product.campus,
+
+                    sellerName:
+                        product.sellerName,
 
                     quantity:
                         1
@@ -1757,294 +1897,40 @@ document.addEventListener(
             );
 
 
-
-            updateCartCount();
-
-
-
             alert(
                 product.name +
                 " added to your cart."
             );
 
-        }
-
-
-
-        /* =====================================
-           CART COUNT
-        ===================================== */
-
-        function updateCartCount() {
-
-
-            const cart =
-                JSON.parse(
-                    localStorage.getItem(
-                        "cart"
-                    )
-                ) || [];
-
-
-            const count =
-                cart.reduce(
-                    function (
-                        total,
-                        item
-                    ) {
-
-
-                        return (
-                            total +
-                            (
-                                Number(
-                                    item.quantity
-                                ) ||
-                                1
-                            )
-                        );
-
-
-                    },
-                    0
-                );
-
-
-            cartCount.textContent =
-                count;
 
         }
 
 
 
-        /* =====================================
-           FAVOURITES
-        ===================================== */
+        /*
+        ==========================================
+        EVENTS
+        ==========================================
+        */
 
-        function toggleFavourite(
-            product,
-            button
-        ) {
+        searchInput.addEventListener(
+            "input",
+            filterProducts
+        );
 
 
-            if (
-                !currentUser ||
-                !currentUser.loggedIn
-            ) {
+        categoryFilter.addEventListener(
+            "change",
+            filterProducts
+        );
 
 
-                alert(
-                    "Please login to save favourites."
-                );
+        subjectFilter.addEventListener(
+            "change",
+            function () {
 
 
-                window.location.href =
-                    "login.html";
-
-
-                return;
-
-            }
-
-
-
-            let favourites =
-                JSON.parse(
-                    localStorage.getItem(
-                        "favourites"
-                    )
-                ) || [];
-
-
-
-            const existingIndex =
-                favourites.findIndex(
-                    function (item) {
-
-
-                        return (
-                            String(item.id) ===
-                            String(product.id)
-                        );
-
-
-                    }
-                );
-
-
-
-            if (
-                existingIndex >= 0
-            ) {
-
-
-                favourites.splice(
-                    existingIndex,
-                    1
-                );
-
-
-                button.textContent =
-                    "♡";
-
-
-                button.classList.remove(
-                    "active"
-                );
-
-
-            } else {
-
-
-                favourites.push({
-
-                    id:
-                        product.id,
-
-                    name:
-                        product.name,
-
-                    price:
-                        product.price
-
-                });
-
-
-                button.textContent =
-                    "♥";
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-            }
-
-
-
-            localStorage.setItem(
-                "favourites",
-                JSON.stringify(
-                    favourites
-                )
-            );
-
-        }
-
-
-
-        /* =====================================
-           SEARCH / FILTER
-        ===================================== */
-
-        function filterProducts() {
-
-
-            const search =
-                searchInput
-                    .value
-                    .toLowerCase()
-                    .trim();
-
-
-            const category =
-                categorySelect
-                    .value
-                    .toLowerCase();
-
-
-
-            const filteredProducts =
-                allProducts.filter(
-                    function (product) {
-
-
-                        const name =
-                            (
-                                product.name ||
-                                ""
-                            )
-                            .toLowerCase();
-
-
-                        const description =
-                            (
-                                product.description ||
-                                ""
-                            )
-                            .toLowerCase();
-
-
-                        const campus =
-                            (
-                                product.campus ||
-                                ""
-                            )
-                            .toLowerCase();
-
-
-                        const productCategory =
-                            (
-                                product.category ||
-                                "other"
-                            )
-                            .toLowerCase();
-
-
-
-                        const matchesSearch =
-
-                            name.includes(
-                                search
-                            ) ||
-
-                            description.includes(
-                                search
-                            ) ||
-
-                            campus.includes(
-                                search
-                            );
-
-
-
-                        const matchesCategory =
-
-                            category ===
-                                "all" ||
-
-                            productCategory ===
-                                category;
-
-
-
-                        return (
-                            matchesSearch &&
-                            matchesCategory
-                        );
-
-
-                    }
-                );
-
-
-
-            displayProducts(
-                filteredProducts
-            );
-
-        }
-
-
-
-        searchForm.addEventListener(
-            "submit",
-            function (event) {
-
-
-                event.preventDefault();
-
+                loadModuleFilter();
 
                 filterProducts();
 
@@ -2053,24 +1939,32 @@ document.addEventListener(
         );
 
 
+        yearFilter.addEventListener(
+            "change",
+            function () {
 
-        searchInput.addEventListener(
-            "input",
-            filterProducts
+
+                loadModuleFilter();
+
+                filterProducts();
+
+
+            }
         );
 
 
-
-        categorySelect.addEventListener(
+        moduleFilter.addEventListener(
             "change",
             filterProducts
         );
 
 
 
-        /* =====================================
-           LOGOUT
-        ===================================== */
+        /*
+        ==========================================
+        LOGOUT
+        ==========================================
+        */
 
         logoutButton.addEventListener(
             "click",
@@ -2091,52 +1985,31 @@ document.addEventListener(
 
 
 
-        /* =====================================
-           SELL BUTTON FOR LOGGED OUT USERS
-        ===================================== */
+        /*
+        ==========================================
+        YEAR
+        ==========================================
+        */
 
-        if (
-            !currentUser ||
-            !currentUser.loggedIn
-        ) {
-
-
-            sellButton.href =
-                "login.html";
-
-
-            sellButton.textContent =
-                "Login to Start Selling";
-
-
-        }
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
 
 
 
-        /* =====================================
-           YEAR
-        ===================================== */
+        /*
+        ==========================================
+        INITIAL LOAD
+        ==========================================
+        */
 
-        document
-            .getElementById(
-                "currentYear"
-            )
-            .textContent =
-                new Date()
-                    .getFullYear();
+        loadModuleFilter();
 
-
-
-        /* =====================================
-           INITIAL LOAD
-        ===================================== */
 
         displayProducts(
-            allProducts
+            getCampusProducts()
         );
-
-
-        updateCartCount();
 
 
     }
