@@ -1,99 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard - NWU Campus Money Market</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="../css/style.css">
+    <title>
+        Admin Dashboard - NWU Campus Money Market
+    </title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <style>
+
+        /* ==========================================
+           ADMIN PAGE
+        ========================================== */
+
+        .admin-page {
+            background: #f7f9fc;
+            min-height: 100vh;
+            padding: 45px 7%;
+        }
+
+
+        .admin-header {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+
+        .admin-header h1 {
+            margin-bottom: 5px;
+        }
+
+
+        .admin-header p {
+            color: #6b7280;
+        }
+
+
+        .admin-badge {
+            display: inline-block;
+
+            background: #111827;
+            color: white;
+
+            padding: 7px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* ==========================================
+           STATISTICS
+        ========================================== */
+
+        .admin-stats {
+
+            max-width: 1200px;
+            margin: 0 auto 35px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .stat-card {
+
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 22px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+
+        .stat-card h2 {
+
+            font-size: 28px;
+
+            color: #007749;
+
+            margin-bottom: 5px;
+        }
+
+
+        .stat-card p {
+            color: #6b7280;
+        }
+
+
+        /* ==========================================
+           ADMIN SECTIONS
+        ========================================== */
+
+        .admin-section {
+
+            max-width: 1200px;
+
+            margin:
+                0 auto 30px;
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        .section-header {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .section-header p {
+            color: #6b7280;
+        }
+
+
+        /* ==========================================
+           BUTTONS
+        ========================================== */
+
+        .admin-button {
+
+            border: none;
+
+            padding: 11px 16px;
+
+            border-radius: 7px;
+
+            background: #007749;
+
+            color: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .admin-button:hover {
+            background: #005f3a;
+        }
+
+
+        .danger-button {
+
+            border: none;
+
+            padding: 8px 12px;
+
+            border-radius: 6px;
+
+            background: #dc2626;
+
+            color: white;
+
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        .danger-button:hover {
+            background: #b91c1c;
+        }
+
+
+        .logout-button {
+            background: #dc2626;
+        }
+
+
+        .logout-button:hover {
+            background: #b91c1c;
+        }
+
+
+        /* ==========================================
+           TABLE
+        ========================================== */
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+
+        .admin-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 750px;
+        }
+
+
+        .admin-table th,
+        .admin-table td {
+
+            padding: 13px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            text-align: left;
+        }
+
+
+        .admin-table th {
+
+            background: #f3f4f6;
+
+            color: #374151;
+        }
+
+
+        .admin-table tr:hover {
+            background: #f9fafb;
+        }
+
+
+        /* ==========================================
+           BADGES
+        ========================================== */
+
+        .role-badge {
+
+            display: inline-block;
+
+            padding: 5px 9px;
+
+            border-radius: 15px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+
+        .seller-badge {
+
+            background: #dbeafe;
+
+            color: #1d4ed8;
+        }
+
+
+        /* ==========================================
+           EMPTY MESSAGE
+        ========================================== */
+
+        .empty-message {
+
+            text-align: center;
+
+            color: #6b7280;
+
+            padding: 35px 15px;
+        }
+
+
+        /* ==========================================
+           ADMIN NOTICE
+        ========================================== */
+
+        .admin-notice {
+
+            max-width: 1200px;
+
+            margin: 0 auto 30px;
+
+            background: #fff7ed;
+
+            border:
+                1px solid #fed7aa;
+
+            color: #9a3412;
+
+            padding: 16px;
+
+            border-radius: 10px;
+        }
+
+
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (
+            max-width: 950px
+        ) {
+
+            .admin-stats {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (
+            max-width: 550px
+        ) {
+
+            .admin-page {
+                padding: 30px 5%;
+            }
+
+
+            .admin-stats {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ==========================================
+     ADMIN SECURITY CHECK
+========================================== -->
+
+<script>
+
+(function () {
+
+    const currentUser =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
+
+
+    if (
+        !currentUser ||
+        !currentUser.loggedIn ||
+        currentUser.accountType !== "admin"
+    ) {
+
+        alert(
+            "Admin access only. Please login as administrator."
+        );
+
+
+        window.location.replace(
+            "login.html"
+        );
+
+    }
+
+})();
+
+</script>
+
+
+
+<!-- ==========================================
+     NAVIGATION
+========================================== -->
+
 <header class="navbar">
 
+
     <div class="logo">
-        <span>NWU</span> Campus Money Market
+
+        <span>NWU</span>
+        Campus Money Market
+
     </div>
 
+
     <nav>
-        <a href="../index.html">Home</a>
-        <a href="marketplace.html">Marketplace</a>
-        <a href="buyer-dashboard.html">Buyers</a>
-        <a href="seller-dashboard.html">Sellers</a>
+
+        <a href="../index.html">
+            Home
+        </a>
+
+
+        <a href="marketplace.html">
+            Marketplace
+        </a>
+
+
+        <a href="#usersSection">
+            Users
+        </a>
+
+
+        <a href="#productsSection">
+            Products
+        </a>
+
     </nav>
+
 
     <div class="nav-buttons">
 
-        <span class="badge">
+
+        <span
+            class="badge"
+            style="margin-right:10px;"
+        >
             ADMIN
         </span>
 
+
         <button
             class="register-btn"
-            onclick="logout()"
+            id="logoutButton"
         >
             Logout
         </button>
 
+
     </div>
+
 
 </header>
 
 
-<main class="dashboard">
 
-    <!-- ADMIN HEADER -->
+<!-- ==========================================
+     ADMIN DASHBOARD
+========================================== -->
 
-    <section class="dashboard-header">
+<main class="admin-page">
+
+
+    <!-- HEADER -->
+
+    <section class="admin-header">
+
 
         <div>
 
-            <span class="badge">
+            <span class="admin-badge">
                 🔐 ADMIN CONTROL CENTRE
             </span>
+
 
             <h1>
                 Admin Dashboard
             </h1>
 
+
             <p>
-                Monitor users, products, orders, sales,
-                locations and marketplace activity.
+                Manage registered students,
+                marketplace products and platform activity.
             </p>
 
         </div>
 
-        <div>
 
-            <button
-                class="primary-btn"
-                onclick="refreshDashboard()"
-            >
-                🔄 Refresh Data
-            </button>
+        <button
+            class="admin-button"
+            id="refreshButton"
+        >
+            🔄 Refresh Data
+        </button>
 
-        </div>
 
     </section>
 
 
-    <!-- PLATFORM STATISTICS -->
 
-    <section class="dashboard-stats">
+    <!-- ==========================================
+         STATISTICS
+    ========================================== -->
+
+    <section class="admin-stats">
+
 
         <div class="stat-card">
 
-            <span>
+            <div class="stat-icon">
                 👥
-            </span>
+            </div>
 
-            <h3 id="totalStudents">
-                1,248
-            </h3>
+            <h2 id="totalStudents">
+                0
+            </h2>
 
             <p>
                 Registered Students
@@ -104,13 +559,13 @@
 
         <div class="stat-card">
 
-            <span>
+            <div class="stat-icon">
                 🛒
-            </span>
+            </div>
 
-            <h3 id="totalBuyers">
-                982
-            </h3>
+            <h2 id="totalBuyers">
+                0
+            </h2>
 
             <p>
                 Buyers
@@ -121,13 +576,13 @@
 
         <div class="stat-card">
 
-            <span>
+            <div class="stat-icon">
                 🏪
-            </span>
+            </div>
 
-            <h3 id="totalSellers">
-                266
-            </h3>
+            <h2 id="totalSellers">
+                0
+            </h2>
 
             <p>
                 Sellers
@@ -138,404 +593,174 @@
 
         <div class="stat-card">
 
-            <span>
+            <div class="stat-icon">
                 📦
-            </span>
+            </div>
 
-            <h3 id="totalProducts">
-                1,856
-            </h3>
+            <h2 id="totalProducts">
+                0
+            </h2>
 
             <p>
-                Products
+                Seller Products
             </p>
 
         </div>
 
 
-        <div class="stat-card">
-
-            <span>
-                💰
-            </span>
-
-            <h3>
-                R486,250
-            </h3>
-
-            <p>
-                Total Sales
-            </p>
-
-        </div>
+    </section>
 
 
-        <div class="stat-card">
 
-            <span>
-                💵
-            </span>
+    <!-- ==========================================
+         NOTICE
+    ========================================== -->
 
-            <h3>
-                R48,625
-            </h3>
+    <section class="admin-notice">
 
-            <p>
-                Platform Revenue
-            </p>
+        <strong>Demo Admin System:</strong>
 
-        </div>
+        The information shown here comes from
+        this browser's localStorage.
+
+        A production version will require
+        a secure backend and database.
 
     </section>
 
 
-    <!-- PENDING ACTIONS -->
 
-    <section class="profile-card">
-
-        <div class="profile-card-header">
-
-            <div>
-
-                <span class="card-icon">
-                    ⚠️
-                </span>
-
-                <h2>
-                    Pending Actions
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="admin-action-grid">
-
-            <div class="admin-action-card">
-
-                <span>
-                    📦
-                </span>
-
-                <h3>
-                    18
-                </h3>
-
-                <p>
-                    Products awaiting approval
-                </p>
-
-                <button
-                    class="table-btn"
-                    onclick="showSection('products')"
-                >
-                    Review
-                </button>
-
-            </div>
-
-
-            <div class="admin-action-card">
-
-                <span>
-                    🚩
-                </span>
-
-                <h3>
-                    7
-                </h3>
-
-                <p>
-                    Reports requiring review
-                </p>
-
-                <button
-                    class="table-btn"
-                    onclick="showSection('reports')"
-                >
-                    Review
-                </button>
-
-            </div>
-
-
-            <div class="admin-action-card">
-
-                <span>
-                    👤
-                </span>
-
-                <h3>
-                    12
-                </h3>
-
-                <p>
-                    New seller applications
-                </p>
-
-                <button
-                    class="table-btn"
-                    onclick="showSection('users')"
-                >
-                    Review
-                </button>
-
-            </div>
-
-
-            <div class="admin-action-card">
-
-                <span>
-                    💬
-                </span>
-
-                <h3>
-                    4
-                </h3>
-
-                <p>
-                    User complaints
-                </p>
-
-                <button
-                    class="table-btn"
-                    onclick="showSection('reports')"
-                >
-                    Review
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SALES CHART -->
-
-    <section class="chart-card">
-
-        <div class="chart-header">
-
-            <div>
-
-                <h2>
-                    Marketplace Sales
-                </h2>
-
-                <p>
-                    Overview of marketplace transaction activity.
-                </p>
-
-            </div>
-
-            <select id="salesPeriod">
-
-                <option value="monthly">
-                    Monthly
-                </option>
-
-                <option value="weekly">
-                    Weekly
-                </option>
-
-                <option value="yearly">
-                    Yearly
-                </option>
-
-            </select>
-
-        </div>
-
-        <canvas id="salesChart"></canvas>
-
-    </section>
-
-
-    <!-- USER CHART -->
-
-    <section class="chart-card">
-
-        <div class="chart-header">
-
-            <div>
-
-                <h2>
-                    Student Registration
-                </h2>
-
-                <p>
-                    Growth of registered marketplace users.
-                </p>
-
-            </div>
-
-        </div>
-
-        <canvas id="usersChart"></canvas>
-
-    </section>
-
-
-    <!-- CATEGORY CHART -->
-
-    <section class="chart-card">
-
-        <div class="chart-header">
-
-            <div>
-
-                <h2>
-                    Products by Category
-                </h2>
-
-                <p>
-                    Distribution of products listed on the platform.
-                </p>
-
-            </div>
-
-        </div>
-
-        <canvas id="categoryChart"></canvas>
-
-    </section>
-
-
-    <!-- CAMPUS STATISTICS -->
-
-    <section class="profile-card">
-
-        <div class="profile-card-header">
-
-            <div>
-
-                <span class="card-icon">
-                    📍
-                </span>
-
-                <h2>
-                    Campus Activity
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="campus-grid">
-
-            <div class="campus-card">
-
-                <span>
-                    🏫
-                </span>
-
-                <h3>
-                    Potchefstroom
-                </h3>
-
-                <strong>
-                    1,024
-                </strong>
-
-                <p>
-                    Registered students
-                </p>
-
-                <small>
-                    742 products
-                </small>
-
-            </div>
-
-
-            <div class="campus-card">
-
-                <span>
-                    🏫
-                </span>
-
-                <h3>
-                    Mahikeng
-                </h3>
-
-                <strong>
-                    386
-                </strong>
-
-                <p>
-                    Registered students
-                </p>
-
-                <small>
-                    514 products
-                </small>
-
-            </div>
-
-
-            <div class="campus-card">
-
-                <span>
-                    🏫
-                </span>
-
-                <h3>
-                    Vanderbijlpark
-                </h3>
-
-                <strong>
-                    294
-                </strong>
-
-                <p>
-                    Registered students
-                </p>
-
-                <small>
-                    600 products
-                </small>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PRODUCT APPROVAL -->
+    <!-- ==========================================
+         USERS
+    ========================================== -->
 
     <section
-        class="profile-card"
-        id="products"
+        class="admin-section"
+        id="usersSection"
     >
 
-        <div class="profile-card-header">
+
+        <div class="section-header">
+
 
             <div>
 
-                <span class="card-icon">
-                    📦
-                </span>
-
                 <h2>
-                    Product Approval
+                    👥 Registered Students
                 </h2>
+
+                <p>
+                    Buyer and seller accounts
+                    registered on this browser.
+                </p>
 
             </div>
 
-            <span class="badge">
-                Pending Review
-            </span>
 
         </div>
 
 
-        <div class="table-container">
 
-            <table>
+        <div class="table-wrapper">
+
+
+            <table class="admin-table">
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Student Number
+                        </th>
+
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            Email
+                        </th>
+
+                        <th>
+                            Campus
+                        </th>
+
+                        <th>
+                            Account
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="usersTableBody">
+                </tbody>
+
+
+            </table>
+
+
+            <div
+                class="empty-message"
+                id="noUsersMessage"
+                style="display:none;"
+            >
+
+                No students have registered yet.
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ==========================================
+         PRODUCTS
+    ========================================== -->
+
+    <section
+        class="admin-section"
+        id="productsSection"
+    >
+
+
+        <div class="section-header">
+
+
+            <div>
+
+                <h2>
+                    📦 Marketplace Listings
+                </h2>
+
+                <p>
+                    Products published from
+                    Seller Dashboard.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="table-wrapper">
+
+
+            <table class="admin-table">
+
 
                 <thead>
 
@@ -543,10 +768,6 @@
 
                         <th>
                             Product
-                        </th>
-
-                        <th>
-                            Seller
                         </th>
 
                         <th>
@@ -562,380 +783,7 @@
                         </th>
 
                         <th>
-                            Date
-                        </th>
-
-                        <th>
-                            Action
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody id="productApprovalTable">
-
-                    <tr>
-
-                        <td>
-                            Engineering Mathematics
-                        </td>
-
-                        <td>
-                            Student Seller
-                        </td>
-
-                        <td>
-                            Books
-                        </td>
-
-                        <td>
-                            R420
-                        </td>
-
-                        <td>
-                            Potchefstroom
-                        </td>
-
-                        <td>
-                            25/09/2026
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="approveProduct(this)"
-                            >
-                                ✅ Approve
-                            </button>
-
-                            <button
-                                class="danger-btn"
-                                onclick="rejectProduct(this)"
-                            >
-                                ❌ Reject
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            iPhone 13
-                        </td>
-
-                        <td>
-                            Student Seller
-                        </td>
-
-                        <td>
-                            Phones
-                        </td>
-
-                        <td>
-                            R7,500
-                        </td>
-
-                        <td>
-                            Mahikeng
-                        </td>
-
-                        <td>
-                            25/09/2026
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="approveProduct(this)"
-                            >
-                                ✅ Approve
-                            </button>
-
-                            <button
-                                class="danger-btn"
-                                onclick="rejectProduct(this)"
-                            >
-                                ❌ Reject
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Bluetooth Earphones
-                        </td>
-
-                        <td>
-                            Student Seller
-                        </td>
-
-                        <td>
-                            Accessories
-                        </td>
-
-                        <td>
-                            R450
-                        </td>
-
-                        <td>
-                            Vanderbijlpark
-                        </td>
-
-                        <td>
-                            24/09/2026
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="approveProduct(this)"
-                            >
-                                ✅ Approve
-                            </button>
-
-                            <button
-                                class="danger-btn"
-                                onclick="rejectProduct(this)"
-                            >
-                                ❌ Reject
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </section>
-
-
-    <!-- USER MANAGEMENT -->
-
-    <section
-        class="profile-card"
-        id="users"
-    >
-
-        <div class="profile-card-header">
-
-            <div>
-
-                <span class="card-icon">
-                    👥
-                </span>
-
-                <h2>
-                    Student Management
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="table-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Student
-                        </th>
-
-                        <th>
-                            NWU Student Number
-                        </th>
-
-                        <th>
-                            Role
-                        </th>
-
-                        <th>
-                            Campus
-                        </th>
-
-                        <th>
-                            Status
-                        </th>
-
-                        <th>
-                            Action
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                    <tr>
-
-                        <td>
-                            Student User
-                        </td>
-
-                        <td>
-                            12345678
-                        </td>
-
-                        <td>
-                            Buyer
-                        </td>
-
-                        <td>
-                            Potchefstroom
-                        </td>
-
-                        <td>
-                            <span class="status-active">
-                                Active
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="viewUser('12345678')"
-                            >
-                                View
-                            </button>
-
-                            <button
-                                class="danger-btn"
-                                onclick="suspendUser(this)"
-                            >
-                                Suspend
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Student Seller
-                        </td>
-
-                        <td>
-                            87654321
-                        </td>
-
-                        <td>
                             Seller
-                        </td>
-
-                        <td>
-                            Mahikeng
-                        </td>
-
-                        <td>
-                            <span class="status-active">
-                                Active
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="viewUser('87654321')"
-                            >
-                                View
-                            </button>
-
-                            <button
-                                class="danger-btn"
-                                onclick="suspendUser(this)"
-                            >
-                                Suspend
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-    </section>
-
-
-    <!-- REPORTS -->
-
-    <section
-        class="profile-card"
-        id="reports"
-    >
-
-        <div class="profile-card-header">
-
-            <div>
-
-                <span class="card-icon">
-                    🚩
-                </span>
-
-                <h2>
-                    Reports & Complaints
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="table-container">
-
-            <table>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Report
-                        </th>
-
-                        <th>
-                            Type
-                        </th>
-
-                        <th>
-                            Reported Item
-                        </th>
-
-                        <th>
-                            Date
-                        </th>
-
-                        <th>
-                            Status
                         </th>
 
                         <th>
@@ -947,1088 +795,1076 @@
                 </thead>
 
 
-                <tbody>
-
-                    <tr>
-
-                        <td>
-                            #REP-001
-                        </td>
-
-                        <td>
-                            Product
-                        </td>
-
-                        <td>
-                            Suspicious listing
-                        </td>
-
-                        <td>
-                            25/09/2026
-                        </td>
-
-                        <td>
-                            <span class="status-warning">
-                                Pending
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="reviewReport('REP-001')"
-                            >
-                                Review
-                            </button>
-
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            #REP-002
-                        </td>
-
-                        <td>
-                            User
-                        </td>
-
-                        <td>
-                            Student account
-                        </td>
-
-                        <td>
-                            24/09/2026
-                        </td>
-
-                        <td>
-                            <span class="status-warning">
-                                Pending
-                            </span>
-                        </td>
-
-                        <td>
-
-                            <button
-                                class="table-btn"
-                                onclick="reviewReport('REP-002')"
-                            >
-                                Review
-                            </button>
-
-                        </td>
-
-                    </tr>
-
+                <tbody id="productsTableBody">
                 </tbody>
+
 
             </table>
 
+
+            <div
+                class="empty-message"
+                id="noProductsMessage"
+                style="display:none;"
+            >
+
+                No seller products have
+                been published yet.
+
+            </div>
+
+
         </div>
+
 
     </section>
 
 
-    <!-- ORDER MONITORING -->
 
-    <section class="profile-card">
+    <!-- ==========================================
+         PLATFORM INFORMATION
+    ========================================== -->
 
-        <div class="profile-card-header">
+    <section class="admin-section">
+
+
+        <div class="section-header">
 
             <div>
 
-                <span class="card-icon">
-                    🛒
-                </span>
-
                 <h2>
-                    Order Monitoring
+                    📊 Platform Information
                 </h2>
 
-            </div>
-
-        </div>
-
-
-        <div class="dashboard-stats">
-
-            <div class="stat-card">
-
-                <span>
-                    ⏳
-                </span>
-
-                <h3>
-                    42
-                </h3>
-
                 <p>
-                    Pending Orders
-                </p>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <span>
-                    🚚
-                </span>
-
-                <h3>
-                    28
-                </h3>
-
-                <p>
-                    Awaiting Collection
-                </p>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <span>
-                    ✅
-                </span>
-
-                <h3>
-                    318
-                </h3>
-
-                <p>
-                    Completed Orders
-                </p>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <span>
-                    ❌
-                </span>
-
-                <h3>
-                    12
-                </h3>
-
-                <p>
-                    Cancelled Orders
+                    Current demonstration
+                    marketplace storage.
                 </p>
 
             </div>
 
         </div>
+
+
+        <p>
+
+            Registered accounts:
+
+            <strong id="platformUsers">
+                0
+            </strong>
+
+        </p>
+
+
+        <p style="margin-top:10px;">
+
+            Seller listings:
+
+            <strong id="platformProducts">
+                0
+            </strong>
+
+        </p>
+
+
+        <p style="margin-top:10px;">
+
+            Items currently in cart:
+
+            <strong id="platformCart">
+                0
+            </strong>
+
+        </p>
+
 
     </section>
 
-
-    <!-- SYSTEM INFORMATION -->
-
-    <section class="profile-card">
-
-        <div class="profile-card-header">
-
-            <div>
-
-                <span class="card-icon">
-                    🔐
-                </span>
-
-                <h2>
-                    System Controls
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <div class="admin-controls">
-
-            <button
-                class="secondary-btn"
-                onclick="exportData()"
-            >
-                📊 Export Report
-            </button>
-
-
-            <button
-                class="secondary-btn"
-                onclick="backupSystem()"
-            >
-                💾 Backup System
-            </button>
-
-
-            <button
-                class="secondary-btn"
-                onclick="systemSettings()"
-            >
-                ⚙️ System Settings
-            </button>
-
-
-            <button
-                class="danger-btn"
-                onclick="maintenanceMode()"
-            >
-                🛠️ Maintenance Mode
-            </button>
-
-        </div>
-
-    </section>
 
 </main>
 
 
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
 <footer>
 
-    <div class="footer-content">
 
-        <div>
+    <p>
 
-            <h3>
-                NWU Campus Money Market
-            </h3>
+        ©
 
-            <p>
-                Administration and marketplace management system.
-            </p>
+        <span id="currentYear">
+        </span>
 
-        </div>
+        NWU Campus Money Market
 
+        · Admin Dashboard
 
-        <div>
+    </p>
 
-            <h4>
-                Administration
-            </h4>
-
-            <a href="#products">
-                Product Approval
-            </a>
-
-            <a href="#users">
-                Users
-            </a>
-
-            <a href="#reports">
-                Reports
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h4>
-                Marketplace
-            </h4>
-
-            <a href="marketplace.html">
-                Marketplace
-            </a>
-
-            <a href="buyer-dashboard.html">
-                Buyer Dashboard
-            </a>
-
-            <a href="seller-dashboard.html">
-                Seller Dashboard
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © 2026 NWU Campus Money Market.
-        All rights reserved.
-
-    </div>
 
 </footer>
 
 
+
 <script>
 
-    /*
-    ==========================================
-    ADMIN DASHBOARD
-    ==========================================
+/*
+==================================================
+ADMIN DASHBOARD
+==================================================
 
-    This page currently uses demonstration data.
+Storage used:
 
-    IMPORTANT:
-    The final application should get users,
-    products, orders and financial information
-    from a secure backend/database.
+registeredUsers
+    All registered buyer/seller accounts.
 
-    Admin actions must also be authenticated
-    and authorized on the server.
-    ==========================================
-    */
+sellerListings
+    Products published by sellers.
+
+cart
+    Current demonstration shopping cart.
+
+currentUser
+    Current login session.
+
+==================================================
+*/
 
 
-    /* ==========================================
-       SALES CHART
-       ========================================== */
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const salesChart =
-        new Chart(
+
+        /* ==========================================
+           ELEMENTS
+        ========================================== */
+
+
+        const totalStudents =
             document.getElementById(
-                "salesChart"
-            ),
-            {
+                "totalStudents"
+            );
 
-                type: "line",
 
-                data: {
+        const totalBuyers =
+            document.getElementById(
+                "totalBuyers"
+            );
 
-                    labels: [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "May",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep"
-                    ],
 
-                    datasets: [
+        const totalSellers =
+            document.getElementById(
+                "totalSellers"
+            );
 
-                        {
 
-                            label:
-                                "Marketplace Sales (R)",
+        const totalProducts =
+            document.getElementById(
+                "totalProducts"
+            );
 
-                            data: [
-                                32000,
-                                41000,
-                                38000,
-                                47000,
-                                52000,
-                                58000,
-                                61000,
-                                72000,
-                                85250
-                            ],
 
-                            borderColor:
-                                "#007749",
+        const usersTableBody =
+            document.getElementById(
+                "usersTableBody"
+            );
 
-                            backgroundColor:
-                                "rgba(0,119,73,0.12)",
 
-                            fill:
-                                true,
+        const productsTableBody =
+            document.getElementById(
+                "productsTableBody"
+            );
 
-                            tension:
-                                0.4
+
+        const noUsersMessage =
+            document.getElementById(
+                "noUsersMessage"
+            );
+
+
+        const noProductsMessage =
+            document.getElementById(
+                "noProductsMessage"
+            );
+
+
+        const platformUsers =
+            document.getElementById(
+                "platformUsers"
+            );
+
+
+        const platformProducts =
+            document.getElementById(
+                "platformProducts"
+            );
+
+
+        const platformCart =
+            document.getElementById(
+                "platformCart"
+            );
+
+
+
+        /* ==========================================
+           STORAGE
+        ========================================== */
+
+
+        function getUsers() {
+
+
+            return (
+                JSON.parse(
+                    localStorage.getItem(
+                        "registeredUsers"
+                    )
+                ) || []
+            );
+
+
+        }
+
+
+
+        function getProducts() {
+
+
+            return (
+                JSON.parse(
+                    localStorage.getItem(
+                        "sellerListings"
+                    )
+                ) || []
+            );
+
+
+        }
+
+
+
+        function getCart() {
+
+
+            return (
+                JSON.parse(
+                    localStorage.getItem(
+                        "cart"
+                    )
+                ) || []
+            );
+
+
+        }
+
+
+
+        /* ==========================================
+           STATISTICS
+        ========================================== */
+
+
+        function updateStatistics() {
+
+
+            const users =
+                getUsers();
+
+
+            const products =
+                getProducts();
+
+
+            const cart =
+                getCart();
+
+
+
+            const buyers =
+                users.filter(
+                    function (user) {
+
+                        return (
+                            user.accountType ===
+                            "buyer"
+                        );
+
+                    }
+                );
+
+
+            const sellers =
+                users.filter(
+                    function (user) {
+
+                        return (
+                            user.accountType ===
+                            "seller"
+                        );
+
+                    }
+                );
+
+
+
+            totalStudents.textContent =
+                users.length;
+
+
+            totalBuyers.textContent =
+                buyers.length;
+
+
+            totalSellers.textContent =
+                sellers.length;
+
+
+            totalProducts.textContent =
+                products.length;
+
+
+
+            platformUsers.textContent =
+                users.length;
+
+
+            platformProducts.textContent =
+                products.length;
+
+
+
+            const cartQuantity =
+                cart.reduce(
+                    function (
+                        total,
+                        item
+                    ) {
+
+                        return (
+                            total +
+                            (
+                                Number(
+                                    item.quantity
+                                ) ||
+                                1
+                            )
+                        );
+
+                    },
+                    0
+                );
+
+
+            platformCart.textContent =
+                cartQuantity;
+
+
+        }
+
+
+
+        /* ==========================================
+           DISPLAY USERS
+        ========================================== */
+
+
+        function displayUsers() {
+
+
+            const users =
+                getUsers();
+
+
+            usersTableBody.innerHTML =
+                "";
+
+
+            if (
+                users.length === 0
+            ) {
+
+
+                noUsersMessage.style.display =
+                    "block";
+
+
+                return;
+
+            }
+
+
+            noUsersMessage.style.display =
+                "none";
+
+
+
+            users.forEach(
+                function (user) {
+
+
+                    const row =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+
+                    /* STUDENT NUMBER */
+
+                    const studentNumber =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    studentNumber.textContent =
+                        user.studentNumber ||
+                        "-";
+
+
+
+                    /* NAME */
+
+                    const name =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    name.textContent =
+                        user.fullName ||
+                        "-";
+
+
+
+                    /* EMAIL */
+
+                    const email =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    email.textContent =
+                        user.email ||
+                        "-";
+
+
+
+                    /* CAMPUS */
+
+                    const campus =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    campus.textContent =
+                        user.campus ||
+                        "-";
+
+
+
+                    /* ACCOUNT TYPE */
+
+                    const accountCell =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    const badge =
+                        document.createElement(
+                            "span"
+                        );
+
+
+                    badge.className =
+                        "role-badge";
+
+
+                    if (
+                        user.accountType ===
+                        "seller"
+                    ) {
+
+
+                        badge.classList.add(
+                            "seller-badge"
+                        );
+
+
+                    }
+
+
+                    badge.textContent =
+                        (
+                            user.accountType ||
+                            "unknown"
+                        )
+                        .toUpperCase();
+
+
+                    accountCell.appendChild(
+                        badge
+                    );
+
+
+
+                    /* DELETE */
+
+                    const action =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    const deleteButton =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    deleteButton.className =
+                        "danger-button";
+
+
+                    deleteButton.textContent =
+                        "Remove";
+
+
+                    deleteButton.addEventListener(
+                        "click",
+                        function () {
+
+
+                            removeUser(
+                                user
+                            );
+
 
                         }
+                    );
 
-                    ]
 
-                },
+                    action.appendChild(
+                        deleteButton
+                    );
 
-                options: {
 
-                    responsive:
-                        true,
 
-                    scales: {
+                    row.append(
+                        studentNumber,
+                        name,
+                        email,
+                        campus,
+                        accountCell,
+                        action
+                    );
 
-                        y: {
 
-                            beginAtZero:
-                                true
+                    usersTableBody
+                        .appendChild(
+                            row
+                        );
+
+
+                }
+            );
+
+
+        }
+
+
+
+        /* ==========================================
+           REMOVE USER
+        ========================================== */
+
+
+        function removeUser(
+            user
+        ) {
+
+
+            const confirmed =
+                confirm(
+                    "Remove " +
+                    user.fullName +
+                    " from the marketplace?"
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+
+            let users =
+                getUsers();
+
+
+
+            users =
+                users.filter(
+                    function (
+                        registeredUser
+                    ) {
+
+
+                        return (
+                            String(
+                                registeredUser.id
+                            ) !==
+                            String(
+                                user.id
+                            )
+                        );
+
+
+                    }
+                );
+
+
+
+            localStorage.setItem(
+                "registeredUsers",
+                JSON.stringify(
+                    users
+                )
+            );
+
+
+
+            /*
+            If this user is a seller,
+            remove their products too.
+            */
+
+
+            let products =
+                getProducts();
+
+
+
+            products =
+                products.filter(
+                    function (product) {
+
+
+                        return (
+                            String(
+                                product.sellerId
+                            ) !==
+                            String(
+                                user.studentNumber
+                            )
+                        );
+
+
+                    }
+                );
+
+
+
+            localStorage.setItem(
+                "sellerListings",
+                JSON.stringify(
+                    products
+                )
+            );
+
+
+
+            refreshDashboard();
+
+
+            alert(
+                "User removed successfully."
+            );
+
+
+        }
+
+
+
+        /* ==========================================
+           DISPLAY PRODUCTS
+        ========================================== */
+
+
+        function displayProducts() {
+
+
+            const products =
+                getProducts();
+
+
+            productsTableBody.innerHTML =
+                "";
+
+
+            if (
+                products.length === 0
+            ) {
+
+
+                noProductsMessage.style.display =
+                    "block";
+
+
+                return;
+
+            }
+
+
+            noProductsMessage.style.display =
+                "none";
+
+
+
+            products.forEach(
+                function (product) {
+
+
+                    const row =
+                        document.createElement(
+                            "tr"
+                        );
+
+
+
+                    /* PRODUCT */
+
+                    const name =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    name.textContent =
+                        product.name ||
+                        "Unnamed Product";
+
+
+
+                    /* CATEGORY */
+
+                    const category =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    category.textContent =
+                        product.category ||
+                        "-";
+
+
+
+                    /* PRICE */
+
+                    const price =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    price.textContent =
+                        "R" +
+                        Number(
+                            product.price ||
+                            0
+                        )
+                        .toLocaleString();
+
+
+
+                    /* CAMPUS */
+
+                    const campus =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    campus.textContent =
+                        product.campus ||
+                        "-";
+
+
+
+                    /* SELLER */
+
+                    const seller =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    seller.textContent =
+                        product.sellerName ||
+                        product.seller ||
+                        product.sellerId ||
+                        "NWU Student";
+
+
+
+                    /* ACTION */
+
+                    const action =
+                        document.createElement(
+                            "td"
+                        );
+
+
+                    const deleteButton =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    deleteButton.className =
+                        "danger-button";
+
+
+                    deleteButton.textContent =
+                        "Remove Listing";
+
+
+                    deleteButton.addEventListener(
+                        "click",
+                        function () {
+
+
+                            removeProduct(
+                                product
+                            );
+
 
                         }
+                    );
 
-                    }
+
+                    action.appendChild(
+                        deleteButton
+                    );
+
+
+
+                    row.append(
+                        name,
+                        category,
+                        price,
+                        campus,
+                        seller,
+                        action
+                    );
+
+
+                    productsTableBody
+                        .appendChild(
+                            row
+                        );
+
 
                 }
-
-            }
-        );
-
-
-    /* ==========================================
-       SALES PERIOD
-       ========================================== */
-
-    document
-        .getElementById(
-            "salesPeriod"
-        )
-        .addEventListener(
-            "change",
-            function() {
-
-                if (
-                    this.value === "weekly"
-                ) {
-
-                    salesChart.data.labels = [
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat",
-                        "Sun"
-                    ];
-
-                    salesChart.data.datasets[0]
-                        .data = [
-                            5200,
-                            6800,
-                            7400,
-                            6200,
-                            9100,
-                            11200,
-                            13500
-                        ];
-
-                }
-
-
-                else if (
-                    this.value === "yearly"
-                ) {
-
-                    salesChart.data.labels = [
-                        "2022",
-                        "2023",
-                        "2024",
-                        "2025",
-                        "2026"
-                    ];
-
-                    salesChart.data.datasets[0]
-                        .data = [
-                            180000,
-                            260000,
-                            340000,
-                            410000,
-                            486250
-                        ];
-
-                }
-
-
-                else {
-
-                    salesChart.data.labels = [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "May",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep"
-                    ];
-
-                    salesChart.data.datasets[0]
-                        .data = [
-                            32000,
-                            41000,
-                            38000,
-                            47000,
-                            52000,
-                            58000,
-                            61000,
-                            72000,
-                            85250
-                        ];
-
-                }
-
-
-                salesChart.update();
-
-            }
-        );
-
-
-    /* ==========================================
-       USER REGISTRATION CHART
-       ========================================== */
-
-    new Chart(
-        document.getElementById(
-            "usersChart"
-        ),
-        {
-
-            type: "bar",
-
-            data: {
-
-                labels: [
-                    "Jan",
-                    "Feb",
-                    "Mar",
-                    "Apr",
-                    "May",
-                    "Jun",
-                    "Jul",
-                    "Aug",
-                    "Sep"
-                ],
-
-                datasets: [
-
-                    {
-
-                        label:
-                            "New Students",
-
-                        data: [
-                            80,
-                            95,
-                            110,
-                            130,
-                            145,
-                            170,
-                            190,
-                            210,
-                            240
-                        ],
-
-                        backgroundColor:
-                            "#007749"
-
-                    }
-
-                ]
-
-            },
-
-            options: {
-
-                responsive:
-                    true,
-
-                scales: {
-
-                    y: {
-
-                        beginAtZero:
-                            true
-
-                    }
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /* ==========================================
-       CATEGORY CHART
-       ========================================== */
-
-    new Chart(
-        document.getElementById(
-            "categoryChart"
-        ),
-        {
-
-            type: "doughnut",
-
-            data: {
-
-                labels: [
-                    "Books",
-                    "Phones",
-                    "Laptops",
-                    "Accessories",
-                    "Other"
-                ],
-
-                datasets: [
-
-                    {
-
-                        data: [
-                            620,
-                            310,
-                            246,
-                            428,
-                            252
-                        ],
-
-                        backgroundColor: [
-
-                            "#007749",
-                            "#00a86b",
-                            "#f2c94c",
-                            "#2d9cdb",
-                            "#828282"
-
-                        ]
-
-                    }
-
-                ]
-
-            },
-
-            options: {
-
-                responsive:
-                    true,
-
-                plugins: {
-
-                    legend: {
-
-                        position:
-                            "bottom"
-
-                    }
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /* ==========================================
-       APPROVE PRODUCT
-       ========================================== */
-
-    function approveProduct(button) {
-
-        const confirmed =
-            confirm(
-                "Approve this product listing?"
             );
 
 
-        if (
-            !confirmed
-        ) {
-
-            return;
-
         }
 
 
-        const row =
-            button.closest("tr");
+
+        /* ==========================================
+           REMOVE PRODUCT
+        ========================================== */
 
 
-        row.style.backgroundColor =
-            "#e8f8ef";
+        function removeProduct(
+            product
+        ) {
 
 
-        button.parentElement.innerHTML =
-            `
-            <span class="status-active">
-                Approved
-            </span>
-            `;
+            const confirmed =
+                confirm(
+                    "Remove " +
+                    product.name +
+                    " from the marketplace?"
+                );
 
 
-        alert(
-            "Product approved successfully."
-        );
+            if (!confirmed) {
 
-    }
+                return;
+
+            }
 
 
-    /* ==========================================
-       REJECT PRODUCT
-       ========================================== */
 
-    function rejectProduct(button) {
+            let products =
+                getProducts();
 
-        const reason =
-            prompt(
-                "Enter the reason for rejecting this product:"
+
+
+            products =
+                products.filter(
+                    function (
+                        marketplaceProduct
+                    ) {
+
+
+                        return (
+                            String(
+                                marketplaceProduct.id
+                            ) !==
+                            String(
+                                product.id
+                            )
+                        );
+
+
+                    }
+                );
+
+
+
+            localStorage.setItem(
+                "sellerListings",
+                JSON.stringify(
+                    products
+                )
             );
 
 
-        if (
-            !reason ||
-            reason.trim() === ""
-        ) {
 
-            return;
+            refreshDashboard();
 
-        }
-
-
-        const row =
-            button.closest("tr");
-
-
-        row.style.backgroundColor =
-            "#fff0f0";
-
-
-        button.parentElement.innerHTML =
-            `
-            <span class="status-warning">
-                Rejected
-            </span>
-            `;
-
-
-        alert(
-            "Product rejected."
-        );
-
-    }
-
-
-    /* ==========================================
-       USER MANAGEMENT
-       ========================================== */
-
-    function viewUser(studentNumber) {
-
-        alert(
-            "Student Number: " +
-            studentNumber +
-            "\n\nUser profile would be loaded from the database."
-        );
-
-    }
-
-
-    function suspendUser(button) {
-
-        const confirmed =
-            confirm(
-                "Suspend this student account?"
-            );
-
-
-        if (
-            !confirmed
-        ) {
-
-            return;
-
-        }
-
-
-        const row =
-            button.closest("tr");
-
-
-        row.querySelector(
-            "td:nth-child(5)"
-        ).innerHTML =
-            `
-            <span class="status-warning">
-                Suspended
-            </span>
-            `;
-
-
-        button.textContent =
-            "Activate";
-
-
-        button.onclick =
-            function() {
-
-                activateUser(this);
-
-            };
-
-
-        alert(
-            "Student account suspended."
-        );
-
-    }
-
-
-    function activateUser(button) {
-
-        const row =
-            button.closest("tr");
-
-
-        row.querySelector(
-            "td:nth-child(5)"
-        ).innerHTML =
-            `
-            <span class="status-active">
-                Active
-            </span>
-            `;
-
-
-        button.textContent =
-            "Suspend";
-
-
-        button.onclick =
-            function() {
-
-                suspendUser(this);
-
-            };
-
-
-        alert(
-            "Student account activated."
-        );
-
-    }
-
-
-    /* ==========================================
-       REPORTS
-       ========================================== */
-
-    function reviewReport(reportNumber) {
-
-        const action =
-            prompt(
-                `Report ${reportNumber}\n\n` +
-                `Enter 1 to resolve report\n` +
-                `Enter 2 to keep report open`
-            );
-
-
-        if (
-            action === "1"
-        ) {
 
             alert(
-                "Report marked as resolved."
-            );
-
-        }
-
-        else if (
-            action === "2"
-        ) {
-
-            alert(
-                "Report remains open."
-            );
-
-        }
-
-    }
-
-
-    /* ==========================================
-       SHOW SECTION
-       ========================================== */
-
-    function showSection(sectionId) {
-
-        const section =
-            document.getElementById(
-                sectionId
+                "Product removed successfully."
             );
 
 
-        if (
-            section
-        ) {
+        }
 
-            section.scrollIntoView({
-                behavior: "smooth"
-            });
+
+
+        /* ==========================================
+           REFRESH
+        ========================================== */
+
+
+        function refreshDashboard() {
+
+
+            updateStatistics();
+
+
+            displayUsers();
+
+
+            displayProducts();
+
 
         }
 
-    }
 
 
-    /* ==========================================
-       REFRESH
-       ========================================== */
-
-    function refreshDashboard() {
-
-        alert(
-            "Dashboard refreshed. In the final system this button will retrieve the latest data from the database."
-        );
-
-    }
+        /* ==========================================
+           REFRESH BUTTON
+        ========================================== */
 
 
-    /* ==========================================
-       EXPORT
-       ========================================== */
-
-    function exportData() {
-
-        const report =
-
-            "NWU CAMPUS MONEY MARKET REPORT\n\n" +
-
-            "Registered Students: 1248\n" +
-
-            "Buyers: 982\n" +
-
-            "Sellers: 266\n" +
-
-            "Products: 1856\n" +
-
-            "Total Sales: R486250\n" +
-
-            "Platform Revenue: R48625\n";
+        document
+            .getElementById(
+                "refreshButton"
+            )
+            .addEventListener(
+                "click",
+                function () {
 
 
-        const blob =
-            new Blob(
-                [report],
-                {
-                    type:
-                        "text/plain"
+                    refreshDashboard();
+
+
+                    alert(
+                        "Dashboard data refreshed."
+                    );
+
+
                 }
             );
 
 
-        const url =
-            URL.createObjectURL(
-                blob
+
+        /* ==========================================
+           LOGOUT
+        ========================================== */
+
+
+        document
+            .getElementById(
+                "logoutButton"
+            )
+            .addEventListener(
+                "click",
+                function () {
+
+
+                    localStorage.removeItem(
+                        "currentUser"
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+
+
+                }
             );
 
 
-        const link =
-            document.createElement(
-                "a"
-            );
+
+        /* ==========================================
+           YEAR
+        ========================================== */
 
 
-        link.href =
-            url;
+        document
+            .getElementById(
+                "currentYear"
+            )
+            .textContent =
+                new Date()
+                    .getFullYear();
 
 
-        link.download =
-            "nwu-market-report.txt";
+
+        /* ==========================================
+           INITIAL LOAD
+        ========================================== */
 
 
-        link.click();
+        refreshDashboard();
 
-
-        URL.revokeObjectURL(
-            url
-        );
 
     }
-
-
-    /* ==========================================
-       BACKUP
-       ========================================== */
-
-    function backupSystem() {
-
-        alert(
-            "System backup would be handled by the secure backend/database."
-        );
-
-    }
-
-
-    /* ==========================================
-       SETTINGS
-       ========================================== */
-
-    function systemSettings() {
-
-        alert(
-            "System settings will be available after the backend is connected."
-        );
-
-    }
-
-
-    /* ==========================================
-       MAINTENANCE
-       ========================================== */
-
-    function maintenanceMode() {
-
-        const confirmed =
-            confirm(
-                "Enable maintenance mode?"
-            );
-
-
-        if (
-            confirmed
-        ) {
-
-            alert(
-                "Maintenance mode request recorded."
-            );
-
-        }
-
-    }
-
-
-    /* ==========================================
-       LOGOUT
-       ========================================== */
-
-    function logout() {
-
-        const confirmed =
-            confirm(
-                "Are you sure you want to logout?"
-            );
-
-
-        if (
-            confirmed
-        ) {
-
-            localStorage.removeItem(
-                "accountType"
-            );
-
-            localStorage.removeItem(
-                "nwuStudentNumber"
-            );
-
-            localStorage.removeItem(
-                "nwuEmail"
-            );
-
-
-            window.location.href =
-                "login.html";
-
-        }
-
-    }
+);
 
 </script>
 
+
 </body>
+
 </html>
