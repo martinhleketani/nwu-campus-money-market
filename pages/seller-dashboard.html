@@ -19,269 +19,91 @@
         href="../css/style.css"
     >
 
+
     <style>
 
         .seller-page {
-            min-height: 100vh;
+            padding: 50px 7%;
             background: #f7f9fc;
-            padding: 45px 7%;
+            min-height: 100vh;
         }
 
-        .seller-header {
+        .seller-info {
             max-width: 1200px;
-            margin: 0 auto 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .seller-header p {
-            color: #6b7280;
-        }
-
-        .seller-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .seller-btn {
-            border: none;
-            padding: 12px 18px;
-            border-radius: 7px;
+            margin: 0 auto 25px;
+            padding: 25px;
             background: #007749;
             color: white;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .seller-btn:hover {
-            background: #005f3a;
-        }
-
-        .seller-logout {
-            background: #dc2626;
+            border-radius: 14px;
         }
 
         .seller-layout {
             max-width: 1200px;
             margin: auto;
             display: grid;
-            grid-template-columns: 360px 1fr;
+            grid-template-columns:
+                400px 1fr;
             gap: 25px;
-            align-items: start;
         }
 
         .seller-card {
             background: white;
             padding: 25px;
             border-radius: 14px;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow:
+                0 5px 20px
+                rgba(0,0,0,0.06);
         }
 
         .seller-card h2 {
             margin-bottom: 20px;
         }
 
-        .seller-form-group {
-            margin-bottom: 17px;
-        }
-
-        .seller-form-group label {
-            display: block;
-            margin-bottom: 7px;
-            font-weight: 600;
-        }
-
-        .seller-form-group input,
-        .seller-form-group select,
-        .seller-form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 7px;
-            outline: none;
-            font-family: inherit;
-        }
-
-        .seller-form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .seller-form-group input:focus,
-        .seller-form-group select:focus,
-        .seller-form-group textarea:focus {
-            border-color: #007749;
-        }
-
-        .image-preview {
-            width: 100%;
-            height: 150px;
-            background: #f3f8f5;
-            border: 2px dashed #b8d9ca;
-            border-radius: 9px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 10px;
-            color: #6b7280;
-        }
-
-        .image-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .submit-product {
-            width: 100%;
-            border: none;
-            padding: 14px;
-            border-radius: 7px;
-            background: #007749;
-            color: white;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .submit-product:hover {
-            background: #005f3a;
-        }
-
-        .listings-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .listing-count {
-            background: #e7f6ef;
-            color: #007749;
-            padding: 7px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-        }
-
         .listing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            grid-template-columns:
+                repeat(2,1fr);
+            gap: 15px;
         }
 
         .listing-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-        }
-
-        .listing-image {
-            height: 160px;
-            background: #f3f8f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 55px;
-        }
-
-        .listing-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .listing-content {
+            border:
+                1px solid #e5e7eb;
+            border-radius: 10px;
             padding: 15px;
         }
 
-        .listing-content h3 {
-            margin-bottom: 5px;
-        }
-
-        .listing-category {
-            color: #6b7280;
-            font-size: 13px;
-        }
-
-        .listing-price {
-            color: #007749;
-            font-size: 20px;
-            font-weight: 700;
-            margin: 8px 0;
-        }
-
-        .listing-location {
-            color: #6b7280;
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .listing-description {
-            color: #4b5563;
-            font-size: 14px;
-            margin-bottom: 12px;
+        .listing-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 7px;
+            margin-bottom: 10px;
         }
 
         .delete-listing {
+            margin-top: 12px;
             width: 100%;
             border: none;
             padding: 10px;
             border-radius: 6px;
-            background: #fee2e2;
-            color: #b91c1c;
-            font-weight: 700;
+            background: #dc2626;
+            color: white;
             cursor: pointer;
         }
 
-        .delete-listing:hover {
-            background: #fecaca;
-        }
-
         .empty-listings {
-            text-align: center;
             color: #6b7280;
-            padding: 50px 20px;
-            border: 2px dashed #e5e7eb;
-            border-radius: 10px;
+            padding: 30px;
         }
 
-        .seller-info {
-            max-width: 1200px;
-            margin: 0 auto 25px;
-            padding: 20px 25px;
-            background: #007749;
-            color: white;
-            border-radius: 14px;
-        }
-
-        .seller-info p {
-            color: #dcefe7;
-        }
-
-        @media (max-width: 950px) {
+        @media (
+            max-width: 900px
+        ) {
 
             .seller-layout {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-        @media (max-width: 650px) {
-
-            .seller-page {
-                padding: 30px 5%;
-            }
-
-            .listing-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns:
+                    1fr;
             }
 
         }
@@ -294,1010 +116,774 @@
 <body>
 
 
-    <!-- NAVIGATION -->
+<script>
 
-    <header class="navbar">
+(function () {
 
-        <div class="logo">
-
-            <span>NWU</span>
-            Campus Money Market
-
-        </div>
-
-
-        <nav>
-
-            <a href="../index.html">
-                Home
-            </a>
-
-            <a href="buyer-dashboard.html">
-                Marketplace
-            </a>
-
-            <a href="seller-dashboard.html">
-                Seller Dashboard
-            </a>
-
-        </nav>
+    const currentUser =
+        JSON.parse(
+            localStorage.getItem(
+                "currentUser"
+            )
+        );
 
 
-        <div class="nav-buttons">
+    if (
+        !currentUser ||
+        !currentUser.loggedIn ||
+        currentUser.accountType !==
+            "seller"
+    ) {
 
-            <button
-                class="seller-btn seller-logout"
-                id="logoutButton"
-            >
-                Logout
-            </button>
+        alert(
+            "Please login with a seller account."
+        );
 
-        </div>
+        window.location.replace(
+            "login.html"
+        );
 
-    </header>
+    }
+
+})();
+
+</script>
 
 
-    <main class="seller-page">
+<header class="navbar">
+
+    <div class="logo">
+
+        <span>NWU</span>
+        Campus Money Market
+
+    </div>
 
 
-        <!-- SELLER INFORMATION -->
+    <nav>
 
-        <section class="seller-info">
+        <a href="../index.html">
+            Home
+        </a>
 
-            <h1>
-                Seller Dashboard
-            </h1>
+        <a href="marketplace.html">
+            Marketplace
+        </a>
 
-            <p>
-                Welcome,
-                <strong id="sellerName">
-                    NWU Student
-                </strong>.
-                List your products and connect with
-                fellow NWU students.
-            </p>
+        <a href="seller-dashboard.html">
+            Seller Dashboard
+        </a>
+
+    </nav>
+
+
+    <div class="nav-buttons">
+
+        <button
+            class="register-btn"
+            id="logoutButton"
+        >
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="seller-page">
+
+
+    <section class="seller-info">
+
+        <h1>
+            Seller Dashboard
+        </h1>
+
+        <p>
+
+            Welcome,
+
+            <strong id="sellerName">
+                NWU Student
+            </strong>
+
+        </p>
+
+    </section>
+
+
+    <div class="seller-layout">
+
+
+        <section class="seller-card">
+
+            <h2>
+                Add Product
+            </h2>
+
+
+            <form id="productForm">
+
+
+                <div class="form-group">
+
+                    <label for="productName">
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="productName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="productCategory"
+                        required
+                    >
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="books">
+                            Books
+                        </option>
+
+                        <option value="phones">
+                            Phones
+                        </option>
+
+                        <option value="laptops">
+                            Laptops
+                        </option>
+
+                        <option value="electronics">
+                            Electronics
+                        </option>
+
+                        <option value="accessories">
+                            Accessories
+                        </option>
+
+                        <option value="clothing">
+                            Clothing
+                        </option>
+
+                        <option value="furniture">
+                            Furniture
+                        </option>
+
+                        <option value="gaming">
+                            Gaming
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productPrice">
+                        Price (R)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productPrice"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productCampus">
+                        Campus
+                    </label>
+
+                    <select
+                        id="productCampus"
+                        required
+                    >
+
+                        <option value="">
+                            Select campus
+                        </option>
+
+                        <option value="potchefstroom">
+                            Potchefstroom
+                        </option>
+
+                        <option value="mahikeng">
+                            Mahikeng
+                        </option>
+
+                        <option value="vanderbijlpark">
+                            Vanderbijlpark
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productCondition">
+                        Condition
+                    </label>
+
+                    <select
+                        id="productCondition"
+                        required
+                    >
+
+                        <option value="">
+                            Select condition
+                        </option>
+
+                        <option value="new">
+                            New
+                        </option>
+
+                        <option value="like-new">
+                            Like New
+                        </option>
+
+                        <option value="good">
+                            Good
+                        </option>
+
+                        <option value="fair">
+                            Fair
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="productDescription"
+                        rows="4"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="productImage">
+                        Product Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="productImage"
+                        accept="image/*"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="form-button"
+                >
+                    Publish Product
+                </button>
+
+            </form>
 
         </section>
 
 
-        <!-- DASHBOARD HEADER -->
+        <section class="seller-card">
 
-        <div class="seller-header">
+            <h2>
+                Your Listings
+            </h2>
 
-            <div>
-
-                <h2>
-                    Manage Your Products
-                </h2>
-
-                <p>
-                    Add, view and manage your marketplace listings.
-                </p>
-
+            <div
+                id="sellerListings"
+                class="listing-grid"
+            >
             </div>
 
+        </section>
 
-            <div class="seller-actions">
 
-                <button
-                    class="seller-btn"
-                    id="marketplaceButton"
-                >
-                    🛒 Marketplace
-                </button>
+    </div>
 
-                <button
-                    class="seller-btn"
-                    id="locationButton"
-                >
-                    📍 My Location
-                </button>
+</main>
 
-            </div>
 
-        </div>
+<script>
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-        <!-- SELLER LAYOUT -->
 
-        <div class="seller-layout">
+        const currentUser =
+            JSON.parse(
+                localStorage.getItem(
+                    "currentUser"
+                )
+            );
 
 
-            <!-- ADD PRODUCT -->
+        document
+            .getElementById(
+                "sellerName"
+            )
+            .textContent =
+                currentUser.fullName;
 
-            <section class="seller-card">
 
-                <h2>
-                    ➕ Add Product
-                </h2>
+        const productForm =
+            document.getElementById(
+                "productForm"
+            );
 
+        const productImage =
+            document.getElementById(
+                "productImage"
+            );
 
-                <form id="productForm">
+        const listingContainer =
+            document.getElementById(
+                "sellerListings"
+            );
 
 
-                    <!-- PRODUCT NAME -->
+        let selectedImage =
+            "";
 
-                    <div class="seller-form-group">
 
-                        <label for="productName">
-                            Product Name
-                        </label>
+        let listings =
+            JSON.parse(
+                localStorage.getItem(
+                    "sellerListings"
+                )
+            ) || [];
 
-                        <input
-                            type="text"
-                            id="productName"
-                            placeholder="e.g. Mathematics Textbook"
-                            required
-                        >
 
-                    </div>
-
-
-                    <!-- CATEGORY -->
-
-                    <div class="seller-form-group">
-
-                        <label for="productCategory">
-                            Category
-                        </label>
-
-                        <select
-                            id="productCategory"
-                            required
-                        >
-
-                            <option value="">
-                                Select category
-                            </option>
-
-                            <option value="Books">
-                                Books
-                            </option>
-
-                            <option value="Phones">
-                                Phones
-                            </option>
-
-                            <option value="Laptops">
-                                Laptops
-                            </option>
-
-                            <option value="Electronics">
-                                Electronics
-                            </option>
-
-                            <option value="Accessories">
-                                Accessories
-                            </option>
-
-                            <option value="Clothing">
-                                Clothing
-                            </option>
-
-                            <option value="Furniture">
-                                Furniture
-                            </option>
-
-                            <option value="Gaming">
-                                Gaming
-                            </option>
-
-                            <option value="Other">
-                                Other
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- PRICE -->
-
-                    <div class="seller-form-group">
-
-                        <label for="productPrice">
-                            Price (R)
-                        </label>
-
-                        <input
-                            type="number"
-                            id="productPrice"
-                            placeholder="e.g. 500"
-                            min="1"
-                            step="0.01"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- CAMPUS -->
-
-                    <div class="seller-form-group">
-
-                        <label for="productCampus">
-                            Campus / Location
-                        </label>
-
-                        <select
-                            id="productCampus"
-                            required
-                        >
-
-                            <option value="">
-                                Select campus
-                            </option>
-
-                            <option value="Potchefstroom Campus">
-                                Potchefstroom Campus
-                            </option>
-
-                            <option value="Mahikeng Campus">
-                                Mahikeng Campus
-                            </option>
-
-                            <option value="Vanderbijlpark Campus">
-                                Vanderbijlpark Campus
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- CONDITION -->
-
-                    <div class="seller-form-group">
-
-                        <label for="productCondition">
-                            Product Condition
-                        </label>
-
-                        <select
-                            id="productCondition"
-                            required
-                        >
-
-                            <option value="">
-                                Select condition
-                            </option>
-
-                            <option value="New">
-                                New
-                            </option>
-
-                            <option value="Like New">
-                                Like New
-                            </option>
-
-                            <option value="Good">
-                                Good
-                            </option>
-
-                            <option value="Used">
-                                Used
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- DESCRIPTION -->
-
-                    <div class="seller-form-group">
-
-                        <label for="productDescription">
-                            Description
-                        </label>
-
-                        <textarea
-                            id="productDescription"
-                            placeholder="Describe your product..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <!-- IMAGE -->
-
-                    <div class="seller-form-group">
-
-                        <label for="productImage">
-                            Product Image
-                        </label>
-
-                        <div
-                            class="image-preview"
-                            id="imagePreview"
-                        >
-                            📷 Product image preview
-                        </div>
-
-                        <input
-                            type="file"
-                            id="productImage"
-                            accept="image/*"
-                        >
-
-                    </div>
-
-
-                    <!-- SUBMIT -->
-
-                    <button
-                        type="submit"
-                        class="submit-product"
-                    >
-                        Publish Product
-                    </button>
-
-
-                </form>
-
-            </section>
-
-
-            <!-- MY LISTINGS -->
-
-            <section class="seller-card">
-
-                <div class="listings-header">
-
-                    <h2>
-                        My Listings
-                    </h2>
-
-                    <span
-                        class="listing-count"
-                        id="listingCount"
-                    >
-                        0 Products
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="listing-grid"
-                    id="listingGrid"
-                >
-
-                    <div class="empty-listings">
-
-                        <div
-                            style="
-                                font-size: 45px;
-                                margin-bottom: 10px;
-                            "
-                        >
-                            📦
-                        </div>
-
-                        <h3>
-                            No Products Yet
-                        </h3>
-
-                        <p>
-                            Add your first product using
-                            the form on the left.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- JAVASCRIPT -->
-
-    <script src="../js/script.js"></script>
-
-
-    <script>
-
-        document.addEventListener(
-            "DOMContentLoaded",
+        productImage.addEventListener(
+            "change",
             function () {
 
-
-                // =====================================
-                // SELLER NAME
-                // =====================================
-
-                const savedName =
-                    localStorage.getItem(
-                        "nwuStudentName"
-                    );
+                const file =
+                    this.files[0];
 
 
-                const sellerName =
-                    document.getElementById(
-                        "sellerName"
-                    );
+                if (!file) {
 
-
-                if (
-                    savedName &&
-                    sellerName
-                ) {
-
-                    sellerName.textContent =
-                        savedName;
-
-                }
-
-
-                // =====================================
-                // PRODUCT DATA
-                // =====================================
-
-                let listings =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "sellerListings"
-                        )
-                    ) || [];
-
-
-                const productForm =
-                    document.getElementById(
-                        "productForm"
-                    );
-
-
-                const listingGrid =
-                    document.getElementById(
-                        "listingGrid"
-                    );
-
-
-                const listingCount =
-                    document.getElementById(
-                        "listingCount"
-                    );
-
-
-                const imageInput =
-                    document.getElementById(
-                        "productImage"
-                    );
-
-
-                const imagePreview =
-                    document.getElementById(
-                        "imagePreview"
-                    );
-
-
-                let selectedImage = "";
-
-
-                // =====================================
-                // IMAGE PREVIEW
-                // =====================================
-
-                imageInput.addEventListener(
-                    "change",
-                    function () {
-
-                        const file =
-                            imageInput.files[0];
-
-
-                        if (!file) {
-
-                            selectedImage = "";
-
-                            imagePreview.innerHTML =
-                                "📷 Product image preview";
-
-                            return;
-
-                        }
-
-
-                        const reader =
-                            new FileReader();
-
-
-                        reader.onload =
-                            function (event) {
-
-                                selectedImage =
-                                    event.target.result;
-
-
-                                imagePreview.innerHTML =
-                                    `
-                                    <img
-                                        src="${selectedImage}"
-                                        alt="Product preview"
-                                    >
-                                    `;
-
-                            };
-
-
-                        reader.readAsDataURL(file);
-
-                    }
-                );
-
-
-                // =====================================
-                // DISPLAY LISTINGS
-                // =====================================
-
-                function displayListings() {
-
-                    listingCount.textContent =
-                        listings.length +
-                        (
-                            listings.length === 1
-                                ? " Product"
-                                : " Products"
-                        );
-
-
-                    if (
-                        listings.length === 0
-                    ) {
-
-                        listingGrid.innerHTML =
-                            `
-                            <div class="empty-listings">
-
-                                <div
-                                    style="
-                                        font-size:45px;
-                                        margin-bottom:10px;
-                                    "
-                                >
-                                    📦
-                                </div>
-
-                                <h3>
-                                    No Products Yet
-                                </h3>
-
-                                <p>
-                                    Add your first product
-                                    using the form.
-                                </p>
-
-                            </div>
-                            `;
-
-                        return;
-
-                    }
-
-
-                    listingGrid.innerHTML =
+                    selectedImage =
                         "";
 
-
-                    listings.forEach(
-                        function (product, index) {
-
-
-                            const card =
-                                document.createElement(
-                                    "div"
-                                );
-
-
-                            card.className =
-                                "listing-card";
-
-
-                            const imageHTML =
-                                product.image
-                                    ? `
-                                      <img
-                                          src="${product.image}"
-                                          alt="${product.name}"
-                                      >
-                                      `
-                                    : `
-                                      <div
-                                          style="
-                                              font-size:55px;
-                                          "
-                                      >
-                                          🛍️
-                                      </div>
-                                      `;
-
-
-                            card.innerHTML =
-                                `
-                                <div class="listing-image">
-                                    ${imageHTML}
-                                </div>
-
-                                <div class="listing-content">
-
-                                    <h3>
-                                        ${product.name}
-                                    </h3>
-
-                                    <div class="listing-category">
-                                        ${product.category}
-                                    </div>
-
-                                    <div class="listing-price">
-                                        R${Number(
-                                            product.price
-                                        ).toLocaleString()}
-                                    </div>
-
-                                    <div class="listing-location">
-                                        📍 ${product.campus}
-                                    </div>
-
-                                    <div class="listing-location">
-                                        Condition:
-                                        ${product.condition}
-                                    </div>
-
-                                    <div class="listing-description">
-                                        ${product.description}
-                                    </div>
-
-                                    <button
-                                        class="delete-listing"
-                                        onclick="deleteListing(${index})"
-                                    >
-                                        Delete Listing
-                                    </button>
-
-                                </div>
-                                `;
-
-
-                            listingGrid.appendChild(
-                                card
-                            );
-
-                        }
-                    );
-
+                    return;
                 }
 
 
-                // =====================================
-                // ADD PRODUCT
-                // =====================================
+                const reader =
+                    new FileReader();
 
-                productForm.addEventListener(
-                    "submit",
+
+                reader.onload =
                     function (event) {
 
-                        event.preventDefault();
-
-
-                        const name =
-                            document
-                                .getElementById(
-                                    "productName"
-                                )
-                                .value
-                                .trim();
-
-
-                        const category =
-                            document
-                                .getElementById(
-                                    "productCategory"
-                                )
-                                .value;
-
-
-                        const price =
-                            Number(
-                                document
-                                    .getElementById(
-                                        "productPrice"
-                                    )
-                                    .value
-                            );
-
-
-                        const campus =
-                            document
-                                .getElementById(
-                                    "productCampus"
-                                )
-                                .value;
-
-
-                        const condition =
-                            document
-                                .getElementById(
-                                    "productCondition"
-                                )
-                                .value;
-
-
-                        const description =
-                            document
-                                .getElementById(
-                                    "productDescription"
-                                )
-                                .value
-                                .trim();
-
-
-                        if (
-                            price <= 0
-                        ) {
-
-                            alert(
-                                "Please enter a valid price."
-                            );
-
-                            return;
-
-                        }
-
-
-                        const product = {
-
-                            id:
-                                Date.now(),
-
-                            name:
-                                name,
-
-                            category:
-                                category,
-
-                            price:
-                                price,
-
-                            campus:
-                                campus,
-
-                            condition:
-                                condition,
-
-                            description:
-                                description,
-
-                            image:
-                                selectedImage,
-
-                            seller:
-                                localStorage.getItem(
-                                    "nwuStudentNumber"
-                                ) || "NWU Student",
-
-                            createdAt:
-                                new Date().toISOString()
-
-                        };
-
-
-                        listings.push(
-                            product
-                        );
-
-
-                        localStorage.setItem(
-                            "sellerListings",
-                            JSON.stringify(
-                                listings
-                            )
-                        );
-
-
-                        productForm.reset();
-
-
                         selectedImage =
-                            "";
-
-
-                        imagePreview.innerHTML =
-                            "📷 Product image preview";
-
-
-                        displayListings();
-
-
-                        alert(
-                            "Your product has been published."
-                        );
-
-                    }
-                );
-
-
-                // =====================================
-                // DELETE PRODUCT
-                // =====================================
-
-                window.deleteListing =
-                    function (index) {
-
-                        const confirmed =
-                            confirm(
-                                "Are you sure you want to delete this listing?"
-                            );
-
-
-                        if (!confirmed) {
-                            return;
-                        }
-
-
-                        listings.splice(
-                            index,
-                            1
-                        );
-
-
-                        localStorage.setItem(
-                            "sellerListings",
-                            JSON.stringify(
-                                listings
-                            )
-                        );
-
-
-                        displayListings();
+                            event.target.result;
 
                     };
 
 
-                // =====================================
-                // MARKETPLACE BUTTON
-                // =====================================
+                reader.readAsDataURL(
+                    file
+                );
 
-                document
-                    .getElementById(
-                        "marketplaceButton"
-                    )
-                    .addEventListener(
+            }
+        );
+
+
+        function saveListings() {
+
+            localStorage.setItem(
+                "sellerListings",
+                JSON.stringify(
+                    listings
+                )
+            );
+
+        }
+
+
+        function displayListings() {
+
+
+            listingContainer.innerHTML =
+                "";
+
+
+            const myListings =
+                listings.filter(
+                    function (product) {
+
+                        return (
+                            product.sellerId ===
+                            currentUser.studentNumber
+                        );
+
+                    }
+                );
+
+
+            if (
+                myListings.length === 0
+            ) {
+
+                listingContainer.innerHTML =
+                    `
+                    <div class="empty-listings">
+                        You have not published any products yet.
+                    </div>
+                    `;
+
+                return;
+            }
+
+
+            myListings.forEach(
+                function (product) {
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "listing-card";
+
+
+                    if (
+                        product.image
+                    ) {
+
+                        const image =
+                            document.createElement(
+                                "img"
+                            );
+
+                        image.src =
+                            product.image;
+
+                        image.alt =
+                            product.name;
+
+                        card.appendChild(
+                            image
+                        );
+
+                    }
+
+
+                    const title =
+                        document.createElement(
+                            "h3"
+                        );
+
+                    title.textContent =
+                        product.name;
+
+
+                    const price =
+                        document.createElement(
+                            "p"
+                        );
+
+                    price.textContent =
+                        `R${Number(
+                            product.price
+                        ).toLocaleString()}`;
+
+
+                    const location =
+                        document.createElement(
+                            "p"
+                        );
+
+                    location.textContent =
+                        product.campus;
+
+
+                    const condition =
+                        document.createElement(
+                            "p"
+                        );
+
+                    condition.textContent =
+                        `Condition: ${product.condition}`;
+
+
+                    const removeButton =
+                        document.createElement(
+                            "button"
+                        );
+
+                    removeButton.className =
+                        "delete-listing";
+
+                    removeButton.textContent =
+                        "Delete Listing";
+
+
+                    removeButton.addEventListener(
                         "click",
                         function () {
 
-                            window.location.href =
-                                "buyer-dashboard.html";
-
-                        }
-                    );
-
-
-                // =====================================
-                // LOCATION
-                // =====================================
-
-                document
-                    .getElementById(
-                        "locationButton"
-                    )
-                    .addEventListener(
-                        "click",
-                        function () {
-
-                            if (
-                                !navigator.geolocation
-                            ) {
-
-                                alert(
-                                    "Location services are not supported by your browser."
+                            const confirmed =
+                                confirm(
+                                    "Delete this listing?"
                                 );
+
+
+                            if (!confirmed) {
 
                                 return;
 
                             }
 
 
-                            navigator
-                                .geolocation
-                                .getCurrentPosition(
-
+                            listings =
+                                listings.filter(
                                     function (
-                                        position
+                                        listing
                                     ) {
 
-                                        localStorage.setItem(
-                                            "userLatitude",
-                                            position.coords.latitude
-                                        );
-
-
-                                        localStorage.setItem(
-                                            "userLongitude",
-                                            position.coords.longitude
-                                        );
-
-
-                                        alert(
-                                            "Your location has been detected."
-                                        );
-
-                                    },
-
-                                    function () {
-
-                                        alert(
-                                            "Location access was not granted."
+                                        return (
+                                            listing.id !==
+                                            product.id
                                         );
 
                                     }
-
                                 );
 
-                        }
-                    );
 
+                            saveListings();
 
-                // =====================================
-                // LOGOUT
-                // =====================================
-
-                document
-                    .getElementById(
-                        "logoutButton"
-                    )
-                    .addEventListener(
-                        "click",
-                        function () {
-
-                            localStorage.removeItem(
-                                "nwuStudentNumber"
-                            );
-
-                            localStorage.removeItem(
-                                "nwuStudentName"
-                            );
-
-                            localStorage.removeItem(
-                                "nwuEmail"
-                            );
-
-                            localStorage.removeItem(
-                                "nwuPhone"
-                            );
-
-                            localStorage.removeItem(
-                                "nwuCampus"
-                            );
-
-                            localStorage.removeItem(
-                                "accountType"
-                            );
-
-
-                            window.location.href =
-                                "login.html";
+                            displayListings();
 
                         }
                     );
 
 
-                // =====================================
-                // INITIAL LOAD
-                // =====================================
+                    card.append(
+                        title,
+                        price,
+                        location,
+                        condition,
+                        removeButton
+                    );
+
+
+                    listingContainer.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+        }
+
+
+        productForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                        .getElementById(
+                            "productName"
+                        )
+                        .value
+                        .trim();
+
+
+                const category =
+                    document
+                        .getElementById(
+                            "productCategory"
+                        )
+                        .value;
+
+
+                const price =
+                    Number(
+                        document
+                            .getElementById(
+                                "productPrice"
+                            )
+                            .value
+                    );
+
+
+                const campus =
+                    document
+                        .getElementById(
+                            "productCampus"
+                        )
+                        .value;
+
+
+                const condition =
+                    document
+                        .getElementById(
+                            "productCondition"
+                        )
+                        .value;
+
+
+                const description =
+                    document
+                        .getElementById(
+                            "productDescription"
+                        )
+                        .value
+                        .trim();
+
+
+                if (
+                    price <= 0
+                ) {
+
+                    alert(
+                        "Please enter a valid price."
+                    );
+
+                    return;
+                }
+
+
+                const product = {
+
+                    id:
+                        Date.now(),
+
+                    name:
+                        name,
+
+                    category:
+                        category,
+
+                    price:
+                        price,
+
+                    campus:
+                        campus,
+
+                    condition:
+                        condition,
+
+                    description:
+                        description,
+
+                    image:
+                        selectedImage,
+
+                    sellerId:
+                        currentUser.studentNumber,
+
+                    sellerName:
+                        currentUser.fullName,
+
+                    createdAt:
+                        new Date().toISOString()
+
+                };
+
+
+                listings.push(
+                    product
+                );
+
+
+                saveListings();
+
+
+                productForm.reset();
+
+                selectedImage =
+                    "";
+
 
                 displayListings();
+
+
+                alert(
+                    "Product published successfully."
+                );
 
             }
         );
 
-    </script>
 
+        document
+            .getElementById(
+                "logoutButton"
+            )
+            .addEventListener(
+                "click",
+                function () {
+
+                    localStorage.removeItem(
+                        "currentUser"
+                    );
+
+
+                    window.location.href =
+                        "login.html";
+
+                }
+            );
+
+
+        displayListings();
+
+    }
+);
+
+</script>
 
 </body>
 
