@@ -23,87 +23,244 @@
     <style>
 
         .seller-page {
-            padding: 50px 7%;
-            background: #f7f9fc;
             min-height: 100vh;
+            background: #f7f9fc;
+            padding: 40px 7%;
         }
 
-        .seller-info {
-            max-width: 1200px;
-            margin: 0 auto 25px;
-            padding: 25px;
-            background: #007749;
-            color: white;
-            border-radius: 14px;
-        }
 
-        .seller-layout {
+        .seller-container {
             max-width: 1200px;
             margin: auto;
-            display: grid;
-            grid-template-columns:
-                400px 1fr;
-            gap: 25px;
         }
 
+
+        .seller-header {
+            margin-bottom: 30px;
+        }
+
+
+        .seller-header p {
+            color: #6b7280;
+        }
+
+
+        .seller-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 30px;
+        }
+
+
         .seller-card {
+
             background: white;
+
             padding: 25px;
+
             border-radius: 14px;
+
             box-shadow:
                 0 5px 20px
-                rgba(0,0,0,0.06);
+                rgba(0, 0, 0, 0.05);
         }
+
 
         .seller-card h2 {
             margin-bottom: 20px;
         }
 
-        .listing-grid {
-            display: grid;
-            grid-template-columns:
-                repeat(2,1fr);
-            gap: 15px;
+
+        .form-group {
+            margin-bottom: 16px;
         }
 
-        .listing-card {
+
+        .form-group label {
+
+            display: block;
+
+            font-weight: 700;
+
+            margin-bottom: 6px;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
             border:
-                1px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 15px;
-        }
+                1px solid #d1d5db;
 
-        .listing-card img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
             border-radius: 7px;
-            margin-bottom: 10px;
+
+            outline: none;
         }
 
-        .delete-listing {
-            margin-top: 12px;
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+
+        .form-group small {
+
+            display: block;
+
+            margin-top: 5px;
+
+            color: #6b7280;
+        }
+
+
+        #bookFields {
+
+            padding: 18px;
+
+            margin-bottom: 18px;
+
+            background: #f3f8f5;
+
+            border:
+                1px solid #d5e9de;
+
+            border-radius: 10px;
+        }
+
+
+        .book-heading {
+
+            margin-bottom: 15px;
+
+            color: #007749;
+        }
+
+
+        .publish-button {
+
             width: 100%;
+
             border: none;
-            padding: 10px;
-            border-radius: 6px;
-            background: #dc2626;
+
+            padding: 13px;
+
+            background: #007749;
+
             color: white;
+
+            border-radius: 7px;
+
+            font-weight: 700;
+
             cursor: pointer;
         }
 
-        .empty-listings {
-            color: #6b7280;
-            padding: 30px;
+
+        .publish-button:hover {
+            background: #005f3a;
         }
 
+
+        .listing {
+
+            border:
+                1px solid #e5e7eb;
+
+            border-radius: 10px;
+
+            padding: 15px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .listing-image {
+
+            width: 100%;
+
+            height: 180px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            margin-bottom: 12px;
+
+            background: #f3f4f6;
+        }
+
+
+        .listing h3 {
+            margin-bottom: 6px;
+        }
+
+
+        .listing-module {
+
+            color: #007749;
+
+            font-weight: 800;
+
+            margin-bottom: 6px;
+        }
+
+
+        .listing-price {
+
+            color: #007749;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            margin: 8px 0;
+        }
+
+
+        .delete-button {
+
+            margin-top: 10px;
+
+            border: none;
+
+            padding: 9px 13px;
+
+            border-radius: 6px;
+
+            background: #dc2626;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        .empty-listings {
+
+            color: #6b7280;
+
+            text-align: center;
+
+            padding: 30px 10px;
+        }
+
+
         @media (
-            max-width: 900px
+            max-width: 850px
         ) {
 
             .seller-layout {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
         }
@@ -150,7 +307,9 @@
 </script>
 
 
+
 <header class="navbar">
+
 
     <div class="logo">
 
@@ -188,259 +347,471 @@
 
     </div>
 
+
 </header>
+
 
 
 <main class="seller-page">
 
 
-    <section class="seller-info">
+    <div class="seller-container">
 
-        <h1>
-            Seller Dashboard
-        </h1>
 
-        <p>
+        <section class="seller-header">
 
-            Welcome,
+            <span class="badge">
+                🏪 SELLER
+            </span>
 
-            <strong id="sellerName">
-                NWU Student
-            </strong>
+            <h1>
+                Seller Dashboard
+            </h1>
 
-        </p>
-
-    </section>
-
-
-    <div class="seller-layout">
-
-
-        <section class="seller-card">
-
-            <h2>
-                Add Product
-            </h2>
-
-
-            <form id="productForm">
-
-
-                <div class="form-group">
-
-                    <label for="productName">
-                        Product Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="productName"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="productCategory">
-                        Category
-                    </label>
-
-                    <select
-                        id="productCategory"
-                        required
-                    >
-
-                        <option value="">
-                            Select category
-                        </option>
-
-                        <option value="books">
-                            Books
-                        </option>
-
-                        <option value="phones">
-                            Phones
-                        </option>
-
-                        <option value="laptops">
-                            Laptops
-                        </option>
-
-                        <option value="electronics">
-                            Electronics
-                        </option>
-
-                        <option value="accessories">
-                            Accessories
-                        </option>
-
-                        <option value="clothing">
-                            Clothing
-                        </option>
-
-                        <option value="furniture">
-                            Furniture
-                        </option>
-
-                        <option value="gaming">
-                            Gaming
-                        </option>
-
-                        <option value="other">
-                            Other
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="productPrice">
-                        Price (R)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="productPrice"
-                        min="1"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="productCampus">
-                        Campus
-                    </label>
-
-                    <select
-                        id="productCampus"
-                        required
-                    >
-
-                        <option value="">
-                            Select campus
-                        </option>
-
-                        <option value="potchefstroom">
-                            Potchefstroom
-                        </option>
-
-                        <option value="mahikeng">
-                            Mahikeng
-                        </option>
-
-                        <option value="vanderbijlpark">
-                            Vanderbijlpark
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="productCondition">
-                        Condition
-                    </label>
-
-                    <select
-                        id="productCondition"
-                        required
-                    >
-
-                        <option value="">
-                            Select condition
-                        </option>
-
-                        <option value="new">
-                            New
-                        </option>
-
-                        <option value="like-new">
-                            Like New
-                        </option>
-
-                        <option value="good">
-                            Good
-                        </option>
-
-                        <option value="fair">
-                            Fair
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="productDescription">
-                        Description
-                    </label>
-
-                    <textarea
-                        id="productDescription"
-                        rows="4"
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="productImage">
-                        Product Image
-                    </label>
-
-                    <input
-                        type="file"
-                        id="productImage"
-                        accept="image/*"
-                    >
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="form-button"
-                >
-                    Publish Product
-                </button>
-
-            </form>
+            <p id="sellerWelcome">
+            </p>
 
         </section>
 
 
-        <section class="seller-card">
 
-            <h2>
-                Your Listings
-            </h2>
+        <div class="seller-layout">
 
-            <div
-                id="sellerListings"
-                class="listing-grid"
-            >
-            </div>
 
-        </section>
+            <!-- =================================
+                 PRODUCT FORM
+            ================================== -->
+
+            <section class="seller-card">
+
+
+                <h2>
+                    List a Product
+                </h2>
+
+
+                <form id="productForm">
+
+
+                    <div class="form-group">
+
+                        <label for="productCategory">
+                            Product Category
+                        </label>
+
+                        <select
+                            id="productCategory"
+                            required
+                        >
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="books">
+                                📚 Textbook
+                            </option>
+
+                            <option value="phones">
+                                📱 Phone
+                            </option>
+
+                            <option value="laptops">
+                                💻 Laptop
+                            </option>
+
+                            <option value="electronics">
+                                🎧 Electronics
+                            </option>
+
+                            <option value="accessories">
+                                🔌 Accessories
+                            </option>
+
+                            <option value="clothing">
+                                👕 Clothing
+                            </option>
+
+                            <option value="furniture">
+                                🪑 Furniture
+                            </option>
+
+                            <option value="gaming">
+                                🎮 Gaming
+                            </option>
+
+                            <option value="other">
+                                📦 Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- NORMAL PRODUCT NAME -->
+
+                    <div
+                        class="form-group"
+                        id="normalProductNameGroup"
+                    >
+
+                        <label for="productName">
+                            Product Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productName"
+                            placeholder="Example: Samsung Galaxy"
+                        >
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         TEXTBOOK INFORMATION
+                    ================================== -->
+
+                    <div
+                        id="bookFields"
+                        style="display:none;"
+                    >
+
+
+                        <h3 class="book-heading">
+                            📚 Textbook Information
+                        </h3>
+
+
+                        <div class="form-group">
+
+                            <label for="bookSubject">
+                                Subject
+                            </label>
+
+                            <select id="bookSubject">
+
+                                <option value="">
+                                    Select subject
+                                </option>
+
+                                <option value="CMPG">
+                                    CMPG / Computer Science
+                                </option>
+
+                                <option value="Accounting">
+                                    Accounting
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="bookYear">
+                                Study Year
+                            </label>
+
+                            <select id="bookYear">
+
+                                <option value="">
+                                    Select year
+                                </option>
+
+                                <option value="1">
+                                    First Year
+                                </option>
+
+                                <option value="2">
+                                    Second Year
+                                </option>
+
+                                <option value="3">
+                                    Third Year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="bookModule">
+                                Module
+                            </label>
+
+                            <select id="bookModule">
+
+                                <option value="">
+                                    Select module
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="bookTitle">
+                                Book Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="bookTitle"
+                                placeholder="Textbook title"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="bookAuthor">
+                                Author
+                            </label>
+
+                            <input
+                                type="text"
+                                id="bookAuthor"
+                                placeholder="Book author"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="bookEdition">
+                                Edition
+                            </label>
+
+                            <input
+                                type="text"
+                                id="bookEdition"
+                                placeholder="Example: 5th Edition"
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="bookISBN">
+                                ISBN
+                            </label>
+
+                            <input
+                                type="text"
+                                id="bookISBN"
+                                placeholder="ISBN if available"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- PRICE -->
+
+                    <div class="form-group">
+
+                        <label for="productPrice">
+                            Price (R)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="productPrice"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- CAMPUS -->
+
+                    <div class="form-group">
+
+                        <label for="productCampus">
+                            Selling Campus
+                        </label>
+
+                        <input
+                            type="text"
+                            id="productCampus"
+                            readonly
+                        >
+
+                        <small>
+                            Your registered campus determines
+                            where this product is sold.
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- CONDITION -->
+
+                    <div class="form-group">
+
+                        <label for="productCondition">
+                            Condition
+                        </label>
+
+                        <select
+                            id="productCondition"
+                            required
+                        >
+
+                            <option value="">
+                                Select condition
+                            </option>
+
+                            <option value="New">
+                                New
+                            </option>
+
+                            <option value="Like New">
+                                Like New
+                            </option>
+
+                            <option value="Good">
+                                Good
+                            </option>
+
+                            <option value="Fair">
+                                Fair
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="productDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="productDescription"
+                            placeholder="Describe the condition of your product..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- PHOTO -->
+
+                    <div class="form-group">
+
+                        <label for="productImage">
+                            Product / Book Photo
+                        </label>
+
+                        <input
+                            type="file"
+                            id="productImage"
+                            accept="image/*"
+                        >
+
+                        <small>
+                            For textbooks, upload a clear photo
+                            of the actual book you are selling.
+                        </small>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="publish-button"
+                    >
+                        Publish Product
+                    </button>
+
+
+                </form>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 SELLER LISTINGS
+            ================================== -->
+
+            <section class="seller-card">
+
+
+                <h2>
+                    My Listings
+                </h2>
+
+
+                <div id="sellerListings">
+                </div>
+
+
+            </section>
+
+
+        </div>
 
 
     </div>
 
+
 </main>
+
+
+
+<footer>
+
+    <p>
+
+        ©
+        <span id="currentYear"></span>
+
+        NWU Campus Money Market
+
+    </p>
+
+</footer>
+
+
+
+<!-- TEXTBOOK DATABASE -->
+
+<script src="../js/textbooks.js"></script>
+
 
 
 <script>
@@ -458,56 +829,173 @@ document.addEventListener(
             );
 
 
-        document
-            .getElementById(
-                "sellerName"
-            )
-            .textContent =
-                currentUser.fullName;
-
+        /*
+        ========================================
+        ELEMENTS
+        ========================================
+        */
 
         const productForm =
             document.getElementById(
                 "productForm"
             );
 
+
+        const productCategory =
+            document.getElementById(
+                "productCategory"
+            );
+
+
+        const productName =
+            document.getElementById(
+                "productName"
+            );
+
+
+        const normalProductNameGroup =
+            document.getElementById(
+                "normalProductNameGroup"
+            );
+
+
+        const productPrice =
+            document.getElementById(
+                "productPrice"
+            );
+
+
+        const productCampus =
+            document.getElementById(
+                "productCampus"
+            );
+
+
+        const productCondition =
+            document.getElementById(
+                "productCondition"
+            );
+
+
+        const productDescription =
+            document.getElementById(
+                "productDescription"
+            );
+
+
         const productImage =
             document.getElementById(
                 "productImage"
             );
 
-        const listingContainer =
+
+        const bookFields =
+            document.getElementById(
+                "bookFields"
+            );
+
+
+        const bookSubject =
+            document.getElementById(
+                "bookSubject"
+            );
+
+
+        const bookYear =
+            document.getElementById(
+                "bookYear"
+            );
+
+
+        const bookModule =
+            document.getElementById(
+                "bookModule"
+            );
+
+
+        const bookTitle =
+            document.getElementById(
+                "bookTitle"
+            );
+
+
+        const bookAuthor =
+            document.getElementById(
+                "bookAuthor"
+            );
+
+
+        const bookEdition =
+            document.getElementById(
+                "bookEdition"
+            );
+
+
+        const bookISBN =
+            document.getElementById(
+                "bookISBN"
+            );
+
+
+        const listingsContainer =
             document.getElementById(
                 "sellerListings"
             );
 
 
-        let selectedImage =
-            "";
+
+        /*
+        ========================================
+        USER INFORMATION
+        ========================================
+        */
+
+        document.getElementById(
+            "sellerWelcome"
+        ).textContent =
+
+            "Welcome, " +
+            (
+                currentUser.fullName ||
+                "Seller"
+            ) +
+            ". Your selling area is " +
+            (
+                currentUser.campus ||
+                "your registered campus"
+            ) +
+            ".";
 
 
-        let listings =
-            JSON.parse(
-                localStorage.getItem(
-                    "sellerListings"
-                )
-            ) || [];
+        productCampus.value =
+            currentUser.campus || "";
+
+
+
+        /*
+        ========================================
+        IMAGE
+        ========================================
+        */
+
+        let selectedImage = "";
 
 
         productImage.addEventListener(
             "change",
             function () {
 
+
                 const file =
-                    this.files[0];
+                    productImage.files[0];
 
 
                 if (!file) {
 
-                    selectedImage =
-                        "";
+                    selectedImage = "";
 
                     return;
+
                 }
 
 
@@ -528,26 +1016,206 @@ document.addEventListener(
                     file
                 );
 
+
             }
         );
 
 
-        function saveListings() {
 
-            localStorage.setItem(
-                "sellerListings",
-                JSON.stringify(
-                    listings
-                )
+        /*
+        ========================================
+        CATEGORY
+        ========================================
+        */
+
+        productCategory.addEventListener(
+            "change",
+            function () {
+
+
+                if (
+                    productCategory.value ===
+                    "books"
+                ) {
+
+                    bookFields.style.display =
+                        "block";
+
+                    normalProductNameGroup
+                        .style.display =
+                        "none";
+
+                } else {
+
+                    bookFields.style.display =
+                        "none";
+
+                    normalProductNameGroup
+                        .style.display =
+                        "block";
+
+                }
+
+
+            }
+        );
+
+
+
+        /*
+        ========================================
+        LOAD MODULES
+        ========================================
+        */
+
+        function loadModules() {
+
+
+            bookModule.innerHTML =
+                '<option value="">Select module</option>';
+
+
+            const subject =
+                bookSubject.value;
+
+
+            const year =
+                bookYear.value;
+
+
+            if (
+                !subject ||
+                !year ||
+                !NWU_MODULES[subject]
+            ) {
+
+                return;
+
+            }
+
+
+            const modules =
+                NWU_MODULES[subject][year] ||
+                [];
+
+
+            modules.forEach(
+                function (moduleCode) {
+
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        moduleCode;
+
+
+                    option.textContent =
+                        moduleCode;
+
+
+                    bookModule.appendChild(
+                        option
+                    );
+
+
+                }
             );
 
+
         }
+
+
+        bookSubject.addEventListener(
+            "change",
+            loadModules
+        );
+
+
+        bookYear.addEventListener(
+            "change",
+            loadModules
+        );
+
+
+
+        /*
+        ========================================
+        AUTO-FILL VERIFIED BOOK
+        ========================================
+        */
+
+        bookModule.addEventListener(
+            "change",
+            function () {
+
+
+                const textbook =
+                    findTextbookByModule(
+                        bookModule.value
+                    );
+
+
+                /*
+                Clear previous values first.
+                */
+
+                bookTitle.value = "";
+                bookAuthor.value = "";
+                bookEdition.value = "";
+                bookISBN.value = "";
+
+
+                if (!textbook) {
+
+                    return;
+
+                }
+
+
+                bookTitle.value =
+                    textbook.title || "";
+
+
+                bookAuthor.value =
+                    textbook.author || "";
+
+
+                bookEdition.value =
+                    textbook.edition || "";
+
+
+                bookISBN.value =
+                    textbook.isbn || "";
+
+
+            }
+        );
+
+
+
+        /*
+        ========================================
+        LISTINGS
+        ========================================
+        */
+
+        let listings =
+            JSON.parse(
+                localStorage.getItem(
+                    "sellerListings"
+                )
+            ) || [];
+
 
 
         function displayListings() {
 
 
-            listingContainer.innerHTML =
+            listingsContainer.innerHTML =
                 "";
 
 
@@ -555,10 +1223,16 @@ document.addEventListener(
                 listings.filter(
                     function (product) {
 
+
                         return (
-                            product.sellerId ===
-                            currentUser.studentNumber
+                            String(
+                                product.sellerId
+                            ) ===
+                            String(
+                                currentUser.studentNumber
+                            )
                         );
+
 
                     }
                 );
@@ -568,51 +1242,98 @@ document.addEventListener(
                 myListings.length === 0
             ) {
 
-                listingContainer.innerHTML =
-                    `
+
+                listingsContainer.innerHTML = `
+
                     <div class="empty-listings">
-                        You have not published any products yet.
+
+                        You have not published
+                        any products yet.
+
                     </div>
-                    `;
+
+                `;
+
 
                 return;
+
             }
+
 
 
             myListings.forEach(
                 function (product) {
 
 
-                    const card =
+                    const listing =
                         document.createElement(
                             "div"
                         );
 
 
-                    card.className =
-                        "listing-card";
+                    listing.className =
+                        "listing";
+
 
 
                     if (
                         product.image
                     ) {
 
+
                         const image =
                             document.createElement(
                                 "img"
                             );
 
+
                         image.src =
                             product.image;
+
 
                         image.alt =
                             product.name;
 
-                        card.appendChild(
+
+                        image.className =
+                            "listing-image";
+
+
+                        listing.appendChild(
                             image
                         );
 
+
                     }
+
+
+
+                    if (
+                        product.module
+                    ) {
+
+
+                        const module =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        module.className =
+                            "listing-module";
+
+
+                        module.textContent =
+                            product.module;
+
+
+                        listing.appendChild(
+                            module
+                        );
+
+
+                    }
+
 
 
                     const title =
@@ -620,37 +1341,80 @@ document.addEventListener(
                             "h3"
                         );
 
+
                     title.textContent =
                         product.name;
 
 
+                    listing.appendChild(
+                        title
+                    );
+
+
+
+                    if (
+                        product.edition
+                    ) {
+
+
+                        const edition =
+                            document.createElement(
+                                "p"
+                            );
+
+
+                        edition.textContent =
+                            product.edition;
+
+
+                        listing.appendChild(
+                            edition
+                        );
+
+
+                    }
+
+
+
                     const price =
                         document.createElement(
-                            "p"
+                            "div"
                         );
 
+
+                    price.className =
+                        "listing-price";
+
+
                     price.textContent =
-                        `R${Number(
+                        "R" +
+                        Number(
                             product.price
-                        ).toLocaleString()}`;
+                        )
+                        .toLocaleString();
 
 
-                    const location =
+                    listing.appendChild(
+                        price
+                    );
+
+
+
+                    const campus =
                         document.createElement(
                             "p"
                         );
 
-                    location.textContent =
+
+                    campus.textContent =
+                        "📍 " +
                         product.campus;
 
 
-                    const condition =
-                        document.createElement(
-                            "p"
-                        );
+                    listing.appendChild(
+                        campus
+                    );
 
-                    condition.textContent =
-                        `Condition: ${product.condition}`;
 
 
                     const removeButton =
@@ -658,8 +1422,10 @@ document.addEventListener(
                             "button"
                         );
 
+
                     removeButton.className =
-                        "delete-listing";
+                        "delete-button";
+
 
                     removeButton.textContent =
                         "Delete Listing";
@@ -668,6 +1434,7 @@ document.addEventListener(
                     removeButton.addEventListener(
                         "click",
                         function () {
+
 
                             const confirmed =
                                 confirm(
@@ -684,153 +1451,247 @@ document.addEventListener(
 
                             listings =
                                 listings.filter(
-                                    function (
-                                        listing
-                                    ) {
+                                    function (item) {
+
 
                                         return (
-                                            listing.id !==
-                                            product.id
+                                            String(item.id) !==
+                                            String(product.id)
                                         );
+
 
                                     }
                                 );
 
 
-                            saveListings();
+                            localStorage.setItem(
+                                "sellerListings",
+                                JSON.stringify(
+                                    listings
+                                )
+                            );
+
 
                             displayListings();
+
 
                         }
                     );
 
 
-                    card.append(
-                        title,
-                        price,
-                        location,
-                        condition,
+                    listing.appendChild(
                         removeButton
                     );
 
 
-                    listingContainer.appendChild(
-                        card
-                    );
+                    listingsContainer
+                        .appendChild(
+                            listing
+                        );
+
 
                 }
             );
 
+
         }
 
+
+
+        /*
+        ========================================
+        PUBLISH PRODUCT
+        ========================================
+        */
 
         productForm.addEventListener(
             "submit",
             function (event) {
 
+
                 event.preventDefault();
 
 
-                const name =
-                    document
-                        .getElementById(
-                            "productName"
-                        )
-                        .value
-                        .trim();
-
 
                 const category =
-                    document
-                        .getElementById(
-                            "productCategory"
-                        )
-                        .value;
+                    productCategory.value;
 
 
-                const price =
-                    Number(
-                        document
-                            .getElementById(
-                                "productPrice"
-                            )
-                            .value
-                    );
-
-
-                const campus =
-                    document
-                        .getElementById(
-                            "productCampus"
-                        )
-                        .value;
-
-
-                const condition =
-                    document
-                        .getElementById(
-                            "productCondition"
-                        )
-                        .value;
-
-
-                const description =
-                    document
-                        .getElementById(
-                            "productDescription"
-                        )
-                        .value
-                        .trim();
-
-
-                if (
-                    price <= 0
-                ) {
+                if (!category) {
 
                     alert(
-                        "Please enter a valid price."
+                        "Please select a category."
                     );
 
                     return;
+
                 }
+
+
+
+                let finalName =
+                    productName.value.trim();
+
+
+
+                /*
+                TEXTBOOK VALIDATION
+                */
+
+                if (
+                    category === "books"
+                ) {
+
+
+                    if (
+                        !bookSubject.value ||
+                        !bookYear.value ||
+                        !bookModule.value ||
+                        !bookTitle.value.trim()
+                    ) {
+
+
+                        alert(
+                            "Please complete the textbook information."
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    finalName =
+                        bookTitle.value.trim();
+
+
+                } else {
+
+
+                    if (!finalName) {
+
+
+                        alert(
+                            "Please enter the product name."
+                        );
+
+
+                        return;
+
+                    }
+
+
+                }
+
 
 
                 const product = {
 
+
                     id:
                         Date.now(),
 
+
                     name:
-                        name,
+                        finalName,
+
 
                     category:
                         category,
 
+
                     price:
-                        price,
+                        Number(
+                            productPrice.value
+                        ),
+
+
+                    /*
+                    IMPORTANT:
+                    Campus comes from account.
+                    Seller cannot select another campus.
+                    */
 
                     campus:
-                        campus,
+                        currentUser.campus,
+
 
                     condition:
-                        condition,
+                        productCondition.value,
+
 
                     description:
-                        description,
+                        productDescription
+                            .value
+                            .trim(),
+
 
                     image:
                         selectedImage,
 
+
                     sellerId:
                         currentUser.studentNumber,
+
 
                     sellerName:
                         currentUser.fullName,
 
+
+                    /*
+                    TEXTBOOK INFORMATION
+                    */
+
+                    module:
+                        category === "books"
+                            ? bookModule.value
+                            : "",
+
+
+                    subject:
+                        category === "books"
+                            ? bookSubject.value
+                            : "",
+
+
+                    studyYear:
+                        category === "books"
+                            ? Number(
+                                bookYear.value
+                              )
+                            : null,
+
+
+                    bookTitle:
+                        category === "books"
+                            ? bookTitle.value.trim()
+                            : "",
+
+
+                    author:
+                        category === "books"
+                            ? bookAuthor.value.trim()
+                            : "",
+
+
+                    edition:
+                        category === "books"
+                            ? bookEdition.value.trim()
+                            : "",
+
+
+                    isbn:
+                        category === "books"
+                            ? bookISBN.value.trim()
+                            : "",
+
+
                     createdAt:
                         new Date().toISOString()
 
+
                 };
+
 
 
                 listings.push(
@@ -838,52 +1699,95 @@ document.addEventListener(
                 );
 
 
-                saveListings();
+                localStorage.setItem(
+                    "sellerListings",
+                    JSON.stringify(
+                        listings
+                    )
+                );
 
-
-                productForm.reset();
-
-                selectedImage =
-                    "";
-
-
-                displayListings();
 
 
                 alert(
                     "Product published successfully."
                 );
 
+
+                productForm.reset();
+
+
+                selectedImage = "";
+
+
+                productCampus.value =
+                    currentUser.campus || "";
+
+
+                bookFields.style.display =
+                    "none";
+
+
+                normalProductNameGroup
+                    .style.display =
+                    "block";
+
+
+                displayListings();
+
+
             }
         );
 
 
-        document
-            .getElementById(
-                "logoutButton"
-            )
-            .addEventListener(
-                "click",
-                function () {
 
-                    localStorage.removeItem(
-                        "currentUser"
-                    );
+        /*
+        ========================================
+        LOGOUT
+        ========================================
+        */
+
+        document.getElementById(
+            "logoutButton"
+        ).addEventListener(
+            "click",
+            function () {
 
 
-                    window.location.href =
-                        "login.html";
+                localStorage.removeItem(
+                    "currentUser"
+                );
 
-                }
-            );
+
+                window.location.href =
+                    "login.html";
+
+
+            }
+        );
+
+
+
+        /*
+        ========================================
+        YEAR
+        ========================================
+        */
+
+        document.getElementById(
+            "currentYear"
+        ).textContent =
+            new Date().getFullYear();
+
 
 
         displayListings();
+
 
     }
 );
 
 </script>
+
 
 </body>
 
